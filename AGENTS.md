@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Site is Arabic-only RTL (`<html lang="ar" dir="rtl">`); wrap Latin values (email, phone, IBAN, VIN, order no.) in `<Ltr>` so bidi order stays correct.
+- Default surface is dark; wrap a section in `.surface-light` to remap tokens for light surfaces, so components never hardcode light/dark colors.
+- The uploaded logo is used only as the original image via `components/site/Logo.tsx`; never redraw it.
+- Header/footer nav comes from `src/lib/site-nav.ts` so both stay in sync.
+- Frontend-only prototype: no backend, database or real integrations unless explicitly approved.
