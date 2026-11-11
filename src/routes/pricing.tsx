@@ -8,6 +8,8 @@ export const Route = createFileRoute("/pricing")({
       { name: "description", content: "الأسعار — AutoSouq، منصة خدمات السيارات الرقمية في ألمانيا." },
       { property: "og:title", content: "الأسعار | AutoSouq" },
       { property: "og:description", content: "الأسعار — AutoSouq." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: PricingPage,

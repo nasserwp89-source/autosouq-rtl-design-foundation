@@ -12,8 +12,8 @@ const map: Record<OrderStatus, { label: string; cls: string }> = {
 export function StatusBadge({ status }: { status: OrderStatus }) {
   const s = map[status];
   return (
-    <span className={cn("inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold", s.cls)}>
-      <span className="size-1.5 rounded-full bg-current" aria-hidden />
+    <span className={cn("inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-semibold", s.cls)}>
+      <span className="size-1.5 shrink-0 rounded-full bg-current" aria-hidden />
       {s.label}
     </span>
   );

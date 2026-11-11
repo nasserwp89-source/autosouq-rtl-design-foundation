@@ -8,6 +8,8 @@ export const Route = createFileRoute("/register")({
       { name: "description", content: "ابدأ تسجيل سيارتك — AutoSouq، منصة خدمات السيارات الرقمية في ألمانيا." },
       { property: "og:title", content: "إنشاء حساب | AutoSouq" },
       { property: "og:description", content: "ابدأ تسجيل سيارتك — AutoSouq." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: RegisterPage,

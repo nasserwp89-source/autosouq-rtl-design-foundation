@@ -35,3 +35,4 @@ use the editor.
 - The uploaded logo is used only as the original image via `components/site/Logo.tsx`; never redraw it.
 - Header/footer nav comes from `src/lib/site-nav.ts` so both stay in sync.
 - Frontend-only prototype: no backend, database or real integrations unless explicitly approved.
+- PageIntro accepts rich title content so Latin heading fragments can be isolated and assigned the display font without changing Arabic typography.

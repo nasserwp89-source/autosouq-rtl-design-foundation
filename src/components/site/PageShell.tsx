@@ -2,11 +2,11 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 /** Standard page intro band used at the top of every inner page. */
-export function PageIntro({ eyebrow, title, lead }: { eyebrow?: string; title: string; lead?: string }) {
+export function PageIntro({ eyebrow, title, lead }: { eyebrow?: string; title: ReactNode; lead?: string }) {
   return (
     <section className="border-b" style={{ background: "var(--gradient-onyx)" }}>
       <div className="container-site py-14 md:py-20">
-        {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
+        {eyebrow && <p className="eyebrow ltr-value mb-4" lang="en">{eyebrow}</p>}
         <h1 className="max-w-3xl text-3xl font-bold md:text-5xl">{title}</h1>
         {lead && <p className="mt-5 max-w-2xl text-base text-muted-foreground md:text-lg">{lead}</p>}
       </div>

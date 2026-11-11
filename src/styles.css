@@ -204,11 +204,17 @@
   font-family: var(--font-display);
 }
 @utility eyebrow {
-  font-family: var(--font-latin);
-  font-size: 0.72rem;
-  letter-spacing: 0.32em;
+  font-size: 0.875rem;
+  letter-spacing: 0;
   text-transform: uppercase;
   color: var(--tobacco);
+}
+/* Preserve the approved Latin families inside headings and wrapping values. */
+bdi.ltr-value {
+  overflow-wrap: anywhere;
+}
+bdi.font-display-latin {
+  font-family: var(--font-display);
 }
 @utility brass-rule {
   height: 1px;

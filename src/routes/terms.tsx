@@ -8,6 +8,8 @@ export const Route = createFileRoute("/terms")({
       { name: "description", content: "الشروط والأحكام — AutoSouq، منصة خدمات السيارات الرقمية في ألمانيا." },
       { property: "og:title", content: "الشروط والأحكام | AutoSouq" },
       { property: "og:description", content: "الشروط والأحكام — AutoSouq." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: TermsPage,

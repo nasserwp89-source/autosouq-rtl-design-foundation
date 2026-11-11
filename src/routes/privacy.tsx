@@ -8,6 +8,8 @@ export const Route = createFileRoute("/privacy")({
       { name: "description", content: "سياسة الخصوصية — AutoSouq، منصة خدمات السيارات الرقمية في ألمانيا." },
       { property: "og:title", content: "سياسة الخصوصية | AutoSouq" },
       { property: "og:description", content: "سياسة الخصوصية — AutoSouq." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: PrivacyPage,

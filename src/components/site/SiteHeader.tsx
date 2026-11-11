@@ -13,7 +13,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 border-b bg-background/90 backdrop-blur-md">
-      <div className="container-site flex h-[72px] items-center justify-between gap-4 md:h-20">
+      <div className="container-site grid h-[72px] grid-cols-[minmax(0,1fr)_auto] items-center gap-3 sm:flex sm:justify-between md:h-20">
         <Logo />
 
         <nav aria-label="التنقل الرئيسي" className="hidden items-center gap-5 xl:flex">
@@ -25,28 +25,28 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
-          <Button asChild variant="ghost" className="hidden sm:inline-flex">
+          <Button asChild variant="ghost" className="hidden min-h-11 sm:inline-flex">
             <Link to="/login">تسجيل الدخول</Link>
           </Button>
-          <Button asChild className="hidden sm:inline-flex">
+          <Button asChild className="hidden min-h-11 sm:inline-flex">
             <Link to="/register">ابدأ تسجيل سيارتك</Link>
           </Button>
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="xl:hidden" aria-label="فتح القائمة">
+              <Button variant="outline" size="icon" className="size-11 xl:hidden" aria-label="فتح القائمة">
                 <Menu />
               </Button>
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="flex w-[86%] max-w-sm flex-col gap-0 border-s bg-background p-0 [&>button:first-of-type]:hidden"
+              className="flex h-dvh w-[86%] max-w-sm flex-col gap-0 overflow-y-auto border-s bg-background p-0 [&>button:first-of-type]:hidden"
             >
-              <div className="flex h-[72px] items-center justify-between border-b px-5">
+              <div className="grid h-[72px] shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center border-b px-5">
                 <SheetTitle className="sr-only">القائمة</SheetTitle>
                 <Logo />
                 <SheetClose asChild>
-                  <Button variant="ghost" size="icon" aria-label="إغلاق القائمة">
+                  <Button variant="ghost" size="icon" className="size-11" aria-label="إغلاق القائمة">
                     <X />
                   </Button>
                 </SheetClose>
@@ -64,7 +64,7 @@ export function SiteHeader() {
                   </Link>
                 ))}
               </nav>
-              <div className="mt-auto flex flex-col gap-3 border-t p-5">
+              <div className="mt-auto flex shrink-0 flex-col gap-3 border-t p-5">
                 <Button asChild size="lg" onClick={() => setOpen(false)}>
                   <Link to="/register">ابدأ تسجيل سيارتك</Link>
                 </Button>

@@ -17,6 +17,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "مراجعة نظام التصميم والهوية البصرية لمنصة AutoSouq." },
       { property: "og:title", content: "AutoSouq — الأساس البصري" },
       { property: "og:description", content: "نظام التصميم والهوية البصرية لمنصة AutoSouq." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Foundation,
@@ -48,7 +50,7 @@ function Foundation() {
     <>
       <PageIntro
         eyebrow="Phase 01 · Design Foundation"
-        title="الأساس البصري لمنصة AutoSouq"
+        title={<>الأساس البصري لمنصة <Ltr className="font-display-latin">AutoSouq</Ltr></>}
         lead="هذه صفحة مراجعة مؤقتة تعرض نظام التصميم: الألوان، الخطوط، والمكونات الأساسية. ستُستبدل بالصفحة الرئيسية في المرحلة التالية."
       />
 
@@ -59,9 +61,9 @@ function Foundation() {
               <div key={s.hex} className="overflow-hidden rounded-lg border">
                 <div className={`h-24 ${s.cls}`} />
                 <div className="space-y-0.5 p-3 text-sm">
-                  <p className="font-semibold">{s.ar} <span className="ltr-value text-muted-foreground">· {s.name}</span></p>
-                  <p className="ltr-value text-xs text-muted-foreground">{s.hex}</p>
-                  <p className="text-xs text-muted-foreground">{s.note}</p>
+                   <p className="font-semibold">{s.ar} <Ltr className="text-muted-foreground">· {s.name}</Ltr></p>
+                   <p className="text-sm text-muted-foreground"><Ltr>{s.hex}</Ltr></p>
+                   <p className="text-sm text-muted-foreground">{s.note}</p>
                 </div>
               </div>
             ))}
@@ -74,23 +76,23 @@ function Foundation() {
         <Block n="02" title="الخطوط">
           <div className="grid gap-4 md:grid-cols-3">
             <Card><CardContent className="space-y-2 p-6">
-              <p className="eyebrow">Arabic · El Messiri</p>
+               <p className="eyebrow ltr-value" lang="en">Arabic · El Messiri</p>
               <p className="text-4xl font-bold">المسيري</p>
               <p className="text-sm text-muted-foreground">جميع النصوص العربية · 400 / 600 / 700</p>
             </CardContent></Card>
             <Card><CardContent className="space-y-2 p-6">
-              <p className="eyebrow">Display · Fraunces</p>
+               <p className="eyebrow ltr-value" lang="en">Display · Fraunces</p>
               <p className="font-display-latin text-4xl font-semibold" dir="ltr">AutoSouq</p>
               <p className="text-sm text-muted-foreground">العناوين اللاتينية</p>
             </CardContent></Card>
             <Card><CardContent className="space-y-2 p-6">
-              <p className="eyebrow">Text · Hanken Grotesk</p>
-              <p className="ltr-value block text-2xl">Wir übernehmen die Zulassung</p>
+               <p className="eyebrow ltr-value" lang="en">Text · Hanken Grotesk</p>
+               <p className="ltr-value block text-2xl" lang="de">Wir übernehmen die Zulassung</p>
               <p className="text-sm text-muted-foreground">النصوص الألمانية والإنجليزية</p>
             </CardContent></Card>
           </div>
           <div className="mt-8 space-y-3">
-            <p className="text-5xl font-bold">سجّل سيارتك الجديدة في ألمانيا بثقة</p>
+             <p className="text-3xl font-bold sm:text-4xl lg:text-5xl">سجّل سيارتك الجديدة في ألمانيا بثقة</p>
             <p className="text-2xl font-semibold">عنوان فرعي — المستوى الثاني</p>
             <p className="max-w-2xl text-muted-foreground">
               نص فقرة: نتولى إدارة طلب التسجيل ومتابعته، بهدوء ووضوح في السعر والوقت. القيم اللاتينية تبقى بترتيبها الصحيح: <Ltr>DE89 3704 0044 0532 0130 00</Ltr> · <Ltr>WVWZZZ1JZXW000001</Ltr>.
@@ -136,9 +138,17 @@ function Foundation() {
                   <Input id="e" type="email" dir="ltr" className="ltr-value text-start" placeholder="name@example.com" />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="i">IBAN</Label>
-                  <Input id="i" aria-invalid dir="ltr" className="ltr-value" defaultValue="DE00 0000" />
-                  <p className="text-xs text-destructive">صيغة IBAN غير مكتملة.</p>
+                   <Label htmlFor="i"><Ltr>IBAN</Ltr></Label>
+                   <Input id="i" aria-invalid aria-describedby="iban-error" dir="ltr" className="ltr-value text-start" defaultValue="DE00 0000" />
+                   <p id="iban-error" className="text-sm text-destructive">صيغة <Ltr>IBAN</Ltr> غير مكتملة.</p>
+                 </div>
+                 <div className="space-y-2">
+                   <Label htmlFor="phone">رقم الهاتف</Label>
+                   <Input id="phone" type="tel" dir="ltr" className="ltr-value text-start" placeholder="+49 000 000 000" />
+                 </div>
+                 <div className="space-y-2">
+                   <Label htmlFor="vin">رقم الهيكل <Ltr>VIN</Ltr></Label>
+                   <Input id="vin" dir="ltr" className="ltr-value text-start" placeholder="WVWZZZ1JZXW000001" />
                 </div>
                 <Button className="w-full">متابعة</Button>
               </CardContent>
@@ -151,8 +161,8 @@ function Foundation() {
                   <CardDescription>مثال لبطاقة تفصيل السعر.</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-3 text-sm">
-                  <div className="flex justify-between"><span>أتعاب المنصة (شامل VAT)</span><Ltr className="font-semibold">€70</Ltr></div>
-                  <div className="flex justify-between text-muted-foreground"><span>رسوم دائرة التسجيل</span><span>غير مشمولة · تُدفع للدائرة</span></div>
+                   <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3"><span className="min-w-0">أتعاب المنصة (شامل <Ltr>VAT</Ltr>)</span><Ltr className="shrink-0 font-semibold">€70</Ltr></div>
+                   <div className="grid grid-cols-2 items-start gap-3 text-muted-foreground"><span className="min-w-0">رسوم دائرة التسجيل</span><span className="min-w-0 text-end">غير مشمولة · تُدفع للدائرة</span></div>
                 </CardContent>
               </Card>
               <Card className="border-dashed">
