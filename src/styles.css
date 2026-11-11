@@ -990,3 +990,10 @@ bdi.font-display-latin {
 @media (prefers-reduced-motion: reduce) {
   .audience-service-card.is-standard::before { transition: none !important; }
 }
+
+
+/* Hide the card border while the bottom-up fill transition is active */
+.audience-service-card.is-standard:hover,
+.audience-service-card.is-standard:focus-within {
+  border-color: transparent;
+}
