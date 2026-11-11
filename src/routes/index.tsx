@@ -139,8 +139,7 @@ function Foundation() {
                 </div>
                 <div className="space-y-2">
                    <Label htmlFor="i"><Ltr>IBAN</Ltr></Label>
-                   <Input id="i" aria-invalid aria-describedby="iban-error" dir="ltr" className="ltr-value text-start" defaultValue="DE00 0000" />
-                   <p id="iban-error" className="text-sm text-destructive">صيغة <Ltr>IBAN</Ltr> غير مكتملة.</p>
+                   <Input id="i" dir="ltr" className="ltr-value text-start" placeholder="DE00 0000 0000 0000 0000 00" />
                  </div>
                  <div className="space-y-2">
                    <Label htmlFor="phone">رقم الهاتف</Label>
