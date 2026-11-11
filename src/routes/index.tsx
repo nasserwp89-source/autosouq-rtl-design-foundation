@@ -166,20 +166,6 @@ function HomePage() {
       </div>
     </section>
 
-    <section id="pricing" className="container-site py-24 sm:py-28">
-      <div className="grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:items-center">
-        <SectionHeading eyebrow="CLEAR PRICING" title="سعر واضح من البداية" text="نعرض أتعاب المنصة بشكل منفصل عن الرسوم الحكومية، حتى تعرف بالضبط ما تدفعه مقابل خدمة AutoSouq." />
-        <div className="pricing-panel relative overflow-hidden border border-brass/40 bg-card p-8 sm:p-10">
-          <div className="absolute -left-16 -top-16 size-56 rounded-full border border-brass/10" /><div className="absolute -left-8 -top-8 size-40 rounded-full border border-brass/10" />
-          <p className="relative text-sm text-muted-foreground">أتعاب خدمة AutoSouq</p>
-          <div className="relative mt-3 flex items-end gap-3"><span className="font-display-latin text-7xl font-medium tracking-tight text-brass sm:text-8xl">70€</span><span className="mb-3 text-sm text-muted-foreground">شامل ضريبة القيمة المضافة</span></div>
-          <div className="relative my-8 h-px bg-border" />
-          <div className="relative flex items-start gap-3"><BadgeCheck className="mt-1 size-5 shrink-0 text-brass" /><div><p className="font-semibold">رسوم دائرة التسجيل الحكومية</p><p className="mt-1 text-sm leading-7 text-muted-foreground">غير مشمولة في أتعاب المنصة، ويتم دفعها مباشرة إلى دائرة التسجيل.</p></div></div>
-          <a href="/pricing" className="relative mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brass hover:gap-4">تفاصيل الأسعار <ArrowLeft className="size-4" /></a>
-        </div>
-      </div>
-    </section>
-
     <section className="surface-light">
       <div className="w-full py-24 sm:py-28">
         <div className="container-site mb-14 flex justify-center text-center">
