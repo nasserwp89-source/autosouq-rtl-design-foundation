@@ -594,3 +594,85 @@ bdi.font-display-latin {
   .journey-photo-corner { transition: none !important; }
   .journey-photo-card:hover > img { transform: none; }
 }
+
+
+/* Reference-inspired inset hover panel for journey gallery */
+.journey-photo-card {
+  cursor: default;
+  min-height: 270px;
+}
+.journey-photo-card > img {
+  transition: transform .75s cubic-bezier(.2,.7,.2,1), filter .55s ease;
+  filter: saturate(.82) contrast(1.04);
+}
+.journey-photo-shade {
+  background: linear-gradient(0deg, oklch(0.06 0.008 84 / 62%), oklch(0.06 0.008 84 / 8%) 70%);
+  transition: background .45s ease;
+}
+.journey-photo-content {
+  z-index: 1;
+  inset: 1rem;
+  background: var(--brass);
+  color: var(--onyx);
+  opacity: 0;
+  transform: scale(.94);
+  transition: opacity .38s ease, transform .48s cubic-bezier(.2,.7,.2,1);
+  box-shadow: 0 14px 40px oklch(0 0 0 / 22%);
+}
+.journey-photo-number {
+  color: oklch(0.20 0.018 78);
+  letter-spacing: .16em;
+}
+.journey-photo-content h3 {
+  color: var(--onyx);
+  text-wrap: balance;
+}
+.journey-photo-description {
+  max-height: none;
+  color: oklch(0.22 0.018 78);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .35s ease .08s, transform .35s ease .08s;
+}
+.journey-photo-card:hover > img,
+.journey-photo-card:focus-within > img {
+  transform: scale(1.08);
+  filter: saturate(.65) brightness(.72);
+}
+.journey-photo-card:hover .journey-photo-content,
+.journey-photo-card:focus-within .journey-photo-content {
+  opacity: 1;
+  transform: scale(1);
+}
+.journey-photo-card:hover .journey-photo-description,
+.journey-photo-card:focus-within .journey-photo-description {
+  opacity: 1;
+  transform: translateY(0);
+}
+.journey-photo-card:hover .journey-photo-shade,
+.journey-photo-card:focus-within .journey-photo-shade {
+  background: oklch(0.06 0.008 84 / 24%);
+}
+@media (hover: none) {
+  .journey-photo-content {
+    inset: auto 0 0;
+    min-height: 42%;
+    opacity: 1;
+    transform: none;
+    align-items: flex-start;
+    text-align: right;
+    padding: 1rem 1.2rem;
+    box-shadow: none;
+    background: linear-gradient(0deg, var(--brass), oklch(0.713 0.111 79.4 / 92%));
+  }
+  .journey-photo-number { margin-bottom: .25rem; }
+  .journey-photo-content h3 { font-size: 1.15rem; }
+  .journey-photo-description { opacity: 1; transform: none; margin-top: .25rem; font-size: .8rem; line-height: 1.6; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .journey-photo-card > img,
+  .journey-photo-content,
+  .journey-photo-description,
+  .journey-photo-shade { transition: none !important; }
+  .journey-photo-card:hover > img { transform: none; }
+}
