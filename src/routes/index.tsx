@@ -184,8 +184,8 @@ function HomePage() {
     </section>
 
     <section className="surface-light">
-      <div className="container-site py-24 sm:py-28">
-        <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+      <div className="w-full py-24 sm:py-28">
+        <div className="container-site mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <SectionHeading light eyebrow="YOUR REGISTRATION JOURNEY" title="رحلة تسجيل سيارتك، خطوة بخطوة" text="تعرّف على المراحل الأساسية لتقديم طلبك ومتابعته، ضمن تجربة رقمية واضحة ومنظمة." />
           <p className="max-w-xs text-sm leading-7 text-onyx/65">من بياناتك الأولى إلى استلام المستندات النهائية بعد اكتمال الطلب واعتماده.</p>
         </div>
