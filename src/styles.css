@@ -702,3 +702,75 @@ bdi.font-display-latin {
     min-height: 0;
   }
 }
+
+
+/* Full-bleed reference proportions and softer, more fluid hover reveal */
+.journey-gallery {
+  gap: clamp(12px, 2.15vw, 30px);
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+@media (min-width: 640px) {
+  .journey-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .journey-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.journey-gallery .journey-photo-card {
+  aspect-ratio: 1.49 / 1;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--onyx);
+}
+.journey-gallery .journey-photo-card > img {
+  transform: scale(1.001);
+  transition:
+    transform 1.05s cubic-bezier(.22,.61,.36,1),
+    filter .8s cubic-bezier(.22,.61,.36,1);
+}
+.journey-gallery .journey-photo-content {
+  inset: 5.5%;
+  opacity: 0;
+  transform: translateY(12px) scale(.965);
+  transition:
+    opacity .62s cubic-bezier(.22,.61,.36,1),
+    transform .78s cubic-bezier(.22,.61,.36,1);
+  will-change: opacity, transform;
+}
+.journey-gallery .journey-photo-description {
+  transition:
+    opacity .55s cubic-bezier(.22,.61,.36,1) .12s,
+    transform .65s cubic-bezier(.22,.61,.36,1) .12s;
+}
+.journey-gallery .journey-photo-card:hover > img,
+.journey-gallery .journey-photo-card:focus-within > img {
+  transform: scale(1.055);
+  filter: saturate(.72) brightness(.78);
+}
+.journey-gallery .journey-photo-card:hover .journey-photo-content,
+.journey-gallery .journey-photo-card:focus-within .journey-photo-content {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.journey-gallery .journey-photo-card:hover .journey-photo-description,
+.journey-gallery .journey-photo-card:focus-within .journey-photo-description {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (hover: none) {
+  .journey-gallery .journey-photo-card { aspect-ratio: 1.49 / 1; }
+  .journey-gallery .journey-photo-content {
+    inset: auto 0 0;
+    min-height: 40%;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .journey-gallery .journey-photo-card > img,
+  .journey-gallery .journey-photo-content,
+  .journey-gallery .journey-photo-description {
+    transition: none !important;
+    transform: none !important;
+  }
+}
