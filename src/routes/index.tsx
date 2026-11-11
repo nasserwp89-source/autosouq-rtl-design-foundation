@@ -189,7 +189,7 @@ function HomePage() {
           <SectionHeading light eyebrow="YOUR REGISTRATION JOURNEY" title="رحلة تسجيل سيارتك، خطوة بخطوة" text="تعرّف على المراحل الأساسية لتقديم طلبك ومتابعته، ضمن تجربة رقمية واضحة ومنظمة." />
           <p className="max-w-xs text-sm leading-7 text-onyx/65">من بياناتك الأولى إلى استلام المستندات النهائية بعد اكتمال الطلب واعتماده.</p>
         </div>
-        <div className="journey-gallery grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="journey-gallery grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
             {n:"01",t:"بيانات صاحب السيارة",d:"ابدأ بإدخال بياناتك ومعلومات التواصل.",img:"https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1000&q=85"},
             {n:"02",t:"بيانات السيارة",d:"أضف المعلومات الأساسية لسيارتك الجديدة.",img:"https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=85"},
