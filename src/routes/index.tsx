@@ -24,7 +24,6 @@ const audiences = [
   { icon: Users, title: "الأفراد", desc: "أنجز طلب تسجيل سيارتك الجديدة بخطوات رقمية واضحة.", action: "ابدأ تسجيل سيارتك", active: true, number: "01" },
   { icon: CarFront, title: "تجار السيارات", desc: "باقات وخدمات تساعد التجار على تنظيم طلبات تسجيل السيارات.", action: "اكتشف باقات التجار", number: "02" },
   { icon: Building2, title: "الشركات الشريكة", desc: "خدمات تسجيل مصممة لتناسب احتياجات الشركات.", action: "تعرّف على خدمات الشركات", number: "03" },
-  { icon: Handshake, title: "المسوقون بالعمولة", desc: "شارك خدمات AutoSouq واستفد من برنامج الإحالة.", action: "اكتشف برنامج المسوقين", number: "04" },
 ];
 
 const benefits = [
@@ -102,23 +101,30 @@ function HomePage() {
     </section>
 
     <section id="audiences" className="container-site py-24 sm:py-28">
-      <div className="mb-12 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-        <SectionHeading eyebrow="WHO WE SERVE" title="كيف يمكننا خدمتك؟" text="سواء كنت فرداً أو تعمل في قطاع السيارات، اكتشف كيف يمكن لـ AutoSouq أن تخدم احتياجاتك." />
-        <p className="max-w-xs text-sm leading-7 text-muted-foreground">تتوفر حالياً خدمة تسجيل السيارات الجديدة للأفراد. بقية الخدمات معروضة للتعريف بالمنصة.</p>
+      <div className="mb-14 text-center">
+        <div className="mx-auto max-w-3xl">
+          <SectionHeading eyebrow="WHO WE SERVE" title="كيف يمكننا خدمتك؟" text="حلول تسجيل مرنة للأفراد والجهات العاملة في قطاع السيارات." />
+        </div>
       </div>
-      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="audience-grid grid gap-7 md:grid-cols-3">
         {audiences.map((item) => {
           const Icon = item.icon;
-          return <article key={item.number} className={`audience-card group relative flex min-h-[300px] flex-col overflow-hidden border p-6 transition-all duration-500 hover:-translate-y-2 hover:border-brass/50 ${item.active ? "border-brass/50 bg-brass text-onyx" : "border-border bg-card"}`}>
-            <div className="flex items-start justify-between"><span className={`text-xs tracking-[0.2em] ${item.active ? "text-onyx/60" : "text-muted-foreground"}`}>{item.number}</span><Icon className={`size-7 ${item.active ? "text-onyx" : "text-brass"}`} strokeWidth={1.5} /></div>
-            <div className="mt-auto">
-              <h3 className="text-2xl font-semibold">{item.title}</h3>
-              <p className={`mt-3 min-h-[72px] text-sm leading-7 ${item.active ? "text-onyx/75" : "text-muted-foreground"}`}>{item.desc}</p>
-              <a href={item.active ? "/service" : "#audiences"} className={`mt-5 inline-flex items-center gap-2 text-sm font-semibold transition-all group-hover:gap-3 ${item.active ? "text-onyx" : "text-brass"}`}>{item.action}<ArrowLeft className="size-4" /></a>
-              {!item.active && <span className="mt-3 block text-xs text-muted-foreground/70">خدمة تعريفية — الإطلاق لاحقاً</span>}
+          return <article key={item.number} className="audience-service-card group relative flex min-h-[330px] flex-col items-center border border-border bg-card px-7 py-9 text-center">
+            <span className="audience-card-number absolute right-6 top-5 text-xs tracking-[0.2em] text-muted-foreground">{item.number}</span>
+            <div className="audience-icon-wrap mb-6 grid size-[76px] place-items-center text-brass">
+              <Icon className="audience-icon size-14" strokeWidth={1.35} />
             </div>
+            <h3 className="audience-card-title text-2xl font-semibold">{item.title}</h3>
+            <p className="audience-card-description mt-4 max-w-xs text-sm leading-7 text-muted-foreground">{item.desc}</p>
+            <a href={item.active ? "/service" : "#audiences"} className="audience-card-action mt-auto inline-flex items-center gap-2 pt-7 text-sm font-semibold text-brass">
+              {item.action}<ArrowLeft className="size-4" />
+            </a>
           </article>;
         })}
+      </div>
+      <div className="affiliate-cta mt-10 flex flex-col items-center justify-center gap-3 border-t border-border pt-8 text-center sm:flex-row sm:gap-6">
+        <p className="text-sm text-muted-foreground">هل ترغب بالترويج لخدمات AutoSouq؟</p>
+        <a href="#contact" className="inline-flex items-center gap-2 text-sm font-semibold text-brass transition-all hover:gap-4">اكتشف برنامج المسوقين بالعمولة <ArrowLeft className="size-4" /></a>
       </div>
     </section>
 
