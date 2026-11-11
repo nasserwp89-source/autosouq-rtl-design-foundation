@@ -461,9 +461,10 @@ bdi.font-display-latin {
 }
 .hero-slide.is-active img { transform: scale(1); }
 .hero-shade {
+  /* Arabic copy sits on the right: keep that side dark and let the car image breathe on the left. */
   background:
-    linear-gradient(90deg, oklch(0.10 0.008 84 / 94%) 0%, oklch(0.10 0.008 84 / 83%) 39%, oklch(0.10 0.008 84 / 35%) 74%, oklch(0.10 0.008 84 / 15%) 100%),
-    linear-gradient(0deg, oklch(0.10 0.008 84 / 70%) 0%, transparent 48%);
+    linear-gradient(270deg, oklch(0.055 0.006 84 / 97%) 0%, oklch(0.07 0.008 84 / 91%) 34%, oklch(0.09 0.008 84 / 66%) 57%, oklch(0.10 0.008 84 / 12%) 100%),
+    linear-gradient(0deg, oklch(0.055 0.006 84 / 78%) 0%, transparent 48%);
 }
 .hero-copy {
   opacity: 0;
@@ -478,7 +479,30 @@ bdi.font-display-latin {
   pointer-events: auto;
   animation: hero-enter .75s .12s both cubic-bezier(.2,.7,.2,1);
 }
-.hero-copy h1 { max-width: 12ch; text-wrap: balance; text-shadow: 0 8px 34px oklch(0 0 0 / 34%); }
+.hero-copy { direction: rtl; text-align: right; max-width: min(54rem, 72vw); }
+.hero-copy h1 {
+  max-width: 12ch;
+  font-size: clamp(3.25rem, 5.4vw, 5.6rem);
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+  color: var(--ivory);
+  text-shadow: 0 3px 8px oklch(0 0 0 / 72%), 0 14px 38px oklch(0 0 0 / 62%);
+}
+.hero-copy h1 span { color: var(--brass); }
+.hero-copy > p:not(.mb-5) {
+  max-width: 39rem;
+  color: oklch(0.97 0.008 86 / 94%);
+  font-size: clamp(1rem, 1.15vw, 1.2rem);
+  line-height: 2;
+  text-shadow: 0 2px 8px oklch(0 0 0 / 78%);
+}
+.hero-copy .mb-7 {
+  background: oklch(0.055 0.006 84 / 72%);
+  border-color: oklch(0.713 0.111 79.4 / 60%);
+  box-shadow: 0 8px 30px oklch(0 0 0 / 22%);
+}
 .hero-control {
   display: inline-flex;
   width: 42px;
@@ -506,10 +530,12 @@ bdi.font-display-latin {
 @media (max-width: 767px) {
   .hero-shell { min-height: 690px; }
   .hero-slide img { object-position: 60% center; }
+  .hero-copy { max-width: calc(100vw - 2.5rem); }
+  .hero-copy h1 { font-size: clamp(2.7rem, 9vw, 4rem); line-height: 1.28; }
   .hero-shade {
     background:
-      linear-gradient(90deg, oklch(0.10 0.008 84 / 88%), oklch(0.10 0.008 84 / 62%)),
-      linear-gradient(0deg, oklch(0.10 0.008 84 / 64%), transparent 55%);
+      linear-gradient(270deg, oklch(0.055 0.006 84 / 94%) 0%, oklch(0.07 0.008 84 / 82%) 58%, oklch(0.09 0.008 84 / 48%) 100%),
+      linear-gradient(0deg, oklch(0.055 0.006 84 / 82%) 0%, transparent 60%);
   }
   .hero-control { width: 36px; height: 36px; }
 }
