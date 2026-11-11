@@ -156,22 +156,6 @@ function HomePage() {
       </div>
     </section>
 
-    <section id="how-it-works" className="border-y border-border bg-card/50 py-24 sm:py-28">
-      <div className="container-site">
-        <div className="mb-16 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-          <SectionHeading eyebrow="HOW IT WORKS" title="كيف تعمل الخدمة؟" text="خمس خطوات واضحة تساعدك على فهم رحلة تسجيل سيارتك من تقديم الطلب حتى استلام المستندات." />
-          <span className="hidden text-7xl font-light text-brass/20 lg:block">05</span>
-        </div>
-        <div className="grid gap-0 md:grid-cols-5">
-          {steps.map((s, i) => <div key={s.n} className="process-step relative border-t border-border py-7 md:border-s md:px-5 md:py-5">
-            <span className="mb-8 inline-flex size-11 items-center justify-center rounded-full border border-brass/50 font-display-latin text-sm text-brass">{s.n}</span>
-            <h3 className="text-lg font-semibold">{s.title}</h3><p className="mt-3 text-sm leading-7 text-muted-foreground">{s.desc}</p>
-            {i < steps.length - 1 && <span className="absolute -left-1.5 top-[-4px] hidden size-2.5 rounded-full bg-brass md:block" />}
-          </div>)}
-        </div>
-      </div>
-    </section>
-
     <section id="pricing" className="container-site py-24 sm:py-28">
       <div className="grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:items-center">
         <SectionHeading eyebrow="CLEAR PRICING" title="سعر واضح من البداية" text="نعرض أتعاب المنصة بشكل منفصل عن الرسوم الحكومية، حتى تعرف بالضبط ما تدفعه مقابل خدمة AutoSouq." />
