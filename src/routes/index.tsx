@@ -109,22 +109,19 @@ function HomePage() {
       <div className="audience-grid grid gap-7 md:grid-cols-3">
         {audiences.map((item) => {
           const Icon = item.icon;
-          return <article key={item.number} className="audience-service-card group relative flex min-h-[330px] flex-col items-center border border-border bg-card px-7 py-9 text-center">
-            <span className="audience-card-number absolute right-6 top-5 text-xs tracking-[0.2em] text-muted-foreground">{item.number}</span>
-            <div className="audience-icon-wrap mb-6 grid size-[76px] place-items-center text-brass">
+          const featured = item.number === "02";
+          return <article key={item.number} className={`audience-service-card group relative flex min-h-[330px] flex-col items-center border px-7 py-9 text-center ${featured ? "is-featured" : "is-standard"}`}>
+            <span className="audience-card-number absolute right-6 top-5 text-xs tracking-[0.2em]">{item.number}</span>
+            <div className="audience-icon-wrap mb-6 grid size-[76px] place-items-center">
               <Icon className="audience-icon size-14" strokeWidth={1.35} />
             </div>
             <h3 className="audience-card-title text-2xl font-semibold">{item.title}</h3>
-            <p className="audience-card-description mt-4 max-w-xs text-sm leading-7 text-muted-foreground">{item.desc}</p>
-            <a href={item.active ? "/service" : "#audiences"} className="audience-card-action mt-auto inline-flex items-center gap-2 pt-7 text-sm font-semibold text-brass">
+            <p className="audience-card-description mt-4 max-w-xs text-sm leading-7">{item.desc}</p>
+            <a href={item.active ? "/service" : "#audiences"} className="audience-card-action mt-auto inline-flex items-center gap-2 pt-7 text-sm font-semibold">
               {item.action}<ArrowLeft className="size-4" />
             </a>
           </article>;
         })}
-      </div>
-      <div className="affiliate-cta mt-10 flex flex-col items-center justify-center gap-3 border-t border-border pt-8 text-center sm:flex-row sm:gap-6">
-        <p className="text-sm text-muted-foreground">هل ترغب بالترويج لخدمات AutoSouq؟</p>
-        <a href="#contact" className="inline-flex items-center gap-2 text-sm font-semibold text-brass transition-all hover:gap-4">اكتشف برنامج المسوقين بالعمولة <ArrowLeft className="size-4" /></a>
       </div>
     </section>
 
