@@ -1,5 +1,5 @@
-# Phase 1 final review
-- [x] Preserve the original logo and check supplied files for a transparent version (none supplied).
-- [x] Verify approved fonts and improve secondary text readability.
-- [x] Review LTR values, header, drawer, cards and spacing across devices.
-- [x] Prepare final review screenshots; stop before phase 2 pending explicit approval.
+# Homepage design
+- [ ] Build only the homepage with the approved brand and required public information.
+- [ ] Add elegant motion with reduced-motion support.
+- [ ] Verify desktop, tablet and mobile, navigation and FAQ.
+- [ ] Present the homepage and wait for approval; other pages and registration remain deferred.
