@@ -27,10 +27,12 @@ const audiences = [
 ];
 
 const benefits = [
-  { icon: WalletCards, title: "رسوم واضحة", desc: "تعرف على أتعاب المنصة وما لا تشمله قبل بدء طلبك." },
-  { icon: FileCheck2, title: "خطوات منظمة", desc: "قدّم المعلومات والمستندات ضمن مسار مرتب وسهل المتابعة." },
-  { icon: Clock3, title: "متابعة مستمرة", desc: "اطّلع على حالة الطلب وما إذا كان يتطلب إجراءً منك." },
-  { icon: ShieldCheck, title: "وضوح واطمئنان", desc: "تفاصيل طلبك ورسوم الخدمة ومستنداتك في مكان واحد." },
+  { icon: WalletCards, title: "رسوم واضحة", desc: "تعرف على أتعاب AutoSouq بشكل منفصل عن الرسوم الحكومية قبل بدء الطلب." },
+  { icon: FileCheck2, title: "خطوات منظمة", desc: "أكمل بياناتك وأرسل مستنداتك ضمن رحلة تسجيل مرتبة وواضحة." },
+  { icon: Clock3, title: "متابعة مستمرة", desc: "تابع حالة طلبك وتعرّف على أي إجراء مطلوب منك." },
+  { icon: ShieldCheck, title: "وضوح واطمئنان", desc: "راجع تفاصيل طلبك والرسوم والمستندات من مكان واحد." },
+  { icon: CarFront, title: "تسجيل السيارات الجديدة", desc: "خدمة متخصصة لطلبات تسجيل السيارات الجديدة في ألمانيا." },
+  { icon: FileText, title: "إدارة المستندات", desc: "ارفع المستندات المطلوبة وتابع استكمالها ضمن طلبك." },
 ];
 
 const steps = [
@@ -150,17 +152,21 @@ function HomePage() {
           <h2 className="text-3xl font-semibold leading-tight text-ivory sm:text-4xl lg:text-5xl">لماذا تختار AutoSouq؟</h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-ivory/75 sm:text-lg">نؤمن أن الخدمة الجيدة تبدأ بالوضوح؛ أن تعرف ما الذي تحتاجه، وما الذي تدفعه، وأين وصل طلبك.</p>
         </div>
-        <div className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-x-9 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {benefits.map((b, i) => {
             const Icon = b.icon;
-            return <div key={b.title} className="group border-t border-brass/35 pt-7 transition-colors duration-500 hover:border-brass">
-              <div className="mb-6 flex items-center justify-between">
-                <span className="grid size-14 place-items-center rounded-full border border-brass/60 bg-brass/10 text-brass transition-all duration-500 group-hover:bg-brass group-hover:text-onyx"><Icon className="size-6" strokeWidth={1.5} /></span>
-                <span className="font-display-latin text-sm tracking-widest text-brass/80">0{i + 1}</span>
+            return <article key={b.title} className="group flex min-h-40 items-start gap-5 border-t border-brass/35 pt-7 transition-colors duration-500 hover:border-brass">
+              <span className="grid size-16 shrink-0 place-items-center rounded-full border border-brass/60 bg-brass/10 text-brass transition-all duration-500 group-hover:bg-brass group-hover:text-onyx">
+                <Icon className="size-7" strokeWidth={1.5} />
+              </span>
+              <div className="min-w-0 flex-1">
+                <div className="mb-3 flex items-center justify-between gap-3">
+                  <h3 className="text-lg font-semibold leading-8 text-ivory sm:text-xl">{b.title}</h3>
+                  <span className="font-display-latin text-xs tracking-widest text-brass/80">0{i + 1}</span>
+                </div>
+                <p className="text-sm leading-7 text-ivory/85">{b.desc}</p>
               </div>
-              <h3 className="text-xl font-semibold text-ivory">{b.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-ivory/70">{b.desc}</p>
-            </div>;
+            </article>;
           })}
         </div>
       </div>
