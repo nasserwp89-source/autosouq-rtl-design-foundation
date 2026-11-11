@@ -774,3 +774,25 @@ bdi.font-display-latin {
     transform: none !important;
   }
 }
+
+
+/* Unified hover timing: coordinated, smooth reveal across image and panel */
+.journey-gallery .journey-photo-card > img,
+.journey-gallery .journey-photo-content,
+.journey-gallery .journey-photo-description,
+.journey-gallery .journey-photo-shade {
+  transition-duration: .7s;
+  transition-timing-function: cubic-bezier(.22,.61,.36,1);
+}
+.journey-gallery .journey-photo-description {
+  transition-delay: .12s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .journey-gallery .journey-photo-card > img,
+  .journey-gallery .journey-photo-content,
+  .journey-gallery .journey-photo-description,
+  .journey-gallery .journey-photo-shade {
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
