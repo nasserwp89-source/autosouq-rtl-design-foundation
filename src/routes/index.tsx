@@ -201,14 +201,6 @@ function HomePage() {
       </div>
     </section>
 
-    <section className="container-site grid gap-12 py-24 sm:py-28 lg:grid-cols-[0.8fr_1.2fr]">
-      <div><SectionHeading eyebrow="TRUST & CLARITY" title="خدمة واضحة. متابعة أسهل. تجربة أكثر اطمئناناً." text="نضع وضوح المعلومات في قلب التجربة، لتكون تفاصيل الخدمة والرسوم وحالة الطلب مفهومة في كل مرحلة." /></div>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div className="border border-border p-7"><ShieldCheck className="size-8 text-brass"/><h3 className="mt-6 text-xl font-semibold">شفافية في التفاصيل</h3><p className="mt-2 text-sm leading-7 text-muted-foreground">تمييز واضح بين أتعاب المنصة والرسوم الحكومية.</p></div>
-        <div className="border border-border p-7"><Headset className="size-8 text-brass"/><h3 className="mt-6 text-xl font-semibold">رؤية أوضح للطلب</h3><p className="mt-2 text-sm leading-7 text-muted-foreground">معرفة حالة الطلب والإجراء المطلوب عند الحاجة.</p></div>
-      </div>
-    </section>
-
     <section id="contact" className="w-full py-20 sm:py-24">
       <div className="cta-panel relative min-h-[360px] w-full overflow-hidden bg-brass px-7 py-16 text-center text-onyx sm:min-h-[420px] sm:px-12 sm:py-24">
         <div className="pointer-events-none absolute -left-24 -top-28 size-80 rounded-full border border-onyx/10"/><div className="pointer-events-none absolute -left-10 -top-14 size-52 rounded-full border border-onyx/10"/>
