@@ -229,3 +229,58 @@ bdi.font-display-latin {
     padding-inline: 2rem;
   }
 }
+
+
+/* Phase 02 homepage motion — restrained, brand-led, and reduced-motion aware. */
+@keyframes hero-enter {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-image-drift {
+  from { transform: scale(1.055); }
+  to { transform: scale(1); }
+}
+@keyframes soft-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-photo {
+  background-image: url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2200&q=90");
+  background-size: cover;
+  background-position: center 58%;
+  animation: hero-image-drift 1.6s cubic-bezier(.2,.7,.2,1) both;
+}
+.hero-shade {
+  background: linear-gradient(90deg, oklch(0.12 0.01 84 / 94%) 0%, oklch(0.12 0.01 84 / 82%) 42%, oklch(0.12 0.01 84 / 24%) 100%), linear-gradient(0deg, oklch(0.12 0.01 84 / 52%), transparent 45%);
+}
+.hero-copy { animation: hero-enter .85s .12s both cubic-bezier(.2,.7,.2,1); }
+.hero-index { animation: soft-rise 1s .5s both; }
+.audience-card, .benefit-item, .process-step, .journey-tile { transition-timing-function: cubic-bezier(.2,.7,.2,1); }
+.service-image { box-shadow: 22px 22px 0 oklch(0.169 0.004 84.6 / 8%); }
+.pricing-panel { box-shadow: 0 28px 70px -48px oklch(0 0 0 / 75%); }
+.cta-panel { isolation: isolate; }
+.cta-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(115deg, transparent 25%, oklch(1 0 0 / 13%) 50%, transparent 75%);
+  transform: translateX(100%);
+  transition: transform .9s cubic-bezier(.2,.7,.2,1);
+}
+.cta-panel:hover::after { transform: translateX(-100%); }
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+@media (max-width: 767px) {
+  .hero-photo { background-position: 62% center; }
+  .hero-shade { background: linear-gradient(90deg, oklch(0.12 0.01 84 / 88%), oklch(0.12 0.01 84 / 64%)), linear-gradient(0deg, oklch(0.12 0.01 84 / 38%), transparent); }
+}
