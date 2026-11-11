@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { audiences, demoContact, legalNav, mainNav } from "@/lib/site-nav";
 import { Logo } from "./Logo";
 import { Ltr } from "./Ltr";
@@ -22,7 +21,7 @@ export function SiteFooter() {
           <h2 className={heading}>الصفحات</h2>
           <ul className="space-y-1 text-sm">
             {mainNav.slice(1).map((i) => (
-              <li key={i.to}><Link to={i.to} className={link}>{i.label}</Link></li>
+              <li key={i.to}><a href={i.to === "/" ? "/" : `/#${i.to.slice(1)}`} className={link}>{i.label}</a></li>
             ))}
           </ul>
         </div>
