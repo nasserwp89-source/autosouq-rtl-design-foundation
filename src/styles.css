@@ -796,3 +796,69 @@ bdi.font-display-latin {
     transition-delay: 0s !important;
   }
 }
+
+
+/* Three audience service cards — restrained AutoSouq interpretation of the reference */
+.audience-service-card {
+  min-height: 330px;
+  isolation: isolate;
+  transition:
+    background-color .42s cubic-bezier(.22,.61,.36,1),
+    border-color .42s cubic-bezier(.22,.61,.36,1),
+    color .42s cubic-bezier(.22,.61,.36,1),
+    transform .42s cubic-bezier(.22,.61,.36,1),
+    box-shadow .42s cubic-bezier(.22,.61,.36,1);
+}
+.audience-icon-wrap,
+.audience-icon,
+.audience-card-title,
+.audience-card-description,
+.audience-card-action,
+.audience-card-number {
+  transition:
+    color .42s cubic-bezier(.22,.61,.36,1),
+    transform .48s cubic-bezier(.22,.61,.36,1),
+    opacity .42s cubic-bezier(.22,.61,.36,1);
+}
+.audience-service-card:hover,
+.audience-service-card:focus-within {
+  transform: translateY(-7px);
+  background: var(--brass);
+  border-color: var(--brass);
+  box-shadow: 0 18px 42px oklch(0 0 0 / 20%);
+}
+.audience-service-card:hover .audience-icon,
+.audience-service-card:focus-within .audience-icon {
+  color: var(--onyx);
+  transform: translateY(-5px) scale(1.06);
+}
+.audience-service-card:hover .audience-card-title,
+.audience-service-card:focus-within .audience-card-title,
+.audience-service-card:hover .audience-card-description,
+.audience-service-card:focus-within .audience-card-description,
+.audience-service-card:hover .audience-card-action,
+.audience-service-card:focus-within .audience-card-action,
+.audience-service-card:hover .audience-card-number,
+.audience-service-card:focus-within .audience-card-number {
+  color: var(--onyx);
+}
+.audience-service-card:hover .audience-card-action svg,
+.audience-service-card:focus-within .audience-card-action svg {
+  transform: translateX(-4px);
+}
+.audience-service-card:focus-within {
+  outline: 2px solid var(--brass);
+  outline-offset: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .audience-service-card,
+  .audience-icon-wrap,
+  .audience-icon,
+  .audience-card-title,
+  .audience-card-description,
+  .audience-card-action,
+  .audience-card-number {
+    transition: none !important;
+    transform: none !important;
+  }
+}
