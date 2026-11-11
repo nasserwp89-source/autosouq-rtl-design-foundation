@@ -64,7 +64,14 @@ function SectionHeading({ eyebrow, title, text, light = false }: { eyebrow: stri
 }
 
 function HomePage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(0);\n  const [activeSlide, setActiveSlide] = useState(0);\n  const [isPlaying, setIsPlaying] = useState(true);\n  useEffect(() => {\n    if (!isPlaying || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;\n    const timer = window.setInterval(() => setActiveSlide((current) => (current + 1) % heroSlides.length), 6500);\n    return () => window.clearInterval(timer);\n  }, [isPlaying]);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  useEffect(() => {
+    if (!isPlaying || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => setActiveSlide((current) => (current + 1) % heroSlides.length), 6500);
+    return () => window.clearInterval(timer);
+  }, [isPlaying]);
   return <main className="overflow-hidden">
     <section className="hero-shell relative isolate overflow-hidden" aria-roledescription="carousel" aria-label="خدمات AutoSouq">
       <div className="hero-slides absolute inset-0 -z-20">
