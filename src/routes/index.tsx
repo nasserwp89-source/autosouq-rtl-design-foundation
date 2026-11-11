@@ -200,10 +200,10 @@ function HomePage() {
           ].map((item) => <article key={item.n} className="journey-photo-card group relative isolate overflow-hidden bg-onyx">
             <img src={item.img} alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover" />
             <div className="journey-photo-shade absolute inset-0 -z-10" />
-            <div className="absolute inset-x-0 bottom-0 p-5 text-white sm:p-6">
-              <div className="mb-3 flex items-center gap-3"><span className="font-display-latin text-sm text-brass">{item.n}</span><span className="h-px w-8 bg-brass/70" /></div>
+            <div className="journey-photo-content absolute inset-5 flex flex-col items-center justify-center p-5 text-center sm:inset-6">
+              <span className="journey-photo-number mb-4 font-display-latin text-sm text-brass">{item.n}</span>
               <h3 className="text-xl font-semibold sm:text-2xl">{item.t}</h3>
-              <p className="journey-photo-description mt-2 max-w-sm text-sm leading-7 text-white/80">{item.d}</p>
+              <p className="journey-photo-description mt-3 max-w-sm text-sm leading-7">{item.d}</p>
             </div>
             <span className="journey-photo-corner absolute right-4 top-4 size-8 border-r border-t border-brass/70 opacity-70 transition-all duration-500 group-hover:right-6 group-hover:top-6 group-hover:size-12" />
           </article>)}
