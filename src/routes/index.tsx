@@ -185,9 +185,10 @@ function HomePage() {
 
     <section className="surface-light">
       <div className="w-full py-24 sm:py-28">
-        <div className="container-site mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-          <SectionHeading light eyebrow="YOUR REGISTRATION JOURNEY" title="رحلة تسجيل سيارتك، خطوة بخطوة" text="تعرّف على المراحل الأساسية لتقديم طلبك ومتابعته، ضمن تجربة رقمية واضحة ومنظمة." />
-          <p className="max-w-xs text-sm leading-7 text-onyx/65">من بياناتك الأولى إلى استلام المستندات النهائية بعد اكتمال الطلب واعتماده.</p>
+        <div className="container-site mb-14 flex justify-center text-center">
+          <div className="mx-auto text-center">
+            <SectionHeading light eyebrow="YOUR REGISTRATION JOURNEY" title="رحلة تسجيل سيارتك، خطوة بخطوة" />
+          </div>
         </div>
         <div className="journey-gallery grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
