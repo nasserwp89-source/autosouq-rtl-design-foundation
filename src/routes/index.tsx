@@ -209,18 +209,6 @@ function HomePage() {
       </div>
     </section>
 
-    <section id="faq" className="border-y border-border bg-card/40 py-24 sm:py-28">
-      <div className="container-site grid gap-12 lg:grid-cols-[0.75fr_1.25fr]">
-        <SectionHeading eyebrow="FREQUENTLY ASKED QUESTIONS" title="الأسئلة الشائعة" text="إجابات مختصرة تساعدك على فهم الخدمة قبل البدء." />
-        <div className="border-t border-border">
-          {faqs.map((f,i)=><div key={f.q} className="border-b border-border">
-            <button type="button" aria-expanded={openFaq===i} onClick={()=>setOpenFaq(openFaq===i?null:i)} className="flex min-h-[76px] w-full items-center justify-between gap-5 py-5 text-start text-base font-semibold transition-colors hover:text-brass sm:text-lg"><span>{f.q}</span><ChevronDown className={`size-5 shrink-0 text-brass transition-transform duration-300 ${openFaq===i?"rotate-180":""}`}/></button>
-            <div className={`faq-answer grid transition-all duration-300 ${openFaq===i?"grid-rows-[1fr] pb-6 opacity-100":"grid-rows-[0fr] opacity-0"}`}><div className="overflow-hidden"><p className="max-w-2xl text-sm leading-8 text-muted-foreground">{f.a}</p></div></div>
-          </div>)}
-        </div>
-      </div>
-    </section>
-
     <section id="contact" className="w-full py-20 sm:py-24">
       <div className="cta-panel relative min-h-[360px] w-full overflow-hidden bg-brass px-7 py-16 text-center text-onyx sm:min-h-[420px] sm:px-12 sm:py-24">
         <div className="pointer-events-none absolute -left-24 -top-28 size-80 rounded-full border border-onyx/10"/><div className="pointer-events-none absolute -left-10 -top-14 size-52 rounded-full border border-onyx/10"/>
