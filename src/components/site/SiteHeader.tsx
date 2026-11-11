@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -18,9 +17,9 @@ export function SiteHeader() {
 
         <nav aria-label="التنقل الرئيسي" className="hidden items-center gap-5 xl:flex">
           {mainNav.map((item) => (
-            <Link key={item.to} to={item.to} className={navLink} activeOptions={{ exact: true }}>
+            <a key={item.to} href={item.to === "/" ? "/" : `/#${item.to.slice(1)}`} className={navLink}>
               {item.label}
-            </Link>
+            </a>
           ))}
         </nav>
 
@@ -53,15 +52,14 @@ export function SiteHeader() {
               </div>
               <nav aria-label="قائمة الهاتف" className="flex flex-col px-5 py-4">
                 {mainNav.map((item) => (
-                  <Link
+                  <a
                     key={item.to}
-                    to={item.to}
-                    activeOptions={{ exact: true }}
+                    href={item.to === "/" ? "/" : `/#${item.to.slice(1)}`}
                     onClick={() => setOpen(false)}
-                    className="border-b border-border/60 py-3.5 text-lg text-foreground/80 data-[status=active]:text-brass"
+                    className="border-b border-border/60 py-3.5 text-lg text-foreground/80 transition-colors hover:text-brass"
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 ))}
               </nav>
               <div className="mt-auto flex shrink-0 flex-col gap-3 border-t p-5">
