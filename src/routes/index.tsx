@@ -141,15 +141,25 @@ function HomePage() {
       </div>
     </section>
 
-    <section id="about" className="container-site py-24 sm:py-28">
-      <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-        <SectionHeading eyebrow="WHY AUTOSOUQ" title="لماذا تختار AutoSouq؟" text="نؤمن أن الخدمة الجيدة تبدأ بالوضوح؛ أن تعرف ما الذي تحتاجه، وما الذي تدفعه، وأين وصل طلبك." />
-        <div className="grid gap-x-8 sm:grid-cols-2">
+    <section id="about" className="relative isolate w-full overflow-hidden py-24 sm:py-28">
+      <div className="absolute inset-0 -z-20 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=2400&q=85')" }} />
+      <div className="absolute inset-0 -z-10 bg-onyx/90" />
+      <div className="container-site">
+        <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
+          <p className="eyebrow mb-4"><Ltr>WHY AUTOSOUQ</Ltr></p>
+          <h2 className="text-3xl font-semibold leading-tight text-ivory sm:text-4xl lg:text-5xl">لماذا تختار AutoSouq؟</h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-ivory/75 sm:text-lg">نؤمن أن الخدمة الجيدة تبدأ بالوضوح؛ أن تعرف ما الذي تحتاجه، وما الذي تدفعه، وأين وصل طلبك.</p>
+        </div>
+        <div className="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map((b, i) => {
             const Icon = b.icon;
-            return <div key={b.title} className="benefit-item border-t border-border py-7">
-              <div className="mb-5 flex items-center justify-between"><Icon className="size-7 text-brass" strokeWidth={1.4} /><span className="text-xs tracking-widest text-muted-foreground">0{i + 1}</span></div>
-              <h3 className="text-xl font-semibold">{b.title}</h3><p className="mt-2 text-sm leading-7 text-muted-foreground">{b.desc}</p>
+            return <div key={b.title} className="group border-t border-brass/35 pt-7 transition-colors duration-500 hover:border-brass">
+              <div className="mb-6 flex items-center justify-between">
+                <span className="grid size-14 place-items-center rounded-full border border-brass/60 bg-brass/10 text-brass transition-all duration-500 group-hover:bg-brass group-hover:text-onyx"><Icon className="size-6" strokeWidth={1.5} /></span>
+                <span className="font-display-latin text-sm tracking-widest text-brass/80">0{i + 1}</span>
+              </div>
+              <h3 className="text-xl font-semibold text-ivory">{b.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-ivory/70">{b.desc}</p>
             </div>;
           })}
         </div>
