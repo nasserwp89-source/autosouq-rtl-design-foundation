@@ -178,9 +178,27 @@ function HomePage() {
 
     <section className="surface-light">
       <div className="container-site py-24 sm:py-28">
-        <div className="mb-14 max-w-2xl"><SectionHeading light eyebrow="YOUR REGISTRATION JOURNEY" title="كل ما تحتاجه في خطوات واضحة" text="رحلة منظمة تساعدك على معرفة المطلوب منك في كل مرحلة." /></div>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-          {[{icon:Users,t:"بيانات صاحب السيارة"},{icon:CarFront,t:"بيانات السيارة"},{icon:FileText,t:"المستندات"},{icon:Check,t:"مراجعة الطلب"},{icon:WalletCards,t:"الدفع"}].map((s,i)=>{const Icon=s.icon;return <div key={s.t} className="journey-tile group border border-onyx/10 bg-white/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white"><span className="font-display-latin text-xs text-onyx/45">0{i+1}</span><Icon className="my-9 size-7 text-tobacco transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5}/><h3 className="text-lg font-semibold text-onyx">{s.t}</h3></div>})}
+        <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <SectionHeading light eyebrow="YOUR REGISTRATION JOURNEY" title="رحلة تسجيل سيارتك، خطوة بخطوة" text="تعرّف على المراحل الأساسية لتقديم طلبك ومتابعته، ضمن تجربة رقمية واضحة ومنظمة." />
+          <p className="max-w-xs text-sm leading-7 text-onyx/65">من بياناتك الأولى إلى استلام المستندات النهائية بعد اكتمال الطلب واعتماده.</p>
+        </div>
+        <div className="journey-gallery grid auto-rows-[190px] gap-3 sm:grid-cols-2 sm:auto-rows-[220px] lg:grid-cols-6 lg:auto-rows-[235px]">
+          {[
+            {n:"01",t:"بيانات صاحب السيارة",d:"ابدأ بإدخال بياناتك ومعلومات التواصل.",img:"https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1000&q=85",span:"lg:col-span-2 lg:row-span-2"},
+            {n:"02",t:"بيانات السيارة",d:"أضف المعلومات الأساسية لسيارتك الجديدة.",img:"https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=85",span:"lg:col-span-2"},
+            {n:"03",t:"المستندات",d:"أرفق المستندات المطلوبة لإرسال الطلب.",img:"https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1000&q=85",span:"lg:col-span-2"},
+            {n:"04",t:"مراجعة الطلب",d:"راجع بياناتك وتأكد من التفاصيل قبل المتابعة.",img:"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=85",span:"lg:col-span-2"},
+            {n:"05",t:"الدفع والمتابعة",d:"ادفع أتعاب المنصة وتابع حالة طلبك.",img:"https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=1000&q=85",span:"lg:col-span-2"}
+          ].map((item) => <article key={item.n} className={`journey-photo-card group relative isolate overflow-hidden bg-onyx ${item.span}`}>
+            <img src={item.img} alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover" />
+            <div className="journey-photo-shade absolute inset-0 -z-10" />
+            <div className="absolute inset-x-0 bottom-0 p-5 text-white sm:p-6">
+              <div className="mb-3 flex items-center gap-3"><span className="font-display-latin text-sm text-brass">{item.n}</span><span className="h-px w-8 bg-brass/70" /></div>
+              <h3 className="text-xl font-semibold sm:text-2xl">{item.t}</h3>
+              <p className="journey-photo-description mt-2 max-w-sm text-sm leading-7 text-white/80">{item.d}</p>
+            </div>
+            <span className="journey-photo-corner absolute right-4 top-4 size-8 border-r border-t border-brass/70 opacity-70 transition-all duration-500 group-hover:right-6 group-hover:top-6 group-hover:size-12" />
+          </article>)}
         </div>
       </div>
     </section>
