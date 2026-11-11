@@ -1,8 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpLeft, BadgeCheck, Building2, CarFront, Check, ChevronDown, Clock3, FileCheck2, FileText, Handshake, Headset, ShieldCheck, Sparkles, Users, WalletCards } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Ltr } from "@/components/site/Ltr";
+
+const heroSlides = [
+  { eyebrow: "تسجيل السيارات الجديدة في ألمانيا", title: <>سجّل سيارتك الجديدة <span>بثقة</span></>, description: "تجربة رقمية واضحة ومنظمة تساعدك على إنجاز إجراءات تسجيل سيارتك الجديدة، مع متابعة طلبك خطوة بخطوة.", image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90", alt: "سيارة رياضية فاخرة على طريق مفتوح", index: "01" },
+  { eyebrow: "تجربة رقمية أكثر سهولة", title: <>إجراءات أوضح، <span>وراحة أكبر</span></>, description: "قدّم بياناتك ومستنداتك ضمن خطوات مرتبة، واعرف ما يحدث لطلبك في كل مرحلة.", image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2400&q=90", alt: "سيارة حديثة بتصميم أنيق", index: "02" },
+  { eyebrow: "من البداية حتى اكتمال الطلب", title: <>سيارتك الجديدة، <span>خطوتك القادمة</span></>, description: "ابدأ طلب التسجيل بثقة، وتعرّف على الرسوم والخطوات المطلوبة قبل البدء.", image: "https://images.unsplash.com/photo-1504216149814-6b6f3b5b8f7f?auto=format&fit=crop&w=2400&q=90", alt: "سيارة فاخرة في مشهد سينمائي", index: "03" },
+];
 
 const faqs = [
   { q: "ما الخدمة التي تقدمها AutoSouq؟", a: "نساعدك في تقديم ومتابعة طلب تسجيل سيارتك الجديدة في ألمانيا من خلال تجربة رقمية منظمة وواضحة." },
@@ -58,36 +64,34 @@ function SectionHeading({ eyebrow, title, text, light = false }: { eyebrow: stri
 }
 
 function HomePage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);\n  const [activeSlide, setActiveSlide] = useState(0);\n  const [isPlaying, setIsPlaying] = useState(true);\n  useEffect(() => {\n    if (!isPlaying || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;\n    const timer = window.setInterval(() => setActiveSlide((current) => (current + 1) % heroSlides.length), 6500);\n    return () => window.clearInterval(timer);\n  }, [isPlaying]);
   return <main className="overflow-hidden">
-    <section className="hero-shell relative isolate min-h-[680px] overflow-hidden sm:min-h-[740px] lg:min-h-[790px]">
-      <div className="hero-photo absolute inset-0 -z-20" />
+    <section className="hero-shell relative isolate overflow-hidden" aria-roledescription="carousel" aria-label="خدمات AutoSouq">
+      <div className="hero-slides absolute inset-0 -z-20">
+        {heroSlides.map((slide, i) => <div key={slide.index} className={`hero-slide absolute inset-0 ${activeSlide === i ? "is-active" : ""}`} aria-hidden={activeSlide !== i}><img src={slide.image} alt={slide.alt} fetchPriority={i === 0 ? "high" : "auto"} /></div>)}
+      </div>
       <div className="hero-shade absolute inset-0 -z-10" />
-      <div className="container-site flex min-h-[680px] items-center py-20 sm:min-h-[740px] lg:min-h-[790px]">
-        <div className="hero-copy max-w-3xl">
-          <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-ivory/20 bg-onyx/35 px-4 py-2 text-sm text-ivory/90 backdrop-blur-sm">
-            <span className="size-2 rounded-full bg-brass shadow-[0_0_16px_#C79A4B]" />
-            خدمة تسجيل السيارات الجديدة في ألمانيا
-          </div>
-          <p className="mb-5 text-sm font-medium tracking-wide text-brass sm:text-base">AutoSouq · وسيطك الرقمي الموثوق</p>
-          <h1 className="max-w-3xl text-4xl font-semibold leading-[1.35] text-ivory sm:text-5xl lg:text-7xl">سجّل سيارتك الجديدة <span className="text-brass">في ألمانيا</span> بثقة</h1>
-          <p className="mt-7 max-w-xl text-base leading-8 text-ivory/80 sm:text-lg sm:leading-9">خدمة رقمية تساعدك على إنجاز إجراءات تسجيل سيارتك الجديدة بسهولة ووضوح، مع متابعة طلبك خطوة بخطوة.</p>
+      <div className="container-site relative flex min-h-[680px] items-center py-24 sm:min-h-[740px] lg:min-h-[790px]">
+        {heroSlides.map((slide, i) => <div key={slide.index} className={`hero-copy absolute inset-x-5 top-1/2 max-w-3xl -translate-y-1/2 sm:inset-x-8 lg:inset-x-10 ${activeSlide === i ? "is-active" : ""}`} aria-hidden={activeSlide !== i}>
+          <div className="mb-7 inline-flex items-center gap-3 border border-brass/40 bg-onyx/40 px-4 py-2 text-sm text-ivory/90 backdrop-blur-sm"><span className="size-2 rounded-full bg-brass shadow-[0_0_16px_#C79A4B]" />{slide.eyebrow}</div>
+          <p className="mb-5 text-sm font-medium tracking-wide text-brass sm:text-base">AutoSouq <span className="px-1 text-ivory/50">/</span> وسيطك الرقمي الموثوق</p>
+          <h1 className="max-w-3xl text-4xl font-semibold leading-[1.35] text-ivory sm:text-5xl lg:text-7xl">{slide.title}</h1>
+          <p className="mt-7 max-w-xl text-base leading-8 text-ivory/80 sm:text-lg sm:leading-9">{slide.description}</p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg" className="group min-h-14 rounded-sm px-7 text-base shadow-[0_12px_35px_-15px_#C79A4B]">
-              <a href="/service">ابدأ تسجيل سيارتك <ArrowLeft className="transition-transform group-hover:-translate-x-1" /></a>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="min-h-14 rounded-sm border-ivory/35 bg-onyx/20 px-7 text-base text-ivory hover:bg-ivory/10 hover:text-ivory">
-              <a href="#how-it-works">كيف تعمل الخدمة؟ <ArrowUpLeft /></a>
-            </Button>
+            <Button asChild size="lg" className="group min-h-14 rounded-sm px-7 text-base shadow-[0_12px_35px_-15px_#C79A4B]"><a href="/service">ابدأ تسجيل سيارتك <ArrowLeft className="transition-transform group-hover:-translate-x-1" /></a></Button>
+            <Button asChild variant="outline" size="lg" className="min-h-14 rounded-sm border-ivory/35 bg-onyx/20 px-7 text-base text-ivory hover:bg-ivory/10 hover:text-ivory"><a href="#how-it-works">كيف تعمل الخدمة؟ <ArrowUpLeft /></a></Button>
           </div>
-          <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-ivory/20 pt-6 text-sm text-ivory/75">
-            <span className="inline-flex items-center gap-2"><Check className="size-4 text-brass" /> رسوم واضحة</span>
-            <span className="inline-flex items-center gap-2"><Check className="size-4 text-brass" /> متابعة الطلب</span>
-            <span className="inline-flex items-center gap-2"><Check className="size-4 text-brass" /> تجربة رقمية منظمة</span>
-          </div>
+        </div>)}
+      </div>
+      <div className="container-site absolute inset-x-0 bottom-8 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-3 text-xs tracking-[0.18em] text-ivory/65"><span className="font-display-latin text-sm text-brass">{heroSlides[activeSlide].index}</span><span className="h-px w-10 bg-ivory/30"><span className="hero-progress block h-px bg-brass" key={activeSlide} /></span><span className="font-display-latin">03</span></div>
+        <div className="flex items-center gap-2">
+          <button type="button" onClick={() => setActiveSlide((activeSlide + heroSlides.length - 1) % heroSlides.length)} aria-label="الشريحة السابقة" className="hero-control"><ArrowLeft className="size-4" /></button>
+          <button type="button" onClick={() => setActiveSlide((activeSlide + 1) % heroSlides.length)} aria-label="الشريحة التالية" className="hero-control"><ArrowLeft className="size-4 rotate-180" /></button>
+          <div className="mx-2 flex items-center gap-2">{heroSlides.map((slide,i)=><button key={slide.index} type="button" onClick={()=>setActiveSlide(i)} aria-label={`الانتقال إلى الشريحة ${i+1}`} aria-current={activeSlide===i?"true":undefined} className={`hero-dot ${activeSlide===i?"is-active":""}`} />)}</div>
+          <button type="button" onClick={()=>setIsPlaying(!isPlaying)} aria-label={isPlaying?"إيقاف العرض التلقائي":"تشغيل العرض التلقائي"} className="hero-control text-xs">{isPlaying?"Ⅱ":"▶"}</button>
         </div>
       </div>
-      <div className="hero-index absolute bottom-8 left-8 hidden items-center gap-3 text-xs tracking-[0.2em] text-ivory/60 lg:flex"><span className="h-px w-12 bg-brass" />01 / 05</div>
     </section>
 
     <section id="audiences" className="container-site py-24 sm:py-28">
