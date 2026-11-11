@@ -284,3 +284,162 @@ bdi.font-display-latin {
   .hero-photo { background-position: 62% center; }
   .hero-shade { background: linear-gradient(90deg, oklch(0.12 0.01 84 / 88%), oklch(0.12 0.01 84 / 64%)), linear-gradient(0deg, oklch(0.12 0.01 84 / 38%), transparent); }
 }
+
+
+/* Phase 02 — premium visual refinement */
+.hero-shell {
+  min-height: clamp(680px, 78vh, 900px);
+  border-bottom: 1px solid var(--border);
+}
+.hero-photo {
+  background-position: center 54%;
+  filter: saturate(.82) contrast(1.06);
+}
+.hero-shade {
+  background:
+    linear-gradient(90deg, oklch(0.10 0.008 84 / 96%) 0%, oklch(0.10 0.008 84 / 84%) 38%, oklch(0.10 0.008 84 / 38%) 72%, oklch(0.10 0.008 84 / 18%) 100%),
+    linear-gradient(0deg, oklch(0.10 0.008 84 / 72%) 0%, transparent 46%);
+}
+.hero-copy h1 {
+  max-width: 12ch;
+  text-wrap: balance;
+  text-shadow: 0 8px 34px oklch(0 0 0 / 34%);
+}
+.hero-copy > p:not(.mb-5) {
+  max-width: 38rem;
+}
+.hero-copy .inline-flex.rounded-full {
+  border-color: oklch(0.713 0.111 79.4 / 42%);
+  letter-spacing: .01em;
+}
+.hero-index {
+  writing-mode: horizontal-tb;
+  letter-spacing: .22em;
+}
+#audiences .audience-card {
+  min-height: 330px;
+  padding: clamp(1.35rem, 2vw, 2rem);
+  background-image: linear-gradient(145deg, oklch(1 0 0 / 2.8%), transparent 58%);
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 3%);
+}
+#audiences .audience-card::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 1.5rem;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--brass);
+  opacity: .72;
+  transition: width .45s cubic-bezier(.2,.7,.2,1), opacity .45s ease;
+}
+#audiences .audience-card:hover::before {
+  width: calc(100% - 3rem);
+  opacity: 1;
+}
+#audiences .audience-card h3 {
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+#service .service-image {
+  position: relative;
+  isolation: isolate;
+}
+#service .service-image::after {
+  content: "";
+  position: absolute;
+  inset: .75rem -.75rem -.75rem .75rem;
+  z-index: -1;
+  border: 1px solid oklch(0.308 0.044 84.9 / 32%);
+}
+#service .service-image img {
+  display: block;
+  filter: saturate(.78) contrast(1.04);
+}
+#about .benefit-item {
+  position: relative;
+  padding-block: 2rem;
+  transition: padding-inline .35s ease, border-color .35s ease;
+}
+#about .benefit-item:hover {
+  border-color: oklch(0.713 0.111 79.4 / 55%);
+  padding-inline: .65rem;
+}
+#how-it-works .process-step {
+  padding-inline: clamp(.8rem, 1.4vw, 1.25rem);
+}
+#how-it-works .process-step > span:first-child {
+  background: linear-gradient(145deg, oklch(0.713 0.111 79.4 / 12%), transparent);
+  box-shadow: 0 0 0 6px oklch(0.713 0.111 79.4 / 4%);
+  transition: background .35s ease, color .35s ease, transform .35s ease;
+}
+#how-it-works .process-step:hover > span:first-child {
+  background: var(--brass);
+  color: var(--onyx);
+  transform: translateY(-3px);
+}
+.pricing-panel {
+  padding: clamp(2rem, 4vw, 3.25rem);
+  background-image: radial-gradient(circle at 0% 0%, oklch(0.713 0.111 79.4 / 8%), transparent 42%);
+}
+.pricing-panel > div:first-child,
+.pricing-panel > div:nth-child(2) {
+  pointer-events: none;
+}
+.journey-tile {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 26px -24px oklch(0 0 0 / 35%);
+}
+.journey-tile svg {
+  margin-block: 1.5rem;
+}
+#faq button:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 4px;
+}
+.cta-panel {
+  box-shadow: 0 24px 70px -48px oklch(0 0 0 / 72%);
+}
+.cta-panel h2 {
+  text-wrap: balance;
+}
+@media (min-width: 1024px) {
+  .hero-copy {
+    max-width: 52rem;
+  }
+  #audiences .audience-card {
+    min-height: 350px;
+  }
+}
+@media (max-width: 767px) {
+  .hero-shell,
+  .hero-shell > .container-site {
+    min-height: 690px;
+  }
+  .hero-copy h1 {
+    max-width: 11ch;
+    font-size: clamp(2.45rem, 10vw, 3.6rem);
+  }
+  #service .service-image::after {
+    inset: .5rem -.5rem -.5rem .5rem;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    #audiences .audience-card,
+    #about .benefit-item,
+    #how-it-works .process-step,
+    .journey-tile {
+      animation: premium-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 28%;
+    }
+    @keyframes premium-reveal {
+      from { opacity: .35; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+}
