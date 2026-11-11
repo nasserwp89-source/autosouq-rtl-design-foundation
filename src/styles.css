@@ -676,3 +676,29 @@ bdi.font-display-latin {
   .journey-photo-shade { transition: none !important; }
   .journey-photo-card:hover > img { transform: none; }
 }
+
+
+/* Normalize every journey tile to the same landscape image frame */
+.journey-gallery {
+  grid-auto-rows: auto;
+  align-items: stretch;
+}
+.journey-gallery .journey-photo-card {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+  height: auto;
+}
+.journey-gallery .journey-photo-card > img {
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: center;
+}
+@media (max-width: 639px) {
+  .journey-gallery .journey-photo-card {
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+}
