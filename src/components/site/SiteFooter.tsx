@@ -32,7 +32,7 @@ export function SiteFooter() {
             {audiences.map((a) => (
               <li key={a.label} className="flex min-h-11 items-center gap-2">
                 {a.active ? (
-                  <Link to="/service" className={link}>{a.label}</Link>
+                  <a href="/service" className={link}>{a.label}</a>
                 ) : (
                   <>
                     <span className="text-foreground/50">{a.label}</span>
@@ -61,7 +61,7 @@ export function SiteFooter() {
           <p>© <Ltr>2026 AutoSouq</Ltr> — نموذج أولي تجريبي، جميع البيانات للعرض فقط.</p>
           <ul className="flex gap-5">
             {legalNav.map((i) => (
-              <li key={i.to}><Link to={i.to} className={link}>{i.label}</Link></li>
+              <li key={i.to}><a href={i.to === "/" ? "/" : `/#${i.to.slice(1)}`} className={link}>{i.label}</a></li>
             ))}
           </ul>
         </div>
