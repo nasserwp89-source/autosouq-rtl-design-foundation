@@ -1,182 +1,214 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowLeft, Upload } from "lucide-react";
+import { ArrowLeft, ArrowUpLeft, BadgeCheck, Building2, CarFront, Check, ChevronDown, Clock3, FileCheck2, FileText, Handshake, Headset, KeyRound, ShieldCheck, Sparkles, Users, WalletCards } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { PageIntro, Section } from "@/components/site/PageShell";
-import { StatusBadge } from "@/components/site/StatusBadge";
 import { Ltr } from "@/components/site/Ltr";
 
-// Phase 1 only: this route shows the design foundation for review.
-// It will be replaced by the real homepage in the next phase.
+const faqs = [
+  { q: "ما الخدمة التي تقدمها AutoSouq؟", a: "نساعدك في تقديم ومتابعة طلب تسجيل سيارتك الجديدة في ألمانيا من خلال تجربة رقمية منظمة وواضحة." },
+  { q: "هل الخدمة متاحة لتسجيل السيارات الجديدة فقط؟", a: "نعم، الخدمة المتاحة في هذا النموذج هي تسجيل السيارات الجديدة فقط." },
+  { q: "كم تبلغ أتعاب AutoSouq؟", a: "أتعاب المنصة 70 يورو شاملة ضريبة القيمة المضافة." },
+  { q: "هل رسوم دائرة التسجيل مشمولة؟", a: "لا. رسوم دائرة التسجيل الحكومية منفصلة عن أتعاب المنصة، ويتم دفعها مباشرة إلى دائرة التسجيل." },
+  { q: "كيف يمكنني متابعة حالة الطلب؟", a: "يمكنك متابعة حالة طلبك والتحديثات المرتبطة به من خلال حسابك عند إطلاق الخدمة الفعلية." },
+  { q: "متى يمكنني تنزيل المستندات النهائية؟", a: "تتاح المستندات النهائية بعد اكتمال الطلب واعتماده." },
+  { q: "ماذا يحدث إذا كانت هناك مستندات ناقصة؟", a: "ستظهر لك المستندات أو المعلومات المطلوب استكمالها قبل متابعة معالجة الطلب." },
+];
+
+const audiences = [
+  { icon: Users, title: "الأفراد", desc: "أنجز طلب تسجيل سيارتك الجديدة بخطوات رقمية واضحة.", action: "ابدأ تسجيل سيارتك", active: true, number: "01" },
+  { icon: CarFront, title: "تجار السيارات", desc: "باقات وخدمات تساعد التجار على تنظيم طلبات تسجيل السيارات.", action: "اكتشف باقات التجار", number: "02" },
+  { icon: Building2, title: "الشركات الشريكة", desc: "خدمات تسجيل مصممة لتناسب احتياجات الشركات.", action: "تعرّف على خدمات الشركات", number: "03" },
+  { icon: Handshake, title: "المسوقون بالعمولة", desc: "شارك خدمات AutoSouq واستفد من برنامج الإحالة.", action: "اكتشف برنامج المسوقين", number: "04" },
+];
+
+const benefits = [
+  { icon: WalletCards, title: "رسوم واضحة", desc: "تعرف على أتعاب المنصة وما لا تشمله قبل بدء طلبك." },
+  { icon: FileCheck2, title: "خطوات منظمة", desc: "قدّم المعلومات والمستندات ضمن مسار مرتب وسهل المتابعة." },
+  { icon: Clock3, title: "متابعة مستمرة", desc: "اطّلع على حالة الطلب وما إذا كان يتطلب إجراءً منك." },
+  { icon: ShieldCheck, title: "وضوح واطمئنان", desc: "تفاصيل طلبك ورسوم الخدمة ومستنداتك في مكان واحد." },
+];
+
+const steps = [
+  { n: "01", title: "أدخل بياناتك", desc: "أضف بيانات صاحب السيارة ومعلومات التواصل." },
+  { n: "02", title: "أضف بيانات السيارة", desc: "أدخل المعلومات الأساسية الخاصة بسيارتك الجديدة." },
+  { n: "03", title: "أرفق المستندات", desc: "ارفع المستندات المطلوبة لإرسال الطلب." },
+  { n: "04", title: "راجع وادفع", desc: "تأكد من التفاصيل ثم ادفع أتعاب المنصة." },
+  { n: "05", title: "تابع واستلم", desc: "تابع حالة الطلب، ثم نزّل مستنداتك بعد اكتماله واعتماده." },
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AutoSouq — الأساس البصري (المرحلة الأولى)" },
-      { name: "description", content: "مراجعة نظام التصميم والهوية البصرية لمنصة AutoSouq." },
-      { property: "og:title", content: "AutoSouq — الأساس البصري" },
-      { property: "og:description", content: "نظام التصميم والهوية البصرية لمنصة AutoSouq." },
+      { title: "AutoSouq — سجّل سيارتك الجديدة في ألمانيا بثقة" },
+      { name: "description", content: "خدمة رقمية تساعدك على تسجيل سيارتك الجديدة في ألمانيا بخطوات واضحة ومتابعة منظمة." },
+      { property: "og:title", content: "AutoSouq — تسجيل السيارات الجديدة في ألمانيا" },
+      { property: "og:description", content: "تجربة رقمية واضحة ومنظمة لتسجيل سيارتك الجديدة." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: Foundation,
+  component: HomePage,
 });
 
-const swatches = [
-  { name: "Onyx", ar: "أونيكس", hex: "#100F0D", cls: "bg-onyx", note: "أساسي · 60%" },
-  { name: "Ivory", ar: "عاجي", hex: "#EFE9DC", cls: "bg-ivory", note: "أسطح فاتحة · 30%" },
-  { name: "White", ar: "أبيض", hex: "#FFFFFF", cls: "bg-white", note: "أسطح بيضاء" },
-  { name: "Brass", ar: "نحاسي", hex: "#C79A4B", cls: "bg-brass", note: "إبراز · 10%" },
-  { name: "Dark Bronze", ar: "برونزي داكن", hex: "#3A2E14", cls: "bg-bronze", note: "داكن مساند" },
-  { name: "Tobacco", ar: "تبغي", hex: "#8A6E36", cls: "bg-tobacco", note: "لون إضافي" },
-];
-
-function Block({ n, title, children }: { n: string; title: string; children: React.ReactNode }) {
-  return (
-    <div className="grid gap-6 border-t py-12 first:border-t-0 lg:grid-cols-[220px_1fr]">
-      <div>
-        <p className="eyebrow mb-2"><Ltr>{n}</Ltr></p>
-        <h2 className="text-2xl font-semibold">{title}</h2>
-      </div>
-      <div className="min-w-0">{children}</div>
-    </div>
-  );
+function SectionHeading({ eyebrow, title, text, light = false }: { eyebrow: string; title: string; text?: string; light?: boolean }) {
+  return <div className={`max-w-2xl ${light ? "text-onyx" : ""}`}>
+    <p className="eyebrow mb-4"><Ltr>{eyebrow}</Ltr></p>
+    <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">{title}</h2>
+    {text && <p className={`mt-5 max-w-xl text-base leading-8 sm:text-lg ${light ? "text-onyx/70" : "text-muted-foreground"}`}>{text}</p>}
+  </div>;
 }
 
-function Foundation() {
-  return (
-    <>
-      <PageIntro
-        eyebrow="Phase 01 · Design Foundation"
-        title={<>الأساس البصري لمنصة <Ltr className="font-display-latin">AutoSouq</Ltr></>}
-        lead="هذه صفحة مراجعة مؤقتة تعرض نظام التصميم: الألوان، الخطوط، والمكونات الأساسية. ستُستبدل بالصفحة الرئيسية في المرحلة التالية."
-      />
-
-      <Section>
-        <Block n="01" title="الألوان">
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-            {swatches.map((s) => (
-              <div key={s.hex} className="overflow-hidden rounded-lg border">
-                <div className={`h-24 ${s.cls}`} />
-                <div className="space-y-0.5 p-3 text-sm">
-                   <p className="font-semibold">{s.ar} <Ltr className="text-muted-foreground">· {s.name}</Ltr></p>
-                   <p className="text-sm text-muted-foreground"><Ltr>{s.hex}</Ltr></p>
-                   <p className="text-sm text-muted-foreground">{s.note}</p>
-                </div>
-              </div>
-            ))}
+function HomePage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  return <main className="overflow-hidden">
+    <section className="hero-shell relative isolate min-h-[680px] overflow-hidden sm:min-h-[740px] lg:min-h-[790px]">
+      <div className="hero-photo absolute inset-0 -z-20" />
+      <div className="hero-shade absolute inset-0 -z-10" />
+      <div className="container-site flex min-h-[680px] items-center py-20 sm:min-h-[740px] lg:min-h-[790px]">
+        <div className="hero-copy max-w-3xl">
+          <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-ivory/20 bg-onyx/35 px-4 py-2 text-sm text-ivory/90 backdrop-blur-sm">
+            <span className="size-2 rounded-full bg-brass shadow-[0_0_16px_#C79A4B]" />
+            خدمة تسجيل السيارات الجديدة في ألمانيا
           </div>
-          <p className="mt-5 text-sm text-muted-foreground">
-            قواعد: لا نحاسي على خلفية فاتحة، لا عاجي على نحاسي، لا أسود على أسود. على الأسطح الفاتحة يتحول الزر الأساسي تلقائياً إلى أونيكس.
-          </p>
-        </Block>
-
-        <Block n="02" title="الخطوط">
-          <div className="grid gap-4 md:grid-cols-3">
-            <Card><CardContent className="space-y-2 p-6">
-               <p className="eyebrow ltr-value" lang="en">Arabic · El Messiri</p>
-              <p className="text-4xl font-bold">المسيري</p>
-              <p className="text-sm text-muted-foreground">جميع النصوص العربية · 400 / 600 / 700</p>
-            </CardContent></Card>
-            <Card><CardContent className="space-y-2 p-6">
-               <p className="eyebrow ltr-value" lang="en">Display · Fraunces</p>
-              <p className="font-display-latin text-4xl font-semibold" dir="ltr">AutoSouq</p>
-              <p className="text-sm text-muted-foreground">العناوين اللاتينية</p>
-            </CardContent></Card>
-            <Card><CardContent className="space-y-2 p-6">
-               <p className="eyebrow ltr-value" lang="en">Text · Hanken Grotesk</p>
-               <p className="ltr-value block text-2xl" lang="de">Wir übernehmen die Zulassung</p>
-              <p className="text-sm text-muted-foreground">النصوص الألمانية والإنجليزية</p>
-            </CardContent></Card>
+          <p className="mb-5 text-sm font-medium tracking-wide text-brass sm:text-base">AutoSouq · وسيطك الرقمي الموثوق</p>
+          <h1 className="max-w-3xl text-4xl font-semibold leading-[1.35] text-ivory sm:text-5xl lg:text-7xl">سجّل سيارتك الجديدة <span className="text-brass">في ألمانيا</span> بثقة</h1>
+          <p className="mt-7 max-w-xl text-base leading-8 text-ivory/80 sm:text-lg sm:leading-9">خدمة رقمية تساعدك على إنجاز إجراءات تسجيل سيارتك الجديدة بسهولة ووضوح، مع متابعة طلبك خطوة بخطوة.</p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <Button asChild size="lg" className="group min-h-14 rounded-sm px-7 text-base shadow-[0_12px_35px_-15px_#C79A4B]">
+              <a href="/service">ابدأ تسجيل سيارتك <ArrowLeft className="transition-transform group-hover:-translate-x-1" /></a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="min-h-14 rounded-sm border-ivory/35 bg-onyx/20 px-7 text-base text-ivory hover:bg-ivory/10 hover:text-ivory">
+              <a href="#how-it-works">كيف تعمل الخدمة؟ <ArrowUpLeft /></a>
+            </Button>
           </div>
-          <div className="mt-8 space-y-3">
-             <p className="text-3xl font-bold sm:text-4xl lg:text-5xl">سجّل سيارتك الجديدة في ألمانيا بثقة</p>
-            <p className="text-2xl font-semibold">عنوان فرعي — المستوى الثاني</p>
-            <p className="max-w-2xl text-muted-foreground">
-              نص فقرة: نتولى إدارة طلب التسجيل ومتابعته، بهدوء ووضوح في السعر والوقت. القيم اللاتينية تبقى بترتيبها الصحيح: <Ltr>DE89 3704 0044 0532 0130 00</Ltr> · <Ltr>WVWZZZ1JZXW000001</Ltr>.
-            </p>
+          <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-ivory/20 pt-6 text-sm text-ivory/75">
+            <span className="inline-flex items-center gap-2"><Check className="size-4 text-brass" /> رسوم واضحة</span>
+            <span className="inline-flex items-center gap-2"><Check className="size-4 text-brass" /> متابعة الطلب</span>
+            <span className="inline-flex items-center gap-2"><Check className="size-4 text-brass" /> تجربة رقمية منظمة</span>
           </div>
-        </Block>
+        </div>
+      </div>
+      <div className="hero-index absolute bottom-8 left-8 hidden items-center gap-3 text-xs tracking-[0.2em] text-ivory/60 lg:flex"><span className="h-px w-12 bg-brass" />01 / 05</div>
+    </section>
 
-        <Block n="03" title="الأزرار">
-          <div className="flex flex-wrap items-center gap-3">
-            <Button size="lg">ابدأ تسجيل سيارتك <ArrowLeft /></Button>
-            <Button variant="outline" size="lg">كيف تعمل الخدمة؟</Button>
-            <Button variant="ghost">تسجيل الدخول</Button>
-            <Button variant="link">رابط نصي</Button>
-            <Button disabled>غير متاح في هذا النموذج</Button>
-          </div>
-        </Block>
-
-        <Block n="04" title="حالات الطلب">
-          <div className="flex flex-wrap gap-3">
-            <StatusBadge status="paid" />
-            <StatusBadge status="docs" />
-            <StatusBadge status="progress" />
-            <StatusBadge status="done" />
-          </div>
-        </Block>
-      </Section>
-
-      <Section tone="light">
-        <Block n="05" title="البطاقات والنماذج على السطح الفاتح">
-          <div className="grid gap-6 md:grid-cols-2">
-            <Card>
-              <CardHeader>
-                <CardTitle>بيانات صاحب السيارة</CardTitle>
-                <CardDescription>مثال لأسلوب الحقول — بيانات تجريبية.</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="n">الاسم الكامل</Label>
-                  <Input id="n" placeholder="مثال: أحمد محمد" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="e">البريد الإلكتروني</Label>
-                  <Input id="e" type="email" dir="ltr" className="ltr-value text-start" placeholder="name@example.com" />
-                </div>
-                <div className="space-y-2">
-                   <Label htmlFor="i"><Ltr>IBAN</Ltr></Label>
-                   <Input id="i" dir="ltr" className="ltr-value text-start" placeholder="DE00 0000 0000 0000 0000 00" />
-                 </div>
-                 <div className="space-y-2">
-                   <Label htmlFor="phone">رقم الهاتف</Label>
-                   <Input id="phone" type="tel" dir="ltr" className="ltr-value text-start" placeholder="+49 000 000 000" />
-                 </div>
-                 <div className="space-y-2">
-                   <Label htmlFor="vin">رقم الهيكل <Ltr>VIN</Ltr></Label>
-                   <Input id="vin" dir="ltr" className="ltr-value text-start" placeholder="WVWZZZ1JZXW000001" />
-                </div>
-                <Button className="w-full">متابعة</Button>
-              </CardContent>
-            </Card>
-
-            <div className="space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle>أتعاب المنصة</CardTitle>
-                  <CardDescription>مثال لبطاقة تفصيل السعر.</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3 text-sm">
-                   <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3"><span className="min-w-0">أتعاب المنصة (شامل <Ltr>VAT</Ltr>)</span><Ltr className="shrink-0 font-semibold">€70</Ltr></div>
-                   <div className="grid grid-cols-2 items-start gap-3 text-muted-foreground"><span className="min-w-0">رسوم دائرة التسجيل</span><span className="min-w-0 text-end">غير مشمولة · تُدفع للدائرة</span></div>
-                </CardContent>
-              </Card>
-              <Card className="border-dashed">
-                <CardContent className="flex items-center gap-4 p-6">
-                  <span className="grid size-11 shrink-0 place-items-center rounded-lg bg-muted"><Upload className="size-5" /></span>
-                  <div className="min-w-0">
-                    <p className="font-semibold">رفع مستند</p>
-                    <p className="text-sm text-muted-foreground">مستند تجريبي — يحتاج اعتماد المالك</p>
-                  </div>
-                </CardContent>
-              </Card>
+    <section id="audiences" className="container-site py-24 sm:py-28">
+      <div className="mb-12 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+        <SectionHeading eyebrow="WHO WE SERVE" title="كيف يمكننا خدمتك؟" text="سواء كنت فرداً أو تعمل في قطاع السيارات، اكتشف كيف يمكن لـ AutoSouq أن تخدم احتياجاتك." />
+        <p className="max-w-xs text-sm leading-7 text-muted-foreground">تتوفر حالياً خدمة تسجيل السيارات الجديدة للأفراد. بقية الخدمات معروضة للتعريف بالمنصة.</p>
+      </div>
+      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+        {audiences.map((item) => {
+          const Icon = item.icon;
+          return <article key={item.number} className={`audience-card group relative flex min-h-[300px] flex-col overflow-hidden border p-6 transition-all duration-500 hover:-translate-y-2 hover:border-brass/50 ${item.active ? "border-brass/50 bg-brass text-onyx" : "border-border bg-card"}`}>
+            <div className="flex items-start justify-between"><span className={`text-xs tracking-[0.2em] ${item.active ? "text-onyx/60" : "text-muted-foreground"}`}>{item.number}</span><Icon className={`size-7 ${item.active ? "text-onyx" : "text-brass"}`} strokeWidth={1.5} /></div>
+            <div className="mt-auto">
+              <h3 className="text-2xl font-semibold">{item.title}</h3>
+              <p className={`mt-3 min-h-[72px] text-sm leading-7 ${item.active ? "text-onyx/75" : "text-muted-foreground"}`}>{item.desc}</p>
+              <a href={item.active ? "/service" : "#audiences"} className={`mt-5 inline-flex items-center gap-2 text-sm font-semibold transition-all group-hover:gap-3 ${item.active ? "text-onyx" : "text-brass"}`}>{item.action}<ArrowLeft className="size-4" /></a>
+              {!item.active && <span className="mt-3 block text-xs text-muted-foreground/70">خدمة تعريفية — الإطلاق لاحقاً</span>}
             </div>
+          </article>;
+        })}
+      </div>
+    </section>
+
+    <section id="service" className="surface-light">
+      <div className="container-site grid items-center gap-14 py-24 lg:grid-cols-[1fr_0.9fr] lg:py-32">
+        <div className="relative">
+          <div className="service-image overflow-hidden"><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1400&q=85" alt="سيارة حديثة بتصميم أنيق" loading="lazy" className="aspect-[5/4] w-full object-cover transition-transform duration-700 hover:scale-[1.035]" /></div>
+          <div className="absolute -bottom-6 -left-4 max-w-[230px] border border-onyx/10 bg-white p-5 shadow-xl sm:-left-8"><p className="text-xs text-onyx/60">خدمة AutoSouq</p><p className="mt-1 text-xl font-semibold text-onyx">من البداية حتى الاكتمال</p></div>
+        </div>
+        <div className="lg:pr-5">
+          <SectionHeading light eyebrow="THE SERVICE" title="تسجيل سيارتك الجديدة أصبح أسهل" text="نرتب لك تجربة تقديم طلب التسجيل رقمياً، من إدخال البيانات وإرفاق المستندات إلى متابعة حالة الطلب واستلام المستندات النهائية بعد اكتماله واعتماده." />
+          <div className="mt-9 space-y-4">
+            {["تقديم بياناتك وبيانات السيارة ضمن خطوات واضحة","إرفاق المستندات ومراجعة تفاصيل الطلب","متابعة حالة الطلب ومعرفة ما يتطلب إجراءً منك"].map((t) => <div key={t} className="flex items-start gap-3 text-sm leading-7 text-onyx/80"><span className="mt-1 grid size-6 shrink-0 place-items-center rounded-full bg-onyx text-ivory"><Check className="size-3.5" /></span>{t}</div>)}
           </div>
-        </Block>
-      </Section>
-    </>
-  );
+          <a href="/service" className="mt-9 inline-flex items-center gap-3 border-b border-onyx pb-2 text-sm font-semibold text-onyx transition-all hover:gap-5">اكتشف الخدمة <ArrowLeft className="size-4" /></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" className="container-site py-24 sm:py-28">
+      <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <SectionHeading eyebrow="WHY AUTOSOUQ" title="لماذا تختار AutoSouq؟" text="نؤمن أن الخدمة الجيدة تبدأ بالوضوح؛ أن تعرف ما الذي تحتاجه، وما الذي تدفعه، وأين وصل طلبك." />
+        <div className="grid gap-x-8 sm:grid-cols-2">
+          {benefits.map((b, i) => {
+            const Icon = b.icon;
+            return <div key={b.title} className="benefit-item border-t border-border py-7">
+              <div className="mb-5 flex items-center justify-between"><Icon className="size-7 text-brass" strokeWidth={1.4} /><span className="text-xs tracking-widest text-muted-foreground">0{i + 1}</span></div>
+              <h3 className="text-xl font-semibold">{b.title}</h3><p className="mt-2 text-sm leading-7 text-muted-foreground">{b.desc}</p>
+            </div>;
+          })}
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" className="border-y border-border bg-card/50 py-24 sm:py-28">
+      <div className="container-site">
+        <div className="mb-16 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <SectionHeading eyebrow="HOW IT WORKS" title="كيف تعمل الخدمة؟" text="خمس خطوات واضحة تساعدك على فهم رحلة تسجيل سيارتك من تقديم الطلب حتى استلام المستندات." />
+          <span className="hidden text-7xl font-light text-brass/20 lg:block">05</span>
+        </div>
+        <div className="grid gap-0 md:grid-cols-5">
+          {steps.map((s, i) => <div key={s.n} className="process-step relative border-t border-border py-7 md:border-s md:px-5 md:py-5">
+            <span className="mb-8 inline-flex size-11 items-center justify-center rounded-full border border-brass/50 font-display-latin text-sm text-brass">{s.n}</span>
+            <h3 className="text-lg font-semibold">{s.title}</h3><p className="mt-3 text-sm leading-7 text-muted-foreground">{s.desc}</p>
+            {i < steps.length - 1 && <span className="absolute -left-1.5 top-[-4px] hidden size-2.5 rounded-full bg-brass md:block" />}
+          </div>)}
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" className="container-site py-24 sm:py-28">
+      <div className="grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:items-center">
+        <SectionHeading eyebrow="CLEAR PRICING" title="سعر واضح من البداية" text="نعرض أتعاب المنصة بشكل منفصل عن الرسوم الحكومية، حتى تعرف بالضبط ما تدفعه مقابل خدمة AutoSouq." />
+        <div className="pricing-panel relative overflow-hidden border border-brass/40 bg-card p-8 sm:p-10">
+          <div className="absolute -left-16 -top-16 size-56 rounded-full border border-brass/10" /><div className="absolute -left-8 -top-8 size-40 rounded-full border border-brass/10" />
+          <p className="relative text-sm text-muted-foreground">أتعاب خدمة AutoSouq</p>
+          <div className="relative mt-3 flex items-end gap-3"><span className="font-display-latin text-7xl font-medium tracking-tight text-brass sm:text-8xl">70€</span><span className="mb-3 text-sm text-muted-foreground">شامل ضريبة القيمة المضافة</span></div>
+          <div className="relative my-8 h-px bg-border" />
+          <div className="relative flex items-start gap-3"><BadgeCheck className="mt-1 size-5 shrink-0 text-brass" /><div><p className="font-semibold">رسوم دائرة التسجيل الحكومية</p><p className="mt-1 text-sm leading-7 text-muted-foreground">غير مشمولة في أتعاب المنصة، ويتم دفعها مباشرة إلى دائرة التسجيل.</p></div></div>
+          <a href="/pricing" className="relative mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brass hover:gap-4">تفاصيل الأسعار <ArrowLeft className="size-4" /></a>
+        </div>
+      </div>
+    </section>
+
+    <section className="surface-light">
+      <div className="container-site py-24 sm:py-28">
+        <div className="mb-14 max-w-2xl"><SectionHeading light eyebrow="YOUR REGISTRATION JOURNEY" title="كل ما تحتاجه في خطوات واضحة" text="رحلة منظمة تساعدك على معرفة المطلوب منك في كل مرحلة." /></div>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          {[{icon:Users,t:"بيانات صاحب السيارة"},{icon:CarFront,t:"بيانات السيارة"},{icon:FileText,t:"المستندات"},{icon:Check,t:"مراجعة الطلب"},{icon:WalletCards,t:"الدفع"}].map((s,i)=>{const Icon=s.icon;return <div key={s.t} className="journey-tile group border border-onyx/10 bg-white/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white"><span className="font-display-latin text-xs text-onyx/45">0{i+1}</span><Icon className="my-9 size-7 text-tobacco transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5}/><h3 className="text-lg font-semibold text-onyx">{s.t}</h3></div>})}
+        </div>
+      </div>
+    </section>
+
+    <section className="container-site grid gap-12 py-24 sm:py-28 lg:grid-cols-[0.8fr_1.2fr]">
+      <div><SectionHeading eyebrow="TRUST & CLARITY" title="خدمة واضحة. متابعة أسهل. تجربة أكثر اطمئناناً." text="نضع وضوح المعلومات في قلب التجربة، لتكون تفاصيل الخدمة والرسوم وحالة الطلب مفهومة في كل مرحلة." /></div>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div className="border border-border p-7"><ShieldCheck className="size-8 text-brass"/><h3 className="mt-6 text-xl font-semibold">شفافية في التفاصيل</h3><p className="mt-2 text-sm leading-7 text-muted-foreground">تمييز واضح بين أتعاب المنصة والرسوم الحكومية.</p></div>
+        <div className="border border-border p-7"><Headset className="size-8 text-brass"/><h3 className="mt-6 text-xl font-semibold">رؤية أوضح للطلب</h3><p className="mt-2 text-sm leading-7 text-muted-foreground">معرفة حالة الطلب والإجراء المطلوب عند الحاجة.</p></div>
+      </div>
+    </section>
+
+    <section id="faq" className="border-y border-border bg-card/40 py-24 sm:py-28">
+      <div className="container-site grid gap-12 lg:grid-cols-[0.75fr_1.25fr]">
+        <SectionHeading eyebrow="FREQUENTLY ASKED QUESTIONS" title="الأسئلة الشائعة" text="إجابات مختصرة تساعدك على فهم الخدمة قبل البدء." />
+        <div className="border-t border-border">
+          {faqs.map((f,i)=><div key={f.q} className="border-b border-border">
+            <button type="button" aria-expanded={openFaq===i} onClick={()=>setOpenFaq(openFaq===i?null:i)} className="flex min-h-[76px] w-full items-center justify-between gap-5 py-5 text-start text-base font-semibold transition-colors hover:text-brass sm:text-lg"><span>{f.q}</span><ChevronDown className={`size-5 shrink-0 text-brass transition-transform duration-300 ${openFaq===i?"rotate-180":""}`}/></button>
+            <div className={`faq-answer grid transition-all duration-300 ${openFaq===i?"grid-rows-[1fr] pb-6 opacity-100":"grid-rows-[0fr] opacity-0"}`}><div className="overflow-hidden"><p className="max-w-2xl text-sm leading-8 text-muted-foreground">{f.a}</p></div></div>
+          </div>)}
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" className="container-site py-20 sm:py-24">
+      <div className="cta-panel relative overflow-hidden bg-brass px-7 py-14 text-center text-onyx sm:px-12 sm:py-20">
+        <div className="pointer-events-none absolute -left-24 -top-28 size-80 rounded-full border border-onyx/10"/><div className="pointer-events-none absolute -left-10 -top-14 size-52 rounded-full border border-onyx/10"/>
+        <Sparkles className="relative mx-auto mb-5 size-7"/>
+        <h2 className="relative text-3xl font-semibold sm:text-4xl lg:text-5xl">جاهز لتسجيل سيارتك الجديدة؟</h2>
+        <p className="relative mx-auto mt-5 max-w-xl text-sm leading-8 text-onyx/75 sm:text-base">ابدأ طلبك مع AutoSouq واستمتع بتجربة رقمية واضحة ومنظمة.</p>
+        <Button asChild size="lg" className="relative mt-8 min-h-14 rounded-sm bg-onyx px-8 text-ivory hover:bg-onyx/90"><a href="/service">ابدأ تسجيل سيارتك <ArrowLeft className="ms-2"/></a></Button>
+      </div>
+    </section>
+  </main>;
 }
