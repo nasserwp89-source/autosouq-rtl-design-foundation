@@ -935,3 +935,58 @@ bdi.font-display-latin {
   .audience-service-card,
   .audience-service-card * { transition: none !important; transform: none !important; }
 }
+
+
+/* Reference-style bottom-to-top color fill for audience cards */
+.audience-service-card.is-standard {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: transparent;
+}
+.audience-service-card.is-standard::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset-inline: 0;
+  bottom: 0;
+  height: 0;
+  background: var(--brass);
+  transition: height .62s cubic-bezier(.22,.61,.36,1);
+}
+.audience-service-card.is-standard:hover,
+.audience-service-card.is-standard:focus-within {
+  background: transparent;
+}
+.audience-service-card.is-standard:hover::before,
+.audience-service-card.is-standard:focus-within::before {
+  height: 100%;
+}
+.audience-service-card.is-standard .audience-icon,
+.audience-service-card.is-standard .audience-card-title,
+.audience-service-card.is-standard .audience-card-description,
+.audience-service-card.is-standard .audience-card-action,
+.audience-service-card.is-standard .audience-card-number {
+  transition:
+    color .38s ease .14s,
+    transform .55s cubic-bezier(.22,.61,.36,1);
+}
+.audience-service-card.is-standard:hover .audience-icon,
+.audience-service-card.is-standard:hover .audience-card-title,
+.audience-service-card.is-standard:hover .audience-card-description,
+.audience-service-card.is-standard:hover .audience-card-action,
+.audience-service-card.is-standard:hover .audience-card-number,
+.audience-service-card.is-standard:focus-within .audience-icon,
+.audience-service-card.is-standard:focus-within .audience-card-title,
+.audience-service-card.is-standard:focus-within .audience-card-description,
+.audience-service-card.is-standard:focus-within .audience-card-action,
+.audience-service-card.is-standard:focus-within .audience-card-number {
+  color: var(--onyx);
+}
+.audience-service-card.is-standard:hover .audience-icon,
+.audience-service-card.is-standard:focus-within .audience-icon {
+  transform: translateY(-5px) scale(1.07);
+}
+@media (prefers-reduced-motion: reduce) {
+  .audience-service-card.is-standard::before { transition: none !important; }
+}
