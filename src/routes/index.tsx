@@ -219,8 +219,8 @@ function HomePage() {
       </div>
     </section>
 
-    <section id="contact" className="container-site py-20 sm:py-24">
-      <div className="cta-panel relative overflow-hidden bg-brass px-7 py-14 text-center text-onyx sm:px-12 sm:py-20">
+    <section id="contact" className="w-full py-20 sm:py-24">
+      <div className="cta-panel relative min-h-[360px] w-full overflow-hidden bg-brass px-7 py-16 text-center text-onyx sm:min-h-[420px] sm:px-12 sm:py-24">
         <div className="pointer-events-none absolute -left-24 -top-28 size-80 rounded-full border border-onyx/10"/><div className="pointer-events-none absolute -left-10 -top-14 size-52 rounded-full border border-onyx/10"/>
         <Sparkles className="relative mx-auto mb-5 size-7"/>
         <h2 className="relative text-3xl font-semibold sm:text-4xl lg:text-5xl">جاهز لتسجيل سيارتك الجديدة؟</h2>
