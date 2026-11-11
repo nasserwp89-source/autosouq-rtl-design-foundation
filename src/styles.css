@@ -862,3 +862,76 @@ bdi.font-display-latin {
     transform: none !important;
   }
 }
+
+
+/* Audience cards: featured center card + coordinated reference-style hover */
+.audience-service-card {
+  border-color: var(--border);
+  background: var(--card);
+  color: var(--foreground);
+  box-shadow: 0 0 0 transparent;
+  transition:
+    background-color .55s cubic-bezier(.22,.61,.36,1),
+    border-color .55s cubic-bezier(.22,.61,.36,1),
+    color .55s cubic-bezier(.22,.61,.36,1),
+    transform .55s cubic-bezier(.22,.61,.36,1),
+    box-shadow .55s cubic-bezier(.22,.61,.36,1);
+}
+.audience-service-card.is-standard .audience-icon,
+.audience-service-card.is-standard .audience-card-action { color: var(--brass); }
+.audience-service-card.is-standard .audience-card-number,
+.audience-service-card.is-standard .audience-card-description { color: var(--muted-foreground); }
+.audience-service-card.is-featured {
+  border-color: var(--brass);
+  background: var(--brass);
+  color: var(--onyx);
+  box-shadow: 0 12px 32px oklch(0 0 0 / 14%);
+}
+.audience-service-card.is-featured .audience-icon,
+.audience-service-card.is-featured .audience-card-title,
+.audience-service-card.is-featured .audience-card-description,
+.audience-service-card.is-featured .audience-card-action,
+.audience-service-card.is-featured .audience-card-number { color: var(--onyx); }
+.audience-service-card:hover,
+.audience-service-card:focus-within {
+  transform: translateY(-8px);
+  border-color: var(--brass);
+  background: var(--brass);
+  color: var(--onyx);
+  box-shadow: 0 20px 42px oklch(0 0 0 / 22%);
+}
+.audience-service-card:hover .audience-icon,
+.audience-service-card:hover .audience-card-title,
+.audience-service-card:hover .audience-card-description,
+.audience-service-card:hover .audience-card-action,
+.audience-service-card:hover .audience-card-number,
+.audience-service-card:focus-within .audience-icon,
+.audience-service-card:focus-within .audience-card-title,
+.audience-service-card:focus-within .audience-card-description,
+.audience-service-card:focus-within .audience-card-action,
+.audience-service-card:focus-within .audience-card-number { color: var(--onyx); }
+.audience-service-card:hover .audience-icon,
+.audience-service-card:focus-within .audience-icon {
+  transform: translateY(-5px) scale(1.07);
+}
+.audience-service-card .audience-icon,
+.audience-service-card .audience-card-title,
+.audience-service-card .audience-card-description,
+.audience-service-card .audience-card-action,
+.audience-service-card .audience-card-number {
+  transition:
+    color .55s cubic-bezier(.22,.61,.36,1),
+    transform .65s cubic-bezier(.22,.61,.36,1),
+    opacity .55s cubic-bezier(.22,.61,.36,1);
+}
+.audience-service-card .audience-card-action svg {
+  transition: transform .55s cubic-bezier(.22,.61,.36,1);
+}
+.audience-service-card:hover .audience-card-action svg,
+.audience-service-card:focus-within .audience-card-action svg {
+  transform: translateX(-5px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .audience-service-card,
+  .audience-service-card * { transition: none !important; transform: none !important; }
+}
