@@ -58,7 +58,7 @@ export const Route = createFileRoute("/")({
 
 function SectionHeading({ eyebrow, title, text, light = false }: { eyebrow: string; title: string; text?: string; light?: boolean }) {
   return <div className={`max-w-2xl ${light ? "text-onyx" : ""}`}>
-    <p className="eyebrow mb-4"><Ltr>{eyebrow}</Ltr></p>
+    <p className="eyebrow mb-4">{eyebrow}</p>
     <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">{title}</h2>
     {text && <p className={`mt-5 max-w-xl text-base leading-8 sm:text-lg ${light ? "text-onyx/70" : "text-muted-foreground"}`}>{text}</p>}
   </div>;
@@ -105,7 +105,7 @@ function HomePage() {
     <section id="audiences" className="container-site py-24 sm:py-28">
       <div className="mb-14 text-center">
         <div className="mx-auto max-w-3xl">
-          <SectionHeading eyebrow="WHO WE SERVE" title="كيف يمكننا خدمتك؟" text="حلول تسجيل مرنة للأفراد والجهات العاملة في قطاع السيارات." />
+          <SectionHeading eyebrow="لمن نقدم خدماتنا" title="كيف يمكننا خدمتك؟" text="حلول تسجيل مرنة للأفراد والجهات العاملة في قطاع السيارات." />
         </div>
       </div>
       <div className="audience-grid grid gap-7 md:grid-cols-3">
@@ -134,7 +134,7 @@ function HomePage() {
           <div className="absolute -bottom-6 -left-4 max-w-[230px] border border-onyx/10 bg-white p-5 shadow-xl sm:-left-8"><p className="text-xs text-onyx/60">خدمة AutoSouq</p><p className="mt-1 text-xl font-semibold text-onyx">من البداية حتى الاكتمال</p></div>
         </div>
         <div className="lg:pr-5">
-          <SectionHeading light eyebrow="THE SERVICE" title="تسجيل سيارتك الجديدة أصبح أسهل" text="نرتب لك تجربة تقديم طلب التسجيل رقمياً، من إدخال البيانات وإرفاق المستندات إلى متابعة حالة الطلب واستلام المستندات النهائية بعد اكتماله واعتماده." />
+          <SectionHeading light eyebrow="خدمتنا" title="تسجيل سيارتك الجديدة أصبح أسهل" text="نرتب لك تجربة تقديم طلب التسجيل رقمياً، من إدخال البيانات وإرفاق المستندات إلى متابعة حالة الطلب واستلام المستندات النهائية بعد اكتماله واعتماده." />
           <div className="mt-9 space-y-4">
             {["تقديم بياناتك وبيانات السيارة ضمن خطوات واضحة","إرفاق المستندات ومراجعة تفاصيل الطلب","متابعة حالة الطلب ومعرفة ما يتطلب إجراءً منك"].map((t) => <div key={t} className="flex items-start gap-3 text-sm leading-7 text-onyx/80"><span className="mt-1 grid size-6 shrink-0 place-items-center rounded-full bg-onyx text-ivory"><Check className="size-3.5" /></span>{t}</div>)}
           </div>
@@ -148,7 +148,7 @@ function HomePage() {
       <div className="absolute inset-0 -z-10 bg-onyx/85" />
       <div className="container-site">
         <div className="mx-auto mb-16 max-w-3xl text-center sm:mb-20">
-          <p className="eyebrow mb-4"><Ltr>WHY AUTOSOUQ</Ltr></p>
+          <p className="eyebrow mb-4">لماذا تختارنا</p>
           <h2 className="text-3xl font-semibold leading-tight text-ivory sm:text-4xl lg:text-5xl">لماذا تختار AutoSouq؟</h2>
         </div>
         <div className="grid grid-cols-1 gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-14 lg:gap-y-14">
@@ -175,7 +175,7 @@ function HomePage() {
       <div className="w-full py-24 sm:py-28">
         <div className="container-site mb-14 flex justify-center text-center">
           <div className="mx-auto text-center">
-            <SectionHeading light eyebrow="YOUR REGISTRATION JOURNEY" title="رحلة تسجيل سيارتك، خطوة بخطوة" />
+            <SectionHeading light eyebrow="رحلة تسجيلك" title="رحلة تسجيل سيارتك، خطوة بخطوة" />
           </div>
         </div>
         <div className="journey-gallery grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -185,7 +185,7 @@ function HomePage() {
             {n:"03",t:"المستندات",d:"أرفق المستندات المطلوبة لإرسال الطلب.",img:"https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1000&q=85"},
             {n:"04",t:"مراجعة الطلب",d:"راجع بياناتك وتأكد من التفاصيل قبل المتابعة.",img:"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=85"},
             {n:"05",t:"الدفع والمتابعة",d:"ادفع أتعاب المنصة وتابع حالة طلبك.",img:"https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=1000&q=85"},
-            {n:"06",t:"استلام المستندات",d:"نزّل المستندات النهائية بعد اكتمال الطلب واعتماده.",img:"https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1000&q=85"}
+            {n:"06",t:"استلام المستندات",d:"نزّل المستندات النهائية بعد اكتمال الطلب واعتماده.",img:"https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1000&q=85"}
           ].map((item) => <article key={item.n} className="journey-photo-card group relative isolate overflow-hidden bg-onyx">
             <img src={item.img} alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover" />
             <div className="journey-photo-shade absolute inset-0 -z-10" />
