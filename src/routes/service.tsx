@@ -55,10 +55,10 @@ function ServicesPage() {
       <div className="service-hero-shade absolute inset-0 -z-10" />
       <div className="container-site py-16 sm:py-20 lg:py-24">
         <div className="ml-auto w-full max-w-[650px] text-right">
-          <p className="eyebrow mb-5 text-brass">خدمات AutoSouq</p>
-          <h1 className="ml-auto max-w-[12ch] text-4xl font-semibold leading-[1.25] text-ivory sm:text-5xl lg:text-[3.75rem]">حلول تسجيل<br /><span className="text-brass">السيارات الشاملة</span></h1>
-          <p className="mt-6 ml-auto max-w-2xl text-base leading-8 text-ivory/80 sm:text-lg sm:leading-9">خدمات موثوقة ومتكاملة للأفراد وتجار السيارات والشركات، لتسجيل وإدارة السيارات في ألمانيا بسهولة واحترافية.</p>
-          <div className="mt-9 flex flex-wrap justify-start gap-3">
+          <p className="eyebrow mb-5 text-right text-brass">خدمات AutoSouq</p>
+          <h1 className="ml-auto w-full max-w-[12ch] text-right text-4xl font-semibold leading-[1.25] text-ivory sm:text-5xl lg:text-[3.75rem]">حلول تسجيل<br /><span className="text-brass">السيارات الشاملة</span></h1>
+          <p className="mt-6 ml-auto max-w-2xl text-right text-base leading-8 text-ivory/80 sm:text-lg sm:leading-9">خدمات موثوقة ومتكاملة للأفراد وتجار السيارات والشركات، لتسجيل وإدارة السيارات في ألمانيا بسهولة واحترافية.</p>
+          <div className="mt-9 flex flex-wrap justify-end gap-3">
             <Button asChild size="lg" className="min-h-12 rounded-sm px-6"><a href="#individuals">استكشف الخدمات <ArrowLeft className="size-4" /></a></Button>
             <Button asChild size="lg" variant="outline" className="min-h-12 rounded-sm border-ivory/35 bg-onyx/20 px-6 text-ivory hover:bg-ivory/10 hover:text-ivory"><a href="/contact">تواصل معنا</a></Button>
           </div>
