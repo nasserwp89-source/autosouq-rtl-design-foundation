@@ -23,7 +23,7 @@ const faqs = [
 const audiences = [
   { icon: Users, title: "الأفراد", desc: "أنجز طلب تسجيل سيارتك الجديدة بخطوات رقمية واضحة.", action: "ابدأ تسجيل سيارتك", active: true, number: "01" },
   { icon: CarFront, title: "تجار السيارات", desc: "باقات وخدمات تساعد التجار على تنظيم طلبات تسجيل السيارات.", action: "اكتشف باقات التجار", number: "02" },
-  { icon: Building2, title: "الشركات الشريكة", desc: "خدمات تسجيل مصممة لتناسب احتياجات الشركات.", action: "تعرّف على خدمات الشركات", number: "03" },
+  { icon: Building2, title: "الشركات", desc: "خدمات تسجيل مصممة لتناسب احتياجات الشركات.", action: "تعرّف على خدمات الشركات", number: "03" },
 ];
 
 const benefits = [
