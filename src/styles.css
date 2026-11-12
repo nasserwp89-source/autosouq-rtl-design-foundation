@@ -1790,3 +1790,112 @@ bdi.font-display-latin {
 .service-contact-copy ul li {
   font-weight: 600 !important;
 }
+
+
+/* Process section — circular gold milestones, dotted path and angled cream panel. */
+#service-process.service-process-section {
+  position: relative;
+  margin-top: -1px;
+  padding-block: clamp(4.25rem, 6vw, 5.5rem);
+  background: var(--ivory) !important;
+  background-image: linear-gradient(115deg, #f4ecdf 0%, #eee3d2 52%, #f5eddf 100%) !important;
+  clip-path: polygon(0 2.5%, 100% 0, 100% 97.5%, 0 100%);
+}
+#service-process .service-process-heading {
+  margin-bottom: clamp(2.25rem, 4vw, 3.25rem);
+}
+#service-process .service-process-heading .eyebrow {
+  color: var(--tobacco) !important;
+  font-weight: 600;
+}
+#service-process .service-process-heading h2 {
+  color: var(--onyx) !important;
+  font-weight: 800 !important;
+}
+#service-process .service-process-heading > p:last-child {
+  color: oklch(0.38 0.018 78) !important;
+  font-weight: 500;
+}
+#service-process .service-process-track {
+  max-width: 1040px;
+  margin-inline: auto;
+  align-items: start;
+}
+#service-process .service-process-track::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 37px;
+  left: 13%;
+  right: 13%;
+  border-top: 1px dashed oklch(0.713 0.111 79.4 / 68%);
+}
+#service-process .service-process-step {
+  min-width: 0;
+}
+#service-process .service-process-icon {
+  width: 76px;
+  height: 76px;
+  margin-bottom: 1.1rem;
+  background: var(--brass);
+  border: 0;
+  border-radius: 9999px;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+#service-process .service-process-step:hover .service-process-icon {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px oklch(0.35 0.06 78 / 22%);
+}
+#service-process .service-process-icon svg {
+  color: var(--onyx) !important;
+}
+#service-process .service-process-number {
+  width: 28px;
+  height: 28px;
+  bottom: -7px;
+  background: var(--brass);
+  border: 2px solid var(--ivory);
+  border-radius: 9999px;
+  color: var(--onyx);
+  font-size: 11px;
+  font-weight: 700;
+}
+#service-process .service-process-step h3 {
+  color: var(--onyx) !important;
+  font-size: 1.12rem;
+  font-weight: 800 !important;
+}
+#service-process .service-process-step p {
+  margin-top: .45rem;
+  color: oklch(0.36 0.018 78) !important;
+  font-size: .875rem;
+  font-weight: 500;
+  line-height: 1.9;
+}
+#service-process .service-process-step:not(:last-child)::after {
+  content: "➜";
+  position: absolute;
+  top: 25px;
+  left: -7%;
+  color: var(--tobacco);
+  font-size: 14px;
+  line-height: 1;
+}
+@media (max-width: 767px) {
+  #service-process.service-process-section {
+    clip-path: polygon(0 1%, 100% 0, 100% 99%, 0 100%);
+    padding-block: 3.75rem;
+  }
+  #service-process .service-process-track {
+    gap: 2.75rem;
+  }
+  #service-process .service-process-track::before,
+  #service-process .service-process-step::after {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #service-process .service-process-icon {
+    transition: none !important;
+  }
+}
