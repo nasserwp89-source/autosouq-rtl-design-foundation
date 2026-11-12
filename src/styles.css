@@ -1468,3 +1468,9 @@ bdi.font-display-latin {
 .service-hero .container-site > div > div {
   justify-content: flex-start;
 }
+
+
+/* Keep the clipped diagonal reveal consistent with the cream section below. */
+.service-page {
+  background: var(--ivory);
+}
