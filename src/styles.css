@@ -1450,3 +1450,21 @@ bdi.font-display-latin {
   border-color: var(--brass);
   color: var(--onyx);
 }
+
+
+/* RTL hero copy: anchor every text line to the right edge of its content column. */
+.service-hero .container-site > div {
+  direction: rtl;
+  text-align: right;
+}
+.service-hero h1 {
+  margin-inline-start: 0;
+  margin-inline-end: auto;
+  text-align: right;
+}
+.service-hero p {
+  text-align: right;
+}
+.service-hero .container-site > div > div {
+  justify-content: flex-start;
+}
