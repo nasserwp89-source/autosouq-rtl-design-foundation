@@ -78,7 +78,7 @@ function ServicesPage() {
           const featured = item.id === "dealers";
           return <article key={item.id} className={`audience-service-card group relative flex min-h-[330px] flex-col items-center border px-7 py-9 text-center ${featured ? "is-featured" : "is-standard"}`}>
             <span className="audience-card-number absolute right-6 top-5 text-xs tracking-[0.2em]">{item.number}</span>
-            <div className="audience-icon-wrap mb-6 grid size-[76px] place-items-center">
+            <div className="audience-icon-wrap mb-8 grid size-[76px] place-items-center">
               <Icon className="audience-icon size-14" strokeWidth={1.35} />
             </div>
             <h3 className="audience-card-title text-2xl font-semibold">{item.title}</h3>
