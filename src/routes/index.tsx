@@ -145,24 +145,24 @@ function HomePage() {
 
     <section id="about" className="relative isolate w-full overflow-hidden py-24 sm:py-28">
       <div className="absolute inset-0 -z-20 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=2400&q=85')" }} />
-      <div className="absolute inset-0 -z-10 bg-onyx/90" />
+      <div className="absolute inset-0 -z-10 bg-onyx/85" />
       <div className="container-site">
         <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
           <p className="eyebrow mb-4"><Ltr>WHY AUTOSOUQ</Ltr></p>
           <h2 className="text-3xl font-semibold leading-tight text-ivory sm:text-4xl lg:text-5xl">لماذا تختار AutoSouq؟</h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-ivory/75 sm:text-lg">نؤمن أن الخدمة الجيدة تبدأ بالوضوح؛ أن تعرف ما الذي تحتاجه، وما الذي تدفعه، وأين وصل طلبك.</p>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-ivory/80 sm:text-lg">نؤمن أن الخدمة الجيدة تبدأ بالوضوح؛ أن تعرف ما الذي تحتاجه، وما الذي تدفعه، وأين وصل طلبك.</p>
         </div>
-        <div className="grid gap-x-9 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
           {benefits.map((b, i) => {
             const Icon = b.icon;
-            return <article key={b.title} className="group flex min-h-40 items-start gap-5 border-t border-brass/35 pt-7 transition-colors duration-500 hover:border-brass">
-              <span className="grid size-16 shrink-0 place-items-center rounded-full border border-brass/60 bg-brass/10 text-brass transition-all duration-500 group-hover:bg-brass group-hover:text-onyx">
-                <Icon className="size-7" strokeWidth={1.5} />
+            return <article key={b.title} className="group flex min-h-36 items-center gap-5 py-3 transition-transform duration-700 ease-out hover:-translate-y-1">
+              <span className="grid size-20 shrink-0 place-items-center rounded-full bg-brass text-onyx shadow-lg shadow-black/20 transition-all duration-700 ease-out group-hover:scale-105 group-hover:rotate-3 group-hover:bg-ivory">
+                <Icon className="size-9" strokeWidth={1.6} />
               </span>
               <div className="min-w-0 flex-1">
-                <div className="mb-3 flex items-center justify-between gap-3">
+                <div className="mb-2 flex items-center gap-3">
                   <h3 className="text-lg font-semibold leading-8 text-ivory sm:text-xl">{b.title}</h3>
-                  <span className="font-display-latin text-xs tracking-widest text-brass/80">0{i + 1}</span>
+                  <span className="font-display-latin text-xs tracking-widest text-brass/90">0{i + 1}</span>
                 </div>
                 <p className="text-sm leading-7 text-ivory/85">{b.desc}</p>
               </div>
