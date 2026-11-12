@@ -40,21 +40,27 @@ function ServicesPage() {
     </section>
 
     <section className="container-site py-16 sm:py-20">
-      <div className="mb-10 flex flex-col gap-4 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
-        <div className="max-w-2xl">
-          <p className="eyebrow mb-3">لمن نقدم خدماتنا</p>
-          <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">خدمات تناسب احتياجك</h2>
-        </div>
-        <p className="max-w-md text-sm leading-7 text-muted-foreground">حلول تسجيل واضحة ومناسبة للأفراد وتجار السيارات والشركات، ضمن تجربة رقمية منظمة.</p>
+      <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
+        <p className="eyebrow mb-4">لمن نقدم خدماتنا</p>
+        <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">خدمات تناسب احتياجك</h2>
+        <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">حلول تسجيل واضحة ومناسبة للأفراد وتجار السيارات والشركات، ضمن تجربة رقمية منظمة.</p>
       </div>
-      <div className="grid gap-5 lg:grid-cols-3">
-        {audiences.map((item) => <a key={item.id} href={`#${item.id}`} className="group relative flex min-h-[330px] flex-col items-center justify-center border border-border bg-card/45 px-7 py-12 text-center transition-all duration-500 hover:-translate-y-1 hover:border-brass/70 hover:bg-card sm:min-h-[360px] sm:px-9">
-          <span className="absolute right-7 top-6 font-display-latin text-sm tracking-[.18em] text-brass">{item.number}</span>
-          <item.icon className="mb-7 size-12 text-brass transition-transform duration-500 group-hover:scale-110" strokeWidth={1.35} />
-          <h3 className="text-2xl font-semibold">{item.title}</h3>
-          <p className="mt-4 max-w-xs text-sm leading-7 text-muted-foreground">{item.subtitle}</p>
-          <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-brass">عرض التفاصيل <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-1" /></span>
-        </a>)}
+      <div className="audience-grid grid gap-7 md:grid-cols-3">
+        {audiences.map((item) => {
+          const Icon = item.icon;
+          const featured = item.id === "dealers";
+          return <article key={item.id} className={`audience-service-card group relative flex min-h-[330px] flex-col items-center border px-7 py-9 text-center ${featured ? "is-featured" : "is-standard"}`}>
+            <span className="audience-card-number absolute right-6 top-5 text-xs tracking-[0.2em]">{item.number}</span>
+            <div className="audience-icon-wrap mb-6 grid size-[76px] place-items-center">
+              <Icon className="audience-icon size-14" strokeWidth={1.35} />
+            </div>
+            <h3 className="audience-card-title text-2xl font-semibold">{item.title}</h3>
+            <p className="audience-card-description mt-4 max-w-xs text-sm leading-7">{item.subtitle}</p>
+            <a href={`#${item.id}`} className="audience-card-action mt-auto inline-flex items-center gap-2 pt-7 text-sm font-semibold">
+              عرض التفاصيل <ArrowLeft className="size-4" />
+            </a>
+          </article>;
+        })}
       </div>
     </section>
 
