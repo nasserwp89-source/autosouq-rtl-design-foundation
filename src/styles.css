@@ -1474,3 +1474,34 @@ bdi.font-display-latin {
 .service-page {
   background: var(--ivory);
 }
+
+
+/* Audience cards keep their original surface colors on hover. */
+.audience-service-card.is-standard:hover,
+.audience-service-card.is-standard:focus-within {
+  background: var(--card);
+  border-color: var(--border);
+  color: var(--foreground);
+}
+.audience-service-card.is-standard:hover .audience-icon,
+.audience-service-card.is-standard:focus-within .audience-icon,
+.audience-service-card.is-standard:hover .audience-card-action,
+.audience-service-card.is-standard:focus-within .audience-card-action {
+  color: var(--brass);
+}
+.audience-service-card.is-standard:hover .audience-card-title,
+.audience-service-card.is-standard:focus-within .audience-card-title {
+  color: var(--foreground);
+}
+.audience-service-card.is-standard:hover .audience-card-description,
+.audience-service-card.is-standard:focus-within .audience-card-description,
+.audience-service-card.is-standard:hover .audience-card-number,
+.audience-service-card.is-standard:focus-within .audience-card-number {
+  color: var(--muted-foreground);
+}
+.audience-service-card.is-featured:hover,
+.audience-service-card.is-featured:focus-within {
+  background: var(--brass);
+  border-color: var(--brass);
+  color: var(--onyx);
+}
