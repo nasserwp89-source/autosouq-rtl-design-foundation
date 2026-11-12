@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowLeft, BadgeCheck, Building2, CarFront, Check, Clock3, FileCheck2, Headset, ShieldCheck, Users, WalletCards, Workflow } from "lucide-react";
+import { ArrowLeft, Building2, CarFront, Headset, Users, WalletCards, Workflow } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Ltr } from "@/components/site/Ltr";
 
 export const Route = createFileRoute("/service")({
   head: () => ({
@@ -56,45 +55,14 @@ function ServicesPage() {
             </div>
             <h3 className="audience-card-title text-2xl font-semibold">{item.title}</h3>
             <p className="audience-card-description mt-4 max-w-xs text-sm leading-7">{item.subtitle}</p>
-            <a href={`#${item.id}`} className="audience-card-action mt-auto inline-flex items-center gap-2 pt-7 text-sm font-semibold">
-              عرض التفاصيل <ArrowLeft className="size-4" />
+            <a href={item.href} className="audience-card-action mt-auto inline-flex items-center gap-2 pt-7 text-sm font-semibold">
+              {item.action} <ArrowLeft className="size-4" />
             </a>
           </article>;
         })}
       </div>
     </section>
 
-    <section className="surface-light">
-      <div className="container-site py-16 sm:py-20">
-        <div className="mb-10 max-w-2xl">
-          <p className="eyebrow mb-3">تفاصيل الخدمات</p>
-          <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">ما الذي نقدمه لكل فئة؟</h2>
-          <p className="mt-4 leading-8 text-onyx/70">استعرض تفاصيل كل مسار، وما الذي يمكنك إنجازه من خلاله.</p>
-        </div>
-        <div className="space-y-6">
-          {audiences.map((item, index) => <article id={item.id} key={item.id} className="scroll-mt-28 grid overflow-hidden border border-onyx/10 bg-white shadow-[0_18px_50px_-42px_rgba(0,0,0,.35)] lg:grid-cols-[.8fr_1.2fr]">
-            <div className={`relative flex min-h-64 flex-col justify-between p-7 sm:p-9 ${index === 1 ? "bg-onyx text-ivory" : "bg-[#e7dece] text-onyx"}`}>
-              <div className="flex items-center justify-between"><span className="font-display-latin text-sm tracking-[.2em] opacity-60">{item.number} / 03</span><item.icon className="size-10 text-tobacco" strokeWidth={1.35} /></div>
-              <div><span className="text-xs font-semibold tracking-wide text-tobacco">{item.tag}</span><h3 className="mt-2 text-3xl font-semibold">{item.title}</h3><p className="mt-3 max-w-md text-sm leading-7 opacity-75">{item.subtitle}</p></div>
-              {item.active && <span className="mt-6 inline-flex w-fit items-center gap-2 border border-tobacco/40 px-3 py-2 text-xs"><span className="size-1.5 rounded-full bg-tobacco" /> المسار الأساسي في النموذج الحالي</span>}
-            </div>
-            <div className="flex flex-col p-7 sm:p-9">
-              <p className="max-w-2xl leading-8 text-onyx/75">{item.description}</p>
-              <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                {item.features.map((feature) => <div key={feature} className="flex items-start gap-3 text-sm leading-7 text-onyx/80"><span className="mt-1 grid size-5 shrink-0 place-items-center rounded-full bg-onyx text-ivory"><Check className="size-3" /></span>{feature}</div>)}
-              </div>
-              <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-onyx/10 pt-6">
-                <div className="text-sm text-onyx/60">{index === 0 ? <>أتعاب المنصة: <strong className="text-xl text-onyx"><Ltr>€70</Ltr></strong> <span className="text-xs">شاملة ضريبة القيمة المضافة</span></> : index === 1 ? <>باقات شهرية وسنوية للتجار</> : <>رسوم الخدمة: <strong className="text-xl text-onyx"><Ltr>€55</Ltr></strong> لكل تسجيل، شاملة ضريبة القيمة المضافة</>}</div>
-                <Button asChild className="rounded-sm"><a href={item.href}>{item.action}<ArrowLeft className="size-4" /></a></Button>
-              </div>
-              {index === 0 && <p className="mt-3 text-xs leading-6 text-onyx/55">رسوم دائرة التسجيل الحكومية غير مشمولة، وتُدفع مباشرة إلى دائرة التسجيل.</p>}
-              {index === 1 && <p className="mt-3 text-xs leading-6 text-onyx/55">تختلف الأسعار ومزايا الخصم بحسب الباقة المختارة. راجع صفحة الأسعار للتفاصيل.</p>}
-              {index === 2 && <p className="mt-3 text-xs leading-6 text-onyx/55">رسوم الخدمة لكل تسجيل، ولا تشمل أي رسوم حكومية منفصلة إن وجدت.</p>}
-            </div>
-          </article>)}
-        </div>
-      </div>
-    </section>
 
     <section className="container-site py-16 sm:py-20">
       <div className="grid gap-5 md:grid-cols-3">
