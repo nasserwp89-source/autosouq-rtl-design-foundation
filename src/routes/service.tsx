@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowLeft, Building2, CarFront, Headset, Users, WalletCards, Workflow } from "lucide-react";
+import { useState } from "react";
+import { ArrowLeft, Building2, CarFront, CheckCircle2, ClipboardList, FileSearch, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 export const Route = createFileRoute("/service")({
   head: () => ({
@@ -21,7 +24,14 @@ const audiences = [
   { id: "companies", number: "03", title: "الشركات", subtitle: "خدمة تسجيل تناسب احتياجات الشركات", description: "مسار مخصص للشركات التي ترغب في الاستفادة من خدمة تسجيل السيارات الجديدة من خلال حساب شركة واحد ورسوم خدمة واضحة لكل تسجيل.", icon: Building2, tag: "خدمات الشركات", features: ["حساب شركة واحد", "رسوم خدمة محددة لكل عملية تسجيل", "فصل رسوم الخدمة عن أي رسوم حكومية", "متابعة الطلبات المرتبطة بالشركة"], action: "تواصل معنا", href: "/contact", active: false },
 ];
 
+const processSteps = [
+  { number: "01", icon: ClipboardList, title: "قدّم طلبك", description: "أدخل بياناتك وبيانات سيارتك الجديدة ضمن خطوات واضحة." },
+  { number: "02", icon: FileSearch, title: "أرفق المستندات", description: "أرسل المستندات المطلوبة وراجع تفاصيل الطلب قبل الدفع." },
+  { number: "03", icon: CheckCircle2, title: "تابع واستلم", description: "تابع حالة طلبك، واستلم المستندات النهائية بعد اكتماله واعتماده." },
+];
+
 function ServicesPage() {
+  const [submitted, setSubmitted] = useState(false);
   return <main className="overflow-hidden">
     <section className="relative isolate border-b border-border">
       <div className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_78%_18%,oklch(0.308_0.044_84.9_/_42%),transparent_48%),linear-gradient(135deg,oklch(0.19_0.008_84),var(--onyx)_68%)]" />
@@ -64,13 +74,87 @@ function ServicesPage() {
     </section>
 
 
-    <section className="container-site py-16 sm:py-20">
-      <div className="grid gap-5 md:grid-cols-3">
-        {[
-          { icon: WalletCards, title: "رسوم مفهومة", text: "نعرض أتعاب الخدمة بشكل منفصل عن الرسوم الحكومية." },
-          { icon: Workflow, title: "خطوات منظمة", text: "مسار واضح يساعدك على معرفة الخطوة التالية." },
-          { icon: Headset, title: "متابعة الطلب", text: "تعرف على حالة الطلب وما قد يتطلب استكمالاً." },
-        ].map((item) => <div key={item.title} className="flex gap-4 border-t border-brass/50 py-6"><item.icon className="mt-1 size-7 shrink-0 text-brass" strokeWidth={1.5} /><div><h3 className="text-lg font-semibold">{item.title}</h3><p className="mt-2 text-sm leading-7 text-muted-foreground">{item.text}</p></div></div>)}
+    <section id="request" className="service-contact-section relative isolate overflow-hidden">
+      <div className="grid lg:min-h-[620px] lg:grid-cols-2">
+        <div className="service-contact-visual relative flex min-h-[390px] flex-col justify-between p-8 sm:p-12 lg:min-h-full lg:p-16">
+          <div className="absolute inset-0 -z-20 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85')" }} />
+          <div className="absolute inset-0 -z-10 bg-onyx/75" />
+          <div>
+            <p className="eyebrow mb-5 text-brass">ابدأ مع AutoSouq</p>
+            <h2 className="max-w-lg text-3xl font-semibold leading-tight text-ivory sm:text-4xl lg:text-5xl">خطوتك الأولى نحو تسجيل أسهل</h2>
+            <p className="mt-6 max-w-lg text-base leading-8 text-ivory/80">هل لديك استفسار حول تسجيل سيارتك الجديدة في ألمانيا؟ أرسل لنا تفاصيلك وسنساعدك على معرفة الخطوة المناسبة.</p>
+          </div>
+          <div className="mt-12 border-t border-ivory/25 pt-6">
+            <p className="text-sm leading-7 text-ivory/75">نموذج تواصل تجريبي ضمن النموذج الأولي. لن يتم إرسال البيانات إلى خادم أو حفظها خارج هذه الصفحة.</p>
+          </div>
+        </div>
+        <div className="surface-light flex items-center px-6 py-12 sm:px-12 lg:px-16">
+          <div className="mx-auto w-full max-w-xl">
+            <p className="eyebrow mb-3">تواصل معنا</p>
+            <h3 className="text-2xl font-semibold text-onyx sm:text-3xl">كيف يمكننا مساعدتك؟</h3>
+            <p className="mt-3 text-sm leading-7 text-onyx/65">اترك بياناتك ورسالتك، وسنكون سعداء بالتعرّف على احتياجك.</p>
+            {submitted ? <div role="status" className="mt-8 border border-onyx/15 bg-white p-6 text-onyx">
+              <CheckCircle2 className="mb-3 size-8 text-tobacco" />
+              <p className="font-semibold">تم إرسال النموذج التجريبي بنجاح.</p>
+              <p className="mt-2 text-sm leading-7 text-onyx/65">هذه محاكاة للعرض فقط؛ لم يتم إرسال بياناتك فعلياً.</p>
+              <Button type="button" variant="outline" className="mt-5 border-onyx/20 text-onyx" onClick={() => setSubmitted(false)}>إرسال استفسار آخر</Button>
+            </div> : <form className="mt-8 space-y-4" onSubmit={(event) => { event.preventDefault(); setSubmitted(true); }}>
+              <div>
+                <label htmlFor="service-name" className="mb-2 block text-sm font-medium text-onyx">الاسم الكامل</label>
+                <Input id="service-name" name="name" required placeholder="أدخل اسمك" className="h-12 rounded-none border-onyx/15 bg-white text-onyx placeholder:text-onyx/40" />
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="service-phone" className="mb-2 block text-sm font-medium text-onyx">رقم الهاتف</label>
+                  <Input id="service-phone" name="phone" type="tel" required placeholder="+49" className="h-12 rounded-none border-onyx/15 bg-white text-onyx placeholder:text-onyx/40" />
+                </div>
+                <div>
+                  <label htmlFor="service-email" className="mb-2 block text-sm font-medium text-onyx">البريد الإلكتروني</label>
+                  <Input id="service-email" name="email" type="email" required placeholder="name@example.com" className="h-12 rounded-none border-onyx/15 bg-white text-onyx placeholder:text-onyx/40" />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="service-type" className="mb-2 block text-sm font-medium text-onyx">أنا أمثل</label>
+                <select id="service-type" name="service" defaultValue="" required className="h-12 w-full rounded-none border border-onyx/15 bg-white px-3 text-sm text-onyx focus:outline-none focus:ring-2 focus:ring-tobacco/40">
+                  <option value="" disabled>اختر الفئة</option>
+                  <option value="individual">فرد</option>
+                  <option value="dealer">تاجر سيارات</option>
+                  <option value="company">شركة</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="service-message" className="mb-2 block text-sm font-medium text-onyx">رسالتك</label>
+                <Textarea id="service-message" name="message" required placeholder="اكتب استفسارك هنا..." className="min-h-28 rounded-none border-onyx/15 bg-white text-onyx placeholder:text-onyx/40" />
+              </div>
+              <Button type="submit" size="lg" className="mt-2 min-h-12 w-full rounded-none sm:w-auto">إرسال الاستفسار <ArrowLeft className="size-4" /></Button>
+            </form>}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="service-process" className="service-process-section relative isolate overflow-hidden py-20 sm:py-24">
+      <div className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_50%_0%,oklch(0.308_0.044_84.9_/_32%),transparent_65%)]" />
+      <div className="container-site">
+        <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
+          <p className="eyebrow mb-4">رحلتك مع AutoSouq</p>
+          <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">كيف نعمل؟</h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">ثلاث مراحل واضحة ترافقك من تقديم الطلب حتى اكتماله.</p>
+        </div>
+        <div className="grid gap-10 md:grid-cols-3 md:gap-8">
+          {processSteps.map((step, index) => {
+            const Icon = step.icon;
+            return <article key={step.number} className="service-process-step group relative flex flex-col items-center px-5 text-center">
+              <div className="relative mb-8 grid size-28 place-items-center border border-brass/60 bg-brass/5 transition-all duration-500 group-hover:-translate-y-2 group-hover:bg-brass">
+                <span className="absolute -top-5 grid size-10 place-items-center rounded-full bg-brass font-display-latin text-sm font-semibold text-onyx">{step.number}</span>
+                <Icon className="size-12 text-brass transition-colors duration-500 group-hover:text-onyx" strokeWidth={1.35} />
+              </div>
+              <h3 className="text-xl font-semibold text-ivory">{step.title}</h3>
+              <p className="mt-4 max-w-xs text-sm leading-7 text-muted-foreground">{step.description}</p>
+              {index < processSteps.length - 1 && <span aria-hidden="true" className="service-process-connector hidden md:block" />}
+            </article>;
+          })}
+        </div>
       </div>
     </section>
 
