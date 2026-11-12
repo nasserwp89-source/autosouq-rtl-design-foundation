@@ -207,7 +207,7 @@ function HomePage() {
           <div className="relative">
             <p className="eyebrow mb-3">برنامج الشراكة</p>
             <h2 className="text-2xl font-semibold leading-tight text-ivory sm:text-3xl">حوّل توصياتك إلى أرباح مع AutoSouq</h2>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-ivory/80">شارك خدمات AutoSouq مع جمهورك واحصل على عمولة مقابل كل طلب تسجيل مكتمل من خلال رابط الإحالة الخاص بك.</p>
+            <p className="mt-4 max-w-2xl text-base leading-8 text-ivory/80">شارك خدمات AutoSouq مع جمهورك واحصل على عمولة مقابل كل طلب تسجيل مكتمل من خلال رابط الإحالة الخاص بك. تُحتسب العمولة بعد اكتمال طلب التسجيل المحال بنجاح.</p>
           </div>
           <div className="flex flex-col items-start gap-4 lg:items-end">
             <div className="flex items-baseline gap-2"><span className="font-display-latin text-5xl text-brass">€15</span><span className="text-sm text-ivory/70">عن كل طلب إحالة مكتمل</span></div>
