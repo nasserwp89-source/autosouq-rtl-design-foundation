@@ -1337,3 +1337,46 @@ bdi.font-display-latin {
   .service-contact-form,
   .service-contact-field { transition: none !important; }
 }
+
+
+/* Services hero now shares the homepage's first-slide image and visual treatment. */
+.service-hero {
+  position: relative;
+  min-height: 470px;
+  border: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+}
+.service-hero > .hero-shade {
+  background:
+    linear-gradient(90deg, oklch(0.10 0.008 84 / 96%) 0%, oklch(0.10 0.008 84 / 84%) 38%, oklch(0.10 0.008 84 / 38%) 72%, oklch(0.10 0.008 84 / 18%) 100%),
+    linear-gradient(0deg, oklch(0.10 0.008 84 / 72%) 0%, transparent 46%);
+}
+.service-hero::before {
+  top: 42px;
+  left: -8px;
+  width: 138px;
+  height: 5px;
+  transform: rotate(-38deg);
+  transform-origin: left center;
+  background: var(--brass);
+  box-shadow: 0 0 20px oklch(0.713 0.111 79.4 / 35%);
+}
+.service-hero h1 {
+  max-width: 12ch;
+  margin-inline-start: auto;
+  text-wrap: balance;
+  text-shadow: 0 8px 34px oklch(0 0 0 / 34%);
+}
+.service-hero p:not(.eyebrow) {
+  text-shadow: 0 3px 18px oklch(0 0 0 / 42%);
+}
+@media (max-width: 767px) {
+  .service-hero {
+    min-height: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+  }
+  .service-hero > .hero-shade {
+    background: linear-gradient(90deg, oklch(0.10 0.008 84 / 88%), oklch(0.10 0.008 84 / 64%)),
+      linear-gradient(0deg, oklch(0.10 0.008 84 / 72%), transparent 55%);
+  }
+}
