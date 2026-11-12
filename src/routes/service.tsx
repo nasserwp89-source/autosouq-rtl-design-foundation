@@ -152,25 +152,23 @@ function ServicesPage() {
       </div>
     </section>
 
-    <section id="service-process" className="service-process-section surface-light relative isolate overflow-hidden py-20 sm:py-24">
-      <div className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_50%_0%,oklch(0.308_0.044_84.9_/_32%),transparent_65%)]" />
+    <section id="service-process" className="service-process-section surface-light relative isolate overflow-hidden">
       <div className="container-site">
-        <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
-          <p className="eyebrow mb-4">رحلتك مع AutoSouq</p>
-          <h2 className="text-3xl font-semibold leading-tight text-onyx sm:text-4xl lg:text-5xl">خطوات بسيطة وواضحة</h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-onyx/65 sm:text-lg">ثلاث خطوات فقط لإتمام طلب تسجيل سيارتك.</p>
+        <div className="service-process-heading mx-auto max-w-3xl text-center">
+          <p className="eyebrow mb-3">كيف نعمل؟</p>
+          <h2 className="text-3xl font-bold leading-tight text-onyx sm:text-4xl lg:text-5xl">خطوات بسيطة وواضحة</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-base leading-8 text-onyx/70">ثلاث خطوات فقط لإتمام طلب تسجيل سيارتك.</p>
         </div>
-        <div className="grid gap-10 md:grid-cols-3 md:gap-8">
-          {processSteps.map((step, index) => {
+        <div className="service-process-track relative grid gap-9 md:grid-cols-3 md:gap-8">
+          {processSteps.map((step) => {
             const Icon = step.icon;
-            return <article key={step.number} className="service-process-step group relative flex flex-col items-center px-5 text-center">
-              <div className="relative mb-8 grid size-28 place-items-center border border-brass/60 bg-brass/5 transition-all duration-500 group-hover:-translate-y-2 group-hover:bg-brass">
-                <span className="absolute -top-5 grid size-10 place-items-center rounded-full bg-brass font-display-latin text-sm font-semibold text-onyx">{step.number}</span>
-                <Icon className="size-12 text-brass transition-colors duration-500 group-hover:text-onyx" strokeWidth={1.35} />
+            return <article key={step.number} className="service-process-step relative z-10 flex flex-col items-center text-center">
+              <div className="service-process-icon relative mb-5 grid size-[76px] place-items-center rounded-full bg-brass shadow-[0_5px_14px_rgba(145,102,30,.16)]">
+                <Icon className="size-8 text-onyx" strokeWidth={1.8} />
+                <span className="service-process-number absolute -bottom-2 grid size-7 place-items-center rounded-full border-2 border-[var(--ivory)] bg-brass font-display-latin text-[11px] font-bold text-onyx">{step.number}</span>
               </div>
-              <h3 className="text-xl font-semibold text-onyx">{step.title}</h3>
-              <p className="mt-4 max-w-xs text-sm leading-7 text-onyx/65">{step.description}</p>
-              {index < processSteps.length - 1 && <span aria-hidden="true" className="service-process-connector hidden md:block" />}
+              <h3 className="text-lg font-bold text-onyx">{step.title}</h3>
+              <p className="mt-2.5 max-w-[250px] text-sm font-medium leading-7 text-onyx/75">{step.description}</p>
             </article>;
           })}
         </div>
