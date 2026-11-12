@@ -47,8 +47,8 @@ function ServicesPage() {
   return <main className="overflow-hidden">
     <section className="service-hero relative isolate overflow-hidden border-b border-border">
       <img
-        className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_54%]"
-        src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90"
+        className="absolute inset-0 -z-20 h-full w-full object-cover object-[left_center]"
+        src="/images/service-hero-porsche.webp"
         alt=""
         aria-hidden="true"
       />
