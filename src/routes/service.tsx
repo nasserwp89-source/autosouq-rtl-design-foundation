@@ -45,7 +45,8 @@ function ServicesPage() {
   const [submitted, setSubmitted] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   return <main className="overflow-hidden">
-    <section className="service-hero relative isolate overflow-hidden border-b border-border">
+    <div className="relative bg-[#f4efe6]">
+    <section className="service-hero relative isolate border-b border-border">
       <img
         className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_54%]"
         src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90"
@@ -90,7 +91,7 @@ function ServicesPage() {
         })}
       </div>
     </section>
-
+    </div>
 
     <section id="request" className="service-contact-section relative isolate overflow-hidden">
       <div className="service-contact-backdrop absolute inset-0 -z-20 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2200&q=90')" }} />
