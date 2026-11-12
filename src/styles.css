@@ -1016,7 +1016,7 @@ bdi.font-display-latin {
 
 /* Keep the complete hero composition, including carousel controls, within common desktop viewports. */
 .hero-shell {
-  min-height: min(790px, max(560px, calc(100svh - 80px)));
+  min-height: min(790px, max(620px, calc(100svh - 80px)));
 }
 @media (max-width: 767px) {
   .hero-shell,
