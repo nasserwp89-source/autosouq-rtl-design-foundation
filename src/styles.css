@@ -1206,3 +1206,134 @@ bdi.font-display-latin {
 #service-process .service-process-step > div:first-child svg {
   color: var(--tobacco) !important;
 }
+
+
+/* Services page: diagonal section rhythm and automotive contact composition. */
+.service-hero {
+  min-height: 470px;
+  border-bottom: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+}
+.service-hero::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 118px;
+  height: 5px;
+  background: var(--brass);
+  transform: rotate(-38deg);
+  transform-origin: left center;
+  box-shadow: 0 0 18px oklch(0.713 0.111 79.4 / 35%);
+}
+.service-audience-section {
+  position: relative;
+  margin-top: -1px;
+  padding-top: 5.5rem;
+  padding-bottom: 5.5rem;
+  clip-path: polygon(0 2.5%, 100% 0, 100% 97%, 0 100%);
+}
+.service-contact-section {
+  min-height: 660px;
+  margin-top: -1px;
+  background: var(--onyx);
+  clip-path: polygon(0 2.5%, 100% 0, 100% 97%, 0 100%);
+}
+.service-contact-backdrop {
+  filter: saturate(.68) brightness(.58);
+  background-position: center 55%;
+}
+.service-contact-shade {
+  background:
+    linear-gradient(90deg, oklch(0.08 0.008 82 / 88%) 0%, oklch(0.08 0.008 82 / 72%) 52%, oklch(0.08 0.008 82 / 82%) 100%),
+    radial-gradient(ellipse at 78% 48%, oklch(0.713 0.111 79.4 / 13%), transparent 48%);
+}
+.service-contact-section::before,
+.service-contact-section::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: 170px;
+  height: 4px;
+  background: var(--brass);
+  opacity: .75;
+  pointer-events: none;
+}
+.service-contact-section::before {
+  top: 54px;
+  left: -35px;
+  transform: rotate(-38deg);
+}
+.service-contact-section::after {
+  right: -45px;
+  bottom: 55px;
+  transform: rotate(-38deg);
+}
+.service-contact-form {
+  background: oklch(0.105 0.008 84 / 88%);
+  backdrop-filter: blur(12px);
+  border-radius: 5px;
+}
+.service-contact-field {
+  background: oklch(0.17 0.009 82 / 92%) !important;
+  border-color: oklch(0.713 0.111 79.4 / 18%) !important;
+  color: var(--ivory) !important;
+}
+.service-contact-field:focus {
+  border-color: var(--brass) !important;
+  outline: none;
+  box-shadow: 0 0 0 2px oklch(0.713 0.111 79.4 / 20%);
+}
+.service-contact-field option {
+  background: var(--onyx);
+  color: var(--ivory);
+}
+.service-process-section {
+  position: relative;
+  margin-top: -1px;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  clip-path: polygon(0 2.5%, 100% 0, 100% 100%, 0 97.5%);
+}
+.service-faq-section {
+  position: relative;
+  margin-top: -1px;
+  clip-path: polygon(0 0, 100% 2.5%, 100% 100%, 0 100%);
+}
+.service-final-cta-section {
+  position: relative;
+  margin-top: -1px;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, var(--brass) 0%, oklch(0.713 0.111 79.4 / 94%) 100%);
+}
+@media (max-width: 767px) {
+  .service-hero {
+    min-height: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+  }
+  .service-hero > .container-site { padding-top: 4rem; padding-bottom: 5rem; }
+  .service-audience-section {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+    clip-path: polygon(0 1%, 100% 0, 100% 99%, 0 100%);
+  }
+  .service-contact-section {
+    min-height: 0;
+    clip-path: polygon(0 1%, 100% 0, 100% 99%, 0 100%);
+  }
+  .service-contact-inner { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+  .service-contact-section::before { top: 28px; }
+  .service-contact-section::after { bottom: 28px; }
+  .service-process-section {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+    clip-path: polygon(0 1%, 100% 0, 100% 100%, 0 99%);
+  }
+  .service-faq-section { clip-path: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-contact-form,
+  .service-contact-field { transition: none !important; }
+}
