@@ -1616,3 +1616,71 @@ bdi.font-display-latin {
   .service-contact-section { min-height: 0; }
   .service-contact-backdrop { background-position: 58% center; }
 }
+
+
+/* Final alignment pass: remove ivory wedges around the contact banner and restore
+   the compact two-column proportions of the supplied reference. */
+.service-hero {
+  clip-path: none !important;
+}
+.service-audience-section {
+  margin-top: 0 !important;
+  clip-path: none !important;
+}
+.service-contact-section {
+  margin-top: 0 !important;
+  clip-path: none !important;
+  min-height: 0;
+  padding-block: 2.25rem;
+  border-block: 0;
+}
+.service-contact-inner {
+  min-height: 0 !important;
+  padding-block: 1.5rem !important;
+  align-items: center;
+}
+.service-contact-copy h2 {
+  width: max-content;
+  max-width: none !important;
+  margin-inline-start: auto;
+  white-space: nowrap;
+  font-size: clamp(2rem, 3.35vw, 2.85rem) !important;
+  line-height: 1.35 !important;
+}
+.service-contact-copy > p:not(.eyebrow) {
+  max-width: 34rem;
+  margin-inline-start: auto;
+}
+.service-contact-backdrop {
+  background-position: center 54%;
+  filter: saturate(.88) brightness(.82) contrast(1.04);
+}
+.service-contact-shade {
+  background: linear-gradient(90deg,
+    oklch(0.055 0.006 84 / 82%) 0%,
+    oklch(0.055 0.006 84 / 70%) 45%,
+    oklch(0.055 0.006 84 / 64%) 72%,
+    oklch(0.055 0.006 84 / 76%) 100%);
+}
+.service-contact-section::before {
+  top: 18px;
+  left: -42px;
+}
+.service-contact-section::after {
+  bottom: 18px;
+  right: -42px;
+}
+@media (max-width: 767px) {
+  .service-contact-section {
+    padding-block: 1.25rem;
+  }
+  .service-contact-inner {
+    padding-block: 1.25rem !important;
+  }
+  .service-contact-copy h2 {
+    width: auto;
+    max-width: 100% !important;
+    white-space: normal;
+    font-size: clamp(2rem, 8vw, 2.7rem) !important;
+  }
+}
