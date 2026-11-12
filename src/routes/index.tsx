@@ -200,7 +200,7 @@ function HomePage() {
       </div>
     </section>
 
-    <section id="contact" className="w-full py-20 sm:py-24">
+    <section id="contact" className="w-full">
       <div className="cta-panel relative min-h-[360px] w-full overflow-hidden bg-brass px-7 py-16 text-center text-onyx sm:min-h-[420px] sm:px-12 sm:py-24">
         <div className="pointer-events-none absolute -left-24 -top-28 size-80 rounded-full border border-onyx/10"/><div className="pointer-events-none absolute -left-10 -top-14 size-52 rounded-full border border-onyx/10"/>
         <Sparkles className="relative mx-auto mb-5 size-7"/>
