@@ -7,7 +7,7 @@ import { Ltr } from "@/components/site/Ltr";
 const heroSlides = [
   { eyebrow: "تسجيل السيارات الجديدة في ألمانيا", title: <>سجّل سيارتك الجديدة <span>بثقة</span></>, description: "تجربة رقمية واضحة ومنظمة تساعدك على إنجاز إجراءات تسجيل سيارتك الجديدة، مع متابعة طلبك خطوة بخطوة.", image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90", alt: "سيارة رياضية فاخرة على طريق مفتوح", index: "01" },
   { eyebrow: "تجربة رقمية أكثر سهولة", title: <>إجراءات أوضح، <span>وراحة أكبر</span></>, description: "قدّم بياناتك ومستنداتك ضمن خطوات مرتبة، واعرف ما يحدث لطلبك في كل مرحلة.", image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2400&q=90", alt: "سيارة حديثة بتصميم أنيق", index: "02" },
-  { eyebrow: "من البداية حتى اكتمال الطلب", title: <>سيارتك الجديدة، <span>خطوتك القادمة</span></>, description: "ابدأ طلب التسجيل بثقة، وتعرّف على الرسوم والخطوات المطلوبة قبل البدء.", image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90", alt: "سيارة رياضية فاخرة بإضاءة سينمائية", index: "03" },
+  { eyebrow: "من البداية حتى اكتمال الطلب", title: <>سيارتك الجديدة، <span>خطوتك القادمة</span></>, description: "ابدأ طلب التسجيل بثقة، وتعرّف على الرسوم والخطوات المطلوبة قبل البدء.", image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=2400&q=90", alt: "سيارة رياضية حديثة على الطريق", index: "03" },
 ];
 
 const faqs = [
@@ -76,7 +76,7 @@ function HomePage() {
   return <main className="overflow-hidden">
     <section className="hero-shell relative isolate overflow-hidden" aria-roledescription="carousel" aria-label="خدمات AutoSouq">
       <div className="hero-slides absolute inset-0 -z-20">
-        {heroSlides.map((slide, i) => <div key={slide.index} className={`hero-slide absolute inset-0 ${activeSlide === i ? "is-active" : ""}`} aria-hidden={activeSlide !== i}><img src={slide.image} alt={slide.alt} fetchPriority={i === 0 ? "high" : "auto"} /></div>)}
+        {heroSlides.map((slide, i) => <div key={slide.index} className={`hero-slide absolute inset-0 ${activeSlide === i ? "is-active" : ""}`} aria-hidden={activeSlide !== i}><img src={slide.image} alt={slide.alt} className={i === 1 ? "hero-slide-image-bright" : undefined} fetchPriority={i === 0 ? "high" : "auto"} /></div>)}
       </div>
       <div className="hero-shade absolute inset-0 -z-10" />
       <div className="container-site relative flex min-h-[600px] items-center py-20 sm:min-h-[640px] sm:py-20 lg:min-h-[min(790px,calc(100svh-80px))] lg:py-16">
