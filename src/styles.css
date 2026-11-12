@@ -1007,3 +1007,9 @@ bdi.font-display-latin {
 @media (max-width: 639px) {
   .affiliate-panel { padding: 1.5rem; }
 }
+
+
+/* Consistent warm, restrained color treatment across all journey gallery images. */
+.journey-gallery .journey-photo-card > img {
+  filter: saturate(.78) contrast(1.045) brightness(.96);
+}
