@@ -36,23 +36,16 @@ function ServicesPage() {
             <Button asChild size="lg" variant="outline" className="min-h-12 rounded-sm border-foreground/25 bg-transparent px-6"><a href="/contact">تواصل معنا</a></Button>
           </div>
         </div>
-        <div className="mt-14 grid gap-3 border-t border-border/70 pt-7 sm:grid-cols-3">
-          {audiences.map((item) => <a key={item.id} href={`#${item.id}`} className="group flex items-center gap-4 rounded-sm border border-border/70 bg-card/35 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-brass/70 hover:bg-card/70">
-            <span className="grid size-11 shrink-0 place-items-center rounded-full border border-brass/40 text-brass"><item.icon className="size-5" /></span>
-            <span className="min-w-0 flex-1"><span className="block text-sm text-muted-foreground">{item.number}</span><span className="block font-semibold">{item.title}</span></span>
-            <ArrowLeft className="size-4 text-brass transition-transform group-hover:-translate-x-1" />
-          </a>)}
-        </div>
-      </div>
+    </div>
     </section>
 
     <section className="container-site py-16 sm:py-20">
       <div className="mb-10 flex flex-col gap-4 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
         <div className="max-w-2xl">
-          <p className="eyebrow mb-3">اختر المسار المناسب</p>
-          <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">ثلاث فئات، وتجربة أوضح لكل فئة</h2>
+          <p className="eyebrow mb-3">لمن نقدم خدماتنا</p>
+          <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">خدمات تناسب احتياجك</h2>
         </div>
-        <p className="max-w-md text-sm leading-7 text-muted-foreground">تختلف طريقة الاستفادة من AutoSouq بحسب طبيعة استخدامك. اختر الفئة لقراءة تفاصيلها.</p>
+        <p className="max-w-md text-sm leading-7 text-muted-foreground">حلول تسجيل واضحة ومناسبة للأفراد وتجار السيارات والشركات، ضمن تجربة رقمية منظمة.</p>
       </div>
       <div className="grid gap-5 lg:grid-cols-3">
         {audiences.map((item) => <a key={item.id} href={`#${item.id}`} className="group relative flex min-h-56 flex-col border border-border bg-card/45 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-brass/70 hover:bg-card sm:p-7">
