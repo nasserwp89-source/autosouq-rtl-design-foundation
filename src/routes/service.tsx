@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowLeft, Building2, CarFront, CheckCircle2, ChevronDown, ClipboardList, FileSearch, Users } from "lucide-react";
+import { ArrowLeft, Building2, CarFront, CheckCircle2, ChevronDown, ClipboardList, FileSearch, Folder, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -25,9 +25,9 @@ const audiences = [
 ];
 
 const processSteps = [
-  { number: "01", icon: ClipboardList, title: "قدّم طلبك", description: "أدخل بياناتك وبيانات سيارتك الجديدة ضمن خطوات واضحة." },
-  { number: "02", icon: FileSearch, title: "أرفق المستندات", description: "أرسل المستندات المطلوبة وراجع تفاصيل الطلب قبل الدفع." },
-  { number: "03", icon: CheckCircle2, title: "تابع واستلم", description: "تابع حالة طلبك، واستلم المستندات النهائية بعد اكتماله واعتماده." },
+  { number: "01", icon: ClipboardList, title: "قدّم طلبك", description: "املأ نموذج الطلب بالمعلومات الأساسية لسيارتك" },
+  { number: "02", icon: Folder, title: "أرفق المستندات", description: "أرفق المستندات المطلوبة بشكل آمن وسهل" },
+  { number: "03", icon: CheckCircle2, title: "تابع واستلم", description: "نقوم بمراجعة طلبك وننجز عملية التسجيل، مع متابعة مستمرة حتى الاكتمال." },
 ];
 
 
