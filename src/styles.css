@@ -1550,3 +1550,12 @@ bdi.font-display-latin {
 .service-audience-section .audience-service-card.is-standard:focus-within .audience-card-description {
   color: var(--white, #ffffff) !important;
 }
+
+
+/* Keep the audience card index visible on dark cards during hover/focus. */
+.service-audience-section .audience-service-card.is-standard:hover .audience-card-number,
+.service-audience-section .audience-service-card.is-standard:focus-within .audience-card-number {
+  color: var(--brass) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
