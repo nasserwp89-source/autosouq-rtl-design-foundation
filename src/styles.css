@@ -293,7 +293,7 @@ bdi.font-display-latin {
 }
 .hero-photo {
   background-position: center 54%;
-  filter: saturate(.82) contrast(1.06);
+  filter: saturate(.92) contrast(1.04) brightness(1.12);
 }
 .hero-shade {
   background:
@@ -461,10 +461,10 @@ bdi.font-display-latin {
 }
 .hero-slide.is-active img { transform: scale(1); }
 .hero-shade {
-  /* Arabic copy sits on the right: keep that side dark and let the car image breathe on the left. */
+  /* Preserve legibility behind Arabic copy while revealing more of the vehicle and scene. */
   background:
-    linear-gradient(270deg, oklch(0.055 0.006 84 / 97%) 0%, oklch(0.07 0.008 84 / 91%) 34%, oklch(0.09 0.008 84 / 66%) 57%, oklch(0.10 0.008 84 / 12%) 100%),
-    linear-gradient(0deg, oklch(0.055 0.006 84 / 78%) 0%, transparent 48%);
+    linear-gradient(270deg, oklch(0.055 0.006 84 / 84%) 0%, oklch(0.07 0.008 84 / 76%) 30%, oklch(0.09 0.008 84 / 48%) 54%, oklch(0.10 0.008 84 / 5%) 100%),
+    linear-gradient(0deg, oklch(0.055 0.006 84 / 52%) 0%, transparent 52%);
 }
 .hero-copy {
   opacity: 0;
@@ -534,8 +534,8 @@ bdi.font-display-latin {
   .hero-copy h1 { font-size: clamp(2.7rem, 9vw, 4rem); line-height: 1.28; }
   .hero-shade {
     background:
-      linear-gradient(270deg, oklch(0.055 0.006 84 / 94%) 0%, oklch(0.07 0.008 84 / 82%) 58%, oklch(0.09 0.008 84 / 48%) 100%),
-      linear-gradient(0deg, oklch(0.055 0.006 84 / 82%) 0%, transparent 60%);
+      linear-gradient(270deg, oklch(0.055 0.006 84 / 88%) 0%, oklch(0.07 0.008 84 / 72%) 58%, oklch(0.09 0.008 84 / 34%) 100%),
+      linear-gradient(0deg, oklch(0.055 0.006 84 / 62%) 0%, transparent 60%);
   }
   .hero-control { width: 36px; height: 36px; }
 }
@@ -996,4 +996,14 @@ bdi.font-display-latin {
 .audience-service-card.is-standard:hover,
 .audience-service-card.is-standard:focus-within {
   border-color: transparent;
+}
+
+
+/* Affiliate programme is a partnership CTA, not a fourth service audience. */
+.affiliate-panel {
+  box-shadow: 0 18px 55px -38px oklch(0 0 0 / 75%);
+}
+.affiliate-section .eyebrow { color: var(--brass); }
+@media (max-width: 639px) {
+  .affiliate-panel { padding: 1.5rem; }
 }
