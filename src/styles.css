@@ -1559,3 +1559,60 @@ bdi.font-display-latin {
   opacity: 1 !important;
   visibility: visible !important;
 }
+
+
+/* Service contact section — closer to the supplied Autotrics reference */
+.service-contact-section {
+  min-height: 560px;
+  background-color: var(--onyx);
+}
+.service-contact-backdrop {
+  filter: saturate(.82) brightness(.72) contrast(1.05);
+  background-position: 58% center;
+}
+.service-contact-shade {
+  background:
+    linear-gradient(90deg,
+      oklch(0.055 0.006 84 / 88%) 0%,
+      oklch(0.055 0.006 84 / 76%) 42%,
+      oklch(0.055 0.006 84 / 66%) 68%,
+      oklch(0.055 0.006 84 / 78%) 100%),
+    linear-gradient(0deg, oklch(0.055 0.006 84 / 38%), transparent 58%);
+}
+.service-contact-inner {
+  align-items: center;
+}
+.service-contact-form {
+  padding-block: clamp(1.35rem, 2.4vw, 1.9rem);
+}
+.service-contact-form .service-contact-field {
+  min-height: 2.75rem;
+  padding-inline: .9rem;
+  font-size: .82rem;
+}
+.service-contact-form textarea.service-contact-field {
+  min-height: 6rem;
+  padding-block: .75rem;
+}
+.service-contact-copy h2 {
+  margin-inline-start: auto;
+  max-width: 12ch;
+  line-height: 1.35;
+}
+.service-contact-copy > p:not(.eyebrow),
+.service-contact-copy ul {
+  margin-inline-start: auto;
+}
+.service-contact-copy ul {
+  display: grid;
+  gap: .8rem;
+}
+@media (min-width: 1024px) {
+  .service-contact-inner {
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  }
+}
+@media (max-width: 767px) {
+  .service-contact-section { min-height: 0; }
+  .service-contact-backdrop { background-position: 58% center; }
+}
