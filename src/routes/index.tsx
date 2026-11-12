@@ -79,7 +79,7 @@ function HomePage() {
         {heroSlides.map((slide, i) => <div key={slide.index} className={`hero-slide absolute inset-0 ${activeSlide === i ? "is-active" : ""}`} aria-hidden={activeSlide !== i}><img src={slide.image} alt={slide.alt} fetchPriority={i === 0 ? "high" : "auto"} /></div>)}
       </div>
       <div className="hero-shade absolute inset-0 -z-10" />
-      <div className="container-site relative flex min-h-[680px] items-center py-24 sm:min-h-[740px] lg:min-h-[790px]">
+      <div className="container-site relative flex min-h-[600px] items-center py-20 sm:min-h-[640px] sm:py-20 lg:min-h-[min(790px,calc(100svh-80px))] lg:py-16">
         {heroSlides.map((slide, i) => <div key={slide.index} className={`hero-copy absolute inset-x-5 top-1/2 max-w-3xl -translate-y-1/2 sm:inset-x-8 lg:inset-x-10 ${activeSlide === i ? "is-active" : ""}`} aria-hidden={activeSlide !== i}>
           <div className="mb-7 inline-flex items-center gap-3 border border-brass/40 bg-onyx/40 px-4 py-2 text-sm text-ivory/90 backdrop-blur-sm"><span className="size-2 rounded-full bg-brass shadow-[0_0_16px_#C79A4B]" />{slide.eyebrow}</div>
           <p className="mb-5 text-sm font-medium tracking-wide text-brass sm:text-base">AutoSouq <span className="px-1 text-ivory/50">/</span> وسيطك الرقمي الموثوق</p>
