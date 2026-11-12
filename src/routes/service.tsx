@@ -94,10 +94,10 @@ function ServicesPage() {
     <section id="request" className="service-contact-section relative isolate overflow-hidden">
       <div className="service-contact-backdrop absolute inset-0 -z-20 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2200&q=90')" }} />
       <div className="service-contact-shade absolute inset-0 -z-10" />
-      <div className="service-contact-inner container-site grid items-center gap-12 py-20 sm:py-24 lg:min-h-[700px] lg:grid-cols-2 lg:gap-16 lg:py-24 lg:[direction:ltr]">
+      <div className="service-contact-inner container-site grid items-center gap-10 py-14 sm:py-16 lg:min-h-[560px] lg:grid-cols-2 lg:gap-14 lg:py-16 lg:[direction:ltr]">
         <div className="service-contact-form-wrap relative z-10 lg:[direction:rtl]">
-          <div className="service-contact-form mx-auto w-full max-w-[470px] border border-brass/35 px-6 py-8 shadow-[0_24px_70px_rgba(0,0,0,0.35)] sm:px-8 sm:py-9">
-            <div className="mb-7 text-right">
+          <div className="service-contact-form mx-auto w-full max-w-[470px] border border-brass/35 px-5 py-6 shadow-[0_24px_70px_rgba(0,0,0,0.35)] sm:px-7 sm:py-7">
+            <div className="mb-5 text-right">
               <p className="eyebrow mb-3">تواصل معنا</p>
               <h3 className="text-2xl font-semibold text-ivory sm:text-3xl">كيف يمكننا مساعدتك؟</h3>
               <p className="mt-3 text-sm leading-7 text-ivory/75">اترك بياناتك ورسالتك، وسنكون سعداء بالتعرف على احتياجك والرد عليك بأسرع وقت.</p>
@@ -109,22 +109,22 @@ function ServicesPage() {
               <Button type="button" variant="outline" className="mt-5 border-brass/40 text-ivory hover:bg-brass hover:text-onyx" onClick={() => setSubmitted(false)}>إرسال استفسار آخر</Button>
             </div> : <form className="space-y-4" onSubmit={(event) => { event.preventDefault(); setSubmitted(true); }}>
               <div>
-                <label htmlFor="service-name" className="mb-2 block text-xs font-medium text-ivory/80">الاسم الكامل</label>
-                <Input id="service-name" name="name" required placeholder="أدخل اسمك" className="service-contact-field h-12 rounded-sm border-ivory/15 text-ivory placeholder:text-ivory/45" />
+                <label htmlFor="service-name" className="sr-only">الاسم الكامل</label>
+                <Input id="service-name" name="name" required placeholder="الاسم الكامل" className="service-contact-field h-11 rounded-sm border-ivory/15 text-ivory placeholder:text-ivory/45" />
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="service-phone" className="mb-2 block text-xs font-medium text-ivory/80">رقم الهاتف</label>
-                  <Input id="service-phone" name="phone" type="tel" required placeholder="+49" className="service-contact-field h-12 rounded-sm border-ivory/15 text-ivory placeholder:text-ivory/45" />
+                  <label htmlFor="service-phone" className="sr-only">رقم الهاتف</label>
+                  <Input id="service-phone" name="phone" type="tel" required placeholder="رقم الهاتف" className="service-contact-field h-11 rounded-sm border-ivory/15 text-ivory placeholder:text-ivory/45" />
                 </div>
                 <div>
-                  <label htmlFor="service-email" className="mb-2 block text-xs font-medium text-ivory/80">البريد الإلكتروني</label>
-                  <Input id="service-email" name="email" type="email" required placeholder="name@example.com" className="service-contact-field h-12 rounded-sm border-ivory/15 text-ivory placeholder:text-ivory/45" />
+                  <label htmlFor="service-email" className="sr-only">البريد الإلكتروني</label>
+                  <Input id="service-email" name="email" type="email" required placeholder="البريد الإلكتروني" className="service-contact-field h-11 rounded-sm border-ivory/15 text-ivory placeholder:text-ivory/45" />
                 </div>
               </div>
               <div>
-                <label htmlFor="service-type" className="mb-2 block text-xs font-medium text-ivory/80">نوع الخدمة</label>
-                <select id="service-type" name="service" defaultValue="" required className="service-contact-field h-12 w-full rounded-sm border border-ivory/15 px-3 text-sm text-ivory focus:outline-none focus:ring-2 focus:ring-brass/50">
+                <label htmlFor="service-type" className="sr-only">نوع الخدمة</label>
+                <select id="service-type" name="service" defaultValue="" required className="service-contact-field h-11 w-full rounded-sm border border-ivory/15 px-3 text-sm text-ivory focus:outline-none focus:ring-2 focus:ring-brass/50">
                   <option value="" disabled>اختر الفئة</option>
                   <option value="individual">فرد</option>
                   <option value="dealer">تاجر سيارات</option>
@@ -132,17 +132,17 @@ function ServicesPage() {
                 </select>
               </div>
               <div>
-                <label htmlFor="service-message" className="mb-2 block text-xs font-medium text-ivory/80">رسالتك</label>
-                <Textarea id="service-message" name="message" required placeholder="اكتب استفسارك هنا..." className="service-contact-field min-h-28 rounded-sm border-ivory/15 text-ivory placeholder:text-ivory/45" />
+                <label htmlFor="service-message" className="sr-only">رسالتك</label>
+                <Textarea id="service-message" name="message" required placeholder="اكتب استفسارك هنا..." className="service-contact-field min-h-24 rounded-sm border-ivory/15 text-ivory placeholder:text-ivory/45" />
               </div>
-              <Button type="submit" size="lg" className="mt-2 min-h-12 w-full rounded-sm">إرسال الاستفسار <ArrowLeft className="size-4" /></Button>
+              <div className="flex justify-start"><Button type="submit" size="lg" className="mt-1 min-h-11 rounded-sm px-6">إرسال الاستفسار <ArrowLeft className="size-4" /></Button></div>
             </form>}
           </div>
         </div>
         <div className="service-contact-copy relative z-10 text-right lg:[direction:rtl]">
           <p className="eyebrow mb-5">ابدأ مع AutoSouq</p>
-          <h2 className="max-w-xl text-3xl font-semibold leading-[1.4] text-ivory sm:text-4xl lg:text-5xl">خطوتك الأولى نحو <span className="text-brass">تسجيل أسهل</span></h2>
-          <p className="mt-6 max-w-xl text-base leading-8 text-ivory/80">هل لديك استفسار حول تسجيل سيارتك الجديدة في ألمانيا؟ أرسل لنا تفاصيلك وسنساعدك على معرفة الخطوة المناسبة.</p>
+          <h2 className="max-w-[12ch] mr-auto text-3xl font-semibold leading-[1.35] text-ivory sm:text-4xl lg:text-[2.7rem]">خطوتك الأولى نحو<br /><span className="text-brass">تسجيل أسهل</span></h2>
+          <p className="mt-5 max-w-[34rem] mr-auto text-sm leading-8 text-ivory/80 sm:text-base">هل لديك استفسار حول تسجيل سيارتك الجديدة في ألمانيا؟ أرسل لنا تفاصيلك وسنساعدك على معرفة الخطوة المناسبة.</p>
           <ul className="mt-8 space-y-4 text-sm text-ivory/85">
             <li className="flex items-center gap-3"><CheckCircle2 className="size-5 shrink-0 text-brass" /> استشارة سريعة ومجانية</li>
             <li className="flex items-center gap-3"><CheckCircle2 className="size-5 shrink-0 text-brass" /> معلومات دقيقة وموثوقة</li>
