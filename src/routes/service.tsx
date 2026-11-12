@@ -60,7 +60,7 @@ function ServicesPage() {
     </div>
     </section>
 
-    <section className="container-site py-16 sm:py-20">
+    <section className="service-audience-section surface-light py-16 sm:py-20">
       <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
         <p className="eyebrow mb-4">لمن نقدم خدماتنا</p>
         <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">خدمات تناسب احتياجك</h2>
@@ -145,13 +145,13 @@ function ServicesPage() {
       </div>
     </section>
 
-    <section id="service-process" className="service-process-section relative isolate overflow-hidden py-20 sm:py-24">
+    <section id="service-process" className="service-process-section surface-light relative isolate overflow-hidden py-20 sm:py-24">
       <div className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_50%_0%,oklch(0.308_0.044_84.9_/_32%),transparent_65%)]" />
       <div className="container-site">
         <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
           <p className="eyebrow mb-4">رحلتك مع AutoSouq</p>
-          <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">كيف نعمل؟</h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">ثلاث مراحل واضحة ترافقك من تقديم الطلب حتى اكتماله.</p>
+          <h2 className="text-3xl font-semibold leading-tight text-onyx sm:text-4xl lg:text-5xl">خطوات بسيطة وواضحة</h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-onyx/65 sm:text-lg">ثلاث خطوات فقط لإتمام طلب تسجيل سيارتك.</p>
         </div>
         <div className="grid gap-10 md:grid-cols-3 md:gap-8">
           {processSteps.map((step, index) => {
@@ -161,8 +161,8 @@ function ServicesPage() {
                 <span className="absolute -top-5 grid size-10 place-items-center rounded-full bg-brass font-display-latin text-sm font-semibold text-onyx">{step.number}</span>
                 <Icon className="size-12 text-brass transition-colors duration-500 group-hover:text-onyx" strokeWidth={1.35} />
               </div>
-              <h3 className="text-xl font-semibold text-ivory">{step.title}</h3>
-              <p className="mt-4 max-w-xs text-sm leading-7 text-muted-foreground">{step.description}</p>
+              <h3 className="text-xl font-semibold text-onyx">{step.title}</h3>
+              <p className="mt-4 max-w-xs text-sm leading-7 text-onyx/65">{step.description}</p>
               {index < processSteps.length - 1 && <span aria-hidden="true" className="service-process-connector hidden md:block" />}
             </article>;
           })}
@@ -208,7 +208,7 @@ function ServicesPage() {
     <section className="surface-light">
       <div className="container-site py-14 sm:py-16">
         <div className="flex flex-col items-start justify-between gap-6 border border-onyx/10 bg-white p-7 sm:flex-row sm:items-center sm:p-10">
-          <div><p className="eyebrow mb-2">هل أنت مستعد؟</p><h2 className="text-2xl font-semibold text-ivory sm:text-3xl">ابدأ رحلتك مع AutoSouq</h2><p className="mt-2 text-sm leading-7 text-muted-foreground">إذا كنت تسجل سيارة جديدة، يمكنك البدء من مسار الأفراد.</p></div>
+          <div><p className="eyebrow mb-2">هل أنت مستعد؟</p><h2 className="text-2xl font-semibold text-onyx sm:text-3xl">جاهز لتسجيل سيارتك الجديدة؟</h2><p className="mt-2 text-sm leading-7 text-onyx/75">ابدأ الآن، وتعرّف على خدماتنا السريعة والموثوقة.</p></div>
           <Button asChild size="lg" className="min-h-12 rounded-sm"><a href="/register">ابدأ تسجيل سيارتك <ArrowLeft className="size-4" /></a></Button>
         </div>
       </div>
