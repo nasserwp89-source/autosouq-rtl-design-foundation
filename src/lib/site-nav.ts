@@ -17,7 +17,7 @@ export const legalNav = [
 export const audiences = [
   { label: "الأفراد", active: true },
   { label: "تجار السيارات", active: false },
-  { label: "الشركات الشريكة", active: false },
+  { label: "الشركات", active: false },
   { label: "المسوقون بالعمولة", active: false },
 ] as const;
 
