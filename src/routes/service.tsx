@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowLeft, Building2, CarFront, CheckCircle2, ClipboardList, FileSearch, Users } from "lucide-react";
+import { ArrowLeft, Building2, CarFront, CheckCircle2, ChevronDown, ClipboardList, FileSearch, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -30,8 +30,20 @@ const processSteps = [
   { number: "03", icon: CheckCircle2, title: "تابع واستلم", description: "تابع حالة طلبك، واستلم المستندات النهائية بعد اكتماله واعتماده." },
 ];
 
+
+const serviceFaqs = [
+  { question: "ما الخدمة التي تقدمها AutoSouq؟", answer: "نساعدك في تقديم ومتابعة طلب تسجيل سيارتك الجديدة في ألمانيا من خلال تجربة رقمية منظمة وواضحة." },
+  { question: "هل الخدمة متاحة لتسجيل السيارات الجديدة فقط؟", answer: "نعم، الخدمة المتاحة في هذا النموذج هي تسجيل السيارات الجديدة فقط." },
+  { question: "كم تبلغ أتعاب AutoSouq؟", answer: "أتعاب المنصة 70 يورو شاملة ضريبة القيمة المضافة." },
+  { question: "هل رسوم دائرة التسجيل مشمولة؟", answer: "لا. رسوم دائرة التسجيل الحكومية منفصلة عن أتعاب المنصة، ويتم دفعها مباشرة إلى دائرة التسجيل." },
+  { question: "كيف يمكنني متابعة حالة الطلب؟", answer: "يمكنك متابعة حالة طلبك والتحديثات المرتبطة به من خلال حسابك عند إطلاق الخدمة الفعلية." },
+  { question: "متى يمكنني تنزيل المستندات النهائية؟", answer: "تتاح المستندات النهائية بعد اكتمال الطلب واعتماده." },
+  { question: "ماذا يحدث إذا كانت هناك مستندات ناقصة؟", answer: "ستظهر لك المستندات أو المعلومات المطلوب استكمالها قبل متابعة معالجة الطلب." },
+];
+
 function ServicesPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
   return <main className="overflow-hidden">
     <section className="relative isolate border-b border-border">
       <div className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_78%_18%,oklch(0.308_0.044_84.9_/_42%),transparent_48%),linear-gradient(135deg,oklch(0.19_0.008_84),var(--onyx)_68%)]" />
@@ -154,6 +166,41 @@ function ServicesPage() {
               {index < processSteps.length - 1 && <span aria-hidden="true" className="service-process-connector hidden md:block" />}
             </article>;
           })}
+        </div>
+      </div>
+    </section>
+
+    <section id="service-faq" className="surface-light py-20 sm:py-24">
+      <div className="container-site">
+        <div className="mx-auto mb-14 max-w-3xl text-center">
+          <p className="eyebrow mb-4">الأسئلة الشائعة</p>
+          <h2 className="text-3xl font-semibold leading-tight text-onyx sm:text-4xl lg:text-5xl">إجابات تساعدك قبل البدء</h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-onyx/65 sm:text-lg">جمعنا لك أهم الإجابات حول خدمة تسجيل السيارات الجديدة وإجراءاتها.</p>
+        </div>
+        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <div className="space-y-3">
+            {serviceFaqs.map((faq, index) => {
+              const isOpen = openFaq === index;
+              const panelId = `service-faq-answer-${index}`;
+              return <article key={faq.question} className={`service-faq-item border transition-colors duration-300 ${isOpen ? "is-open border-brass/50 bg-white shadow-[0_12px_35px_-28px_#100F0D]" : "border-onyx/10 bg-white/70"}`}>
+                <h3>
+                  <button type="button" aria-expanded={isOpen} aria-controls={panelId} onClick={() => setOpenFaq(isOpen ? null : index)} className="flex min-h-[76px] w-full items-center justify-between gap-5 px-5 py-4 text-right text-base font-semibold text-onyx sm:px-7">
+                    <span className="leading-7">{faq.question}</span>
+                    <ChevronDown className={`size-5 shrink-0 text-tobacco transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+                  </button>
+                </h3>
+                <div id={panelId} hidden={!isOpen} className="px-5 pb-6 text-sm leading-8 text-onyx/70 sm:px-7">{faq.answer}</div>
+              </article>;
+            })}
+          </div>
+          <div className="service-faq-visual relative mx-auto w-full max-w-xl">
+            <div className="absolute -inset-4 border border-onyx/10" />
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85" alt="سيارة حديثة تعكس تجربة AutoSouq" loading="lazy" className="relative aspect-[5/4] w-full object-cover" />
+            <div className="absolute -bottom-5 right-5 max-w-[250px] bg-onyx px-6 py-5 text-ivory shadow-xl sm:right-8">
+              <p className="text-xs text-brass">AutoSouq</p>
+              <p className="mt-1 text-lg font-semibold">وضوح في كل خطوة</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
