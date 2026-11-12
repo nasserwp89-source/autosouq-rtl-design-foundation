@@ -1505,3 +1505,30 @@ bdi.font-display-latin {
   border-color: var(--brass);
   color: var(--onyx);
 }
+
+
+/* Final override: standard audience cards must never turn brass on hover/focus. */
+.service-audience-section .audience-service-card.is-standard:hover,
+.service-audience-section .audience-service-card.is-standard:focus,
+.service-audience-section .audience-service-card.is-standard:focus-within,
+.service-audience-section .audience-service-card.is-standard:active {
+  background-color: var(--onyx) !important;
+  border-color: var(--border) !important;
+  color: var(--ivory) !important;
+}
+.service-audience-section .audience-service-card.is-standard:hover .audience-icon,
+.service-audience-section .audience-service-card.is-standard:focus-within .audience-icon,
+.service-audience-section .audience-service-card.is-standard:hover .audience-card-action,
+.service-audience-section .audience-service-card.is-standard:focus-within .audience-card-action {
+  color: var(--brass) !important;
+}
+.service-audience-section .audience-service-card.is-standard:hover .audience-card-title,
+.service-audience-section .audience-service-card.is-standard:focus-within .audience-card-title {
+  color: var(--ivory) !important;
+}
+.service-audience-section .audience-service-card.is-standard:hover .audience-card-description,
+.service-audience-section .audience-service-card.is-standard:focus-within .audience-card-description,
+.service-audience-section .audience-service-card.is-standard:hover .audience-card-number,
+.service-audience-section .audience-service-card.is-standard:focus-within .audience-card-number {
+  color: var(--muted-foreground) !important;
+}
