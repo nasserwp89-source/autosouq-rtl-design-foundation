@@ -49,10 +49,10 @@ function ServicesPage() {
       <div className="absolute inset-0 -z-20 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90')" }} />
       <div className="hero-shade absolute inset-0 -z-10" />
       <div className="container-site py-16 sm:py-20 lg:py-24">
-        <div className="ms-auto max-w-3xl text-right">
+        <div className="ml-auto w-full max-w-3xl text-right">
           <p className="eyebrow mb-5 text-brass">خدمات AutoSouq</p>
           <h1 className="text-4xl font-semibold leading-[1.35] text-ivory sm:text-5xl lg:text-6xl">حلول تسجيل تناسب <span className="text-brass">احتياجك</span></h1>
-          <p className="mt-6 ms-auto max-w-2xl text-base leading-8 text-ivory/80 sm:text-lg sm:leading-9">سواء كنت صاحب سيارة، أو تدير معرضاً للسيارات، أو تمثل شركة؛ تعرّف على المسار والخدمات المصممة لتناسبك.</p>
+          <p className="mt-6 ml-auto max-w-2xl text-base leading-8 text-ivory/80 sm:text-lg sm:leading-9">سواء كنت صاحب سيارة، أو تدير معرضاً للسيارات، أو تمثل شركة؛ تعرّف على المسار والخدمات المصممة لتناسبك.</p>
           <div className="mt-9 flex flex-wrap justify-start gap-3">
             <Button asChild size="lg" className="min-h-12 rounded-sm px-6"><a href="#individuals">استكشف الخدمات <ArrowLeft className="size-4" /></a></Button>
             <Button asChild size="lg" variant="outline" className="min-h-12 rounded-sm border-ivory/35 bg-onyx/20 px-6 text-ivory hover:bg-ivory/10 hover:text-ivory"><a href="/contact">تواصل معنا</a></Button>
