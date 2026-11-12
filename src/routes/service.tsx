@@ -46,7 +46,7 @@ function ServicesPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   return <main className="overflow-hidden">
     <section className="service-hero relative isolate overflow-hidden border-b border-border">
-      <div className="absolute inset-0 -z-20 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90')" }} />
+      <div className="absolute inset-0 -z-20 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90')", backgroundPosition: "center 54%" }} />
       <div className="hero-shade absolute inset-0 -z-10" />
       <div className="container-site py-16 sm:py-20 lg:py-24">
         <div className="ml-auto w-full max-w-3xl text-right">
