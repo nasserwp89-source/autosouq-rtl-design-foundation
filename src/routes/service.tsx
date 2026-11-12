@@ -53,7 +53,7 @@ function ServicesPage() {
         aria-hidden="true"
       />
       <div className="service-hero-shade absolute inset-0 -z-10" />
-      <div className="container-site py-16 sm:py-20 lg:py-24">
+      <div className="container-site pt-16 pb-32 sm:pt-20 sm:pb-36 lg:pt-24 lg:pb-40">
         <div className="ml-auto w-full max-w-[650px] text-right">
           <p className="eyebrow mb-5 text-right text-brass">خدمات AutoSouq</p>
           <h1 className="ml-auto w-full max-w-[12ch] text-right text-4xl font-semibold leading-[1.25] text-ivory sm:text-5xl lg:text-[3.75rem]">حلول تسجيل<br /><span className="text-brass">السيارات الشاملة</span></h1>
