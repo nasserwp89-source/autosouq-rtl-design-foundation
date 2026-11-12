@@ -18,7 +18,7 @@ export function SiteHeader() {
 
         <nav aria-label="التنقل الرئيسي" className="hidden items-center gap-5 xl:flex">
           {mainNav.map((item) => (
-            <a key={item.to} href={item.to === "/" ? "/" : `/#${item.to.slice(1)}`} className={navLink}>
+            <a key={item.to} href={item.to === "/" ? "/" : item.to === "/service" ? "/service" : `/#${item.to.slice(1)}`} className={navLink}>
               {item.label}
             </a>
           ))}
