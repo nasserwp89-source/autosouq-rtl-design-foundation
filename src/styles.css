@@ -1212,7 +1212,12 @@ bdi.font-display-latin {
 .service-hero {
   min-height: 470px;
   border-bottom: 0;
-  clip-path: polygon(0 0, 100% 0, 100% 83%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+.service-hero-shade {
+  background:
+    linear-gradient(270deg, oklch(0.075 0.008 82 / 88%) 0%, oklch(0.075 0.008 82 / 78%) 34%, oklch(0.075 0.008 82 / 36%) 68%, oklch(0.075 0.008 82 / 12%) 100%),
+    linear-gradient(0deg, oklch(0.075 0.008 82 / 58%) 0%, transparent 48%);
 }
 .service-hero::before {
   content: "";
@@ -1220,12 +1225,12 @@ bdi.font-display-latin {
   z-index: 1;
   top: 0;
   left: 0;
-  width: 118px;
+  width: 164px;
   height: 5px;
-  background: var(--brass);
+  background: #E2B957;
   transform: rotate(-38deg);
   transform-origin: left center;
-  box-shadow: 0 0 18px oklch(0.713 0.111 79.4 / 35%);
+  box-shadow: 0 0 18px #E2B95755;
 }
 .service-audience-section {
   position: relative;
