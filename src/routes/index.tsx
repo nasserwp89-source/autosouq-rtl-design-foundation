@@ -147,19 +147,18 @@ function HomePage() {
       <div className="absolute inset-0 -z-20 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=2400&q=85')" }} />
       <div className="absolute inset-0 -z-10 bg-onyx/85" />
       <div className="container-site">
-        <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
+        <div className="mx-auto mb-16 max-w-3xl text-center sm:mb-20">
           <p className="eyebrow mb-4"><Ltr>WHY AUTOSOUQ</Ltr></p>
           <h2 className="text-3xl font-semibold leading-tight text-ivory sm:text-4xl lg:text-5xl">لماذا تختار AutoSouq؟</h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-ivory/80 sm:text-lg">نؤمن أن الخدمة الجيدة تبدأ بالوضوح؛ أن تعرف ما الذي تحتاجه، وما الذي تدفعه، وأين وصل طلبك.</p>
         </div>
-        <div className="grid gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-14 lg:gap-y-14">
           {benefits.map((b, i) => {
             const Icon = b.icon;
-            return <article key={b.title} className="group flex min-h-36 items-center gap-5 py-3 transition-transform duration-700 ease-out hover:-translate-y-1">
-              <span className="grid size-20 shrink-0 place-items-center rounded-full bg-brass text-onyx shadow-lg shadow-black/20 transition-all duration-700 ease-out group-hover:scale-105 group-hover:rotate-3 group-hover:bg-ivory">
+            return <article key={b.title} dir="ltr" className="group flex min-h-32 items-center gap-5 transition-transform duration-700 ease-out hover:-translate-y-1">
+              <span className="grid size-20 shrink-0 place-items-center rounded-full bg-brass text-onyx shadow-lg shadow-black/20 transition-transform duration-700 ease-out group-hover:scale-105">
                 <Icon className="size-9" strokeWidth={1.6} />
               </span>
-              <div className="min-w-0 flex-1">
+              <div dir="rtl" className="min-w-0 flex-1 text-right">
                 <div className="mb-2 flex items-center gap-3">
                   <h3 className="text-lg font-semibold leading-8 text-ivory sm:text-xl">{b.title}</h3>
                   <span className="font-display-latin text-xs tracking-widest text-brass/90">0{i + 1}</span>
