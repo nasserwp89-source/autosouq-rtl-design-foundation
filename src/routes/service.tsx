@@ -175,36 +175,47 @@ function ServicesPage() {
       </div>
     </section>
 
-    <section id="service-faq" className="service-faq-section relative isolate overflow-hidden py-20 sm:py-24">
-      <div className="container-site">
-        <div className="mx-auto mb-14 max-w-3xl text-center">
+    <section id="service-faq" className="service-faq-section relative isolate overflow-hidden py-24 sm:py-28">
+      <div className="container-site relative z-10">
+        <div className="service-faq-heading mx-auto mb-14 max-w-3xl text-center">
           <p className="eyebrow mb-4">الأسئلة الشائعة</p>
           <h2 className="text-3xl font-semibold leading-tight text-ivory sm:text-4xl lg:text-5xl">إجابات تساعدك قبل البدء</h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">جمعنا لك أهم الإجابات حول خدمة تسجيل السيارات الجديدة وإجراءاتها.</p>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-ivory/65 sm:text-lg">كل ما تحتاج معرفته عن خدمة تسجيل السيارات الجديدة في ألمانيا.</p>
         </div>
-        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-          <div className="space-y-3">
+        <div className="service-faq-layout grid items-center gap-12 lg:grid-cols-[1fr_0.9fr] lg:gap-16">
+          <div className="service-faq-list space-y-3">
             {serviceFaqs.map((faq, index) => {
               const isOpen = openFaq === index;
               const panelId = `service-faq-answer-${index}`;
-              return <article key={faq.question} className={`service-faq-item border transition-colors duration-300 ${isOpen ? "is-open border-brass/60 bg-card shadow-[0_14px_38px_-28px_#000]" : "border-border bg-card/55 hover:border-brass/35"}`}>
+              return <article key={faq.question} className={`service-faq-item group relative overflow-hidden border transition-all duration-300 ${isOpen ? "is-open border-brass/65" : "border-ivory/10 hover:border-brass/40"}`}>
                 <h3>
-                  <button type="button" aria-expanded={isOpen} aria-controls={panelId} onClick={() => setOpenFaq(isOpen ? null : index)} className="flex min-h-[76px] w-full items-center justify-between gap-5 px-5 py-4 text-right text-base font-semibold text-ivory sm:px-7">
-                    <span className="leading-7">{faq.question}</span>
-                    <ChevronDown className={`size-5 shrink-0 text-tobacco transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+                  <button type="button" aria-expanded={isOpen} aria-controls={panelId} onClick={() => setOpenFaq(isOpen ? null : index)} className="service-faq-trigger flex min-h-[76px] w-full items-center justify-between gap-5 px-5 py-5 text-right sm:px-6">
+                    <span className="flex min-w-0 items-center gap-4">
+                      <span className="service-faq-index shrink-0 font-display-latin text-xs">0{index + 1}</span>
+                      <span className="text-sm font-semibold leading-7 text-ivory sm:text-base">{faq.question}</span>
+                    </span>
+                    <span className={`service-faq-toggle grid size-8 shrink-0 place-items-center border border-brass/35 text-brass transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
+                      <ChevronDown className="size-4" />
+                    </span>
                   </button>
                 </h3>
-                <div id={panelId} hidden={!isOpen} className="px-5 pb-6 text-sm leading-8 text-muted-foreground sm:px-7">{faq.answer}</div>
+                <div id={panelId} hidden={!isOpen} className="service-faq-answer px-5 pb-6 pr-[4.7rem] text-sm leading-8 text-ivory/65 sm:px-6 sm:pr-[5.1rem]">{faq.answer}</div>
               </article>;
             })}
           </div>
           <div className="service-faq-visual relative mx-auto w-full max-w-xl">
-            <div className="absolute -inset-4 border border-brass/25" />
-            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85" alt="سيارة حديثة تعكس تجربة AutoSouq" loading="lazy" className="relative aspect-[5/4] w-full object-cover" />
-            <div className="absolute -bottom-5 right-5 max-w-[250px] border border-brass/35 bg-card px-6 py-5 text-ivory shadow-xl sm:right-8">
-              <p className="text-xs text-brass">AutoSouq</p>
-              <p className="mt-1 text-lg font-semibold">وضوح في كل خطوة</p>
+            <div className="service-faq-frame absolute -inset-3 border border-brass/35" />
+            <div className="service-faq-image-wrap relative overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85" alt="سيارة حديثة تعكس تجربة AutoSouq" loading="lazy" className="service-faq-image aspect-[5/4] w-full object-cover" />
+              <div className="service-faq-image-shade absolute inset-0" />
+              <div className="absolute bottom-6 right-6 left-6 border-r-2 border-brass bg-onyx/85 px-5 py-4 text-right backdrop-blur-sm">
+                <p className="font-display-latin text-[10px] tracking-[0.18em] text-brass">AUTOSOUQ</p>
+                <p className="mt-2 text-lg font-semibold text-ivory sm:text-xl">وضوح في كل خطوة</p>
+                <p className="mt-1 text-xs leading-6 text-ivory/65">نرافقك في رحلة تسجيل سيارتك من البداية حتى الاكتمال.</p>
+              </div>
             </div>
+            <span className="service-faq-corner service-faq-corner-top" />
+            <span className="service-faq-corner service-faq-corner-bottom" />
           </div>
         </div>
       </div>
