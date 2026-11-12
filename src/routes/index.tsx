@@ -105,7 +105,7 @@ function HomePage() {
     <section id="audiences" className="container-site py-24 sm:py-28">
       <div className="mb-14 text-center">
         <div className="mx-auto max-w-3xl">
-          <SectionHeading eyebrow="لمن نقدم خدماتنا" title="كيف يمكننا خدمتك؟" text="حلول تسجيل مرنة للأفراد والجهات العاملة في قطاع السيارات." />
+          <SectionHeading eyebrow="خدمات AutoSouq" title="خدمات تناسب احتياجك" text="اختر الفئة الأقرب إليك، واكتشف كيف نسهّل إجراءات تسجيل السيارات للأفراد وتجار السيارات والشركات." />
         </div>
       </div>
       <div className="audience-grid grid gap-7 md:grid-cols-3">
