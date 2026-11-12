@@ -7,7 +7,7 @@ import { Ltr } from "@/components/site/Ltr";
 const heroSlides = [
   { eyebrow: "تسجيل السيارات الجديدة في ألمانيا", title: <>سجّل سيارتك الجديدة <span>بثقة</span></>, description: "تجربة رقمية واضحة ومنظمة تساعدك على إنجاز إجراءات تسجيل سيارتك الجديدة، مع متابعة طلبك خطوة بخطوة.", image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90", alt: "سيارة رياضية فاخرة على طريق مفتوح", index: "01" },
   { eyebrow: "تجربة رقمية أكثر سهولة", title: <>إجراءات أوضح، <span>وراحة أكبر</span></>, description: "قدّم بياناتك ومستنداتك ضمن خطوات مرتبة، واعرف ما يحدث لطلبك في كل مرحلة.", image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2400&q=90", alt: "سيارة حديثة بتصميم أنيق", index: "02" },
-  { eyebrow: "من البداية حتى اكتمال الطلب", title: <>سيارتك الجديدة، <span>خطوتك القادمة</span></>, description: "ابدأ طلب التسجيل بثقة، وتعرّف على الرسوم والخطوات المطلوبة قبل البدء.", image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2400&q=90", alt: "سيارة حديثة بتصميم أنيق", index: "03" },
+  { eyebrow: "من البداية حتى اكتمال الطلب", title: <>سيارتك الجديدة، <span>خطوتك القادمة</span></>, description: "ابدأ طلب التسجيل بثقة، وتعرّف على الرسوم والخطوات المطلوبة قبل البدء.", image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90", alt: "سيارة رياضية فاخرة بإضاءة سينمائية", index: "03" },
 ];
 
 const faqs = [
@@ -160,10 +160,10 @@ function HomePage() {
               </span>
               <div dir="rtl" className="min-w-0 flex-1 text-right">
                 <div className="mb-2 flex items-center gap-3">
-                  <h3 className="text-lg font-semibold leading-8 text-ivory sm:text-xl">{b.title}</h3>
+                  <h3 className="text-xl font-semibold leading-8 text-ivory sm:text-2xl">{b.title}</h3>
                   <span className="font-display-latin text-xs tracking-widest text-brass/90">0{i + 1}</span>
                 </div>
-                <p className="text-sm leading-7 text-ivory/85">{b.desc}</p>
+                <p className="text-base leading-8 text-ivory/90">{b.desc}</p>
               </div>
             </article>;
           })}
@@ -182,10 +182,10 @@ function HomePage() {
           {[
             {n:"01",t:"بيانات صاحب السيارة",d:"ابدأ بإدخال بياناتك ومعلومات التواصل.",img:"https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1000&q=85"},
             {n:"02",t:"بيانات السيارة",d:"أضف المعلومات الأساسية لسيارتك الجديدة.",img:"https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=85"},
-            {n:"03",t:"المستندات",d:"أرفق المستندات المطلوبة لإرسال الطلب.",img:"https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1000&q=85"},
+            {n:"03",t:"المستندات",d:"أرفق المستندات المطلوبة لإرسال الطلب.",img:"https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1000&q=85"},
             {n:"04",t:"مراجعة الطلب",d:"راجع بياناتك وتأكد من التفاصيل قبل المتابعة.",img:"https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=85"},
             {n:"05",t:"الدفع والمتابعة",d:"ادفع أتعاب المنصة وتابع حالة طلبك.",img:"https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=1000&q=85"},
-            {n:"06",t:"استلام المستندات",d:"نزّل المستندات النهائية بعد اكتمال الطلب واعتماده.",img:"https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1000&q=85"}
+            {n:"06",t:"استلام المستندات",d:"نزّل المستندات النهائية بعد اكتمال الطلب واعتماده.",img:"https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1000&q=85"}
           ].map((item) => <article key={item.n} className="journey-photo-card group relative isolate overflow-hidden bg-onyx">
             <img src={item.img} alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover" />
             <div className="journey-photo-shade absolute inset-0 -z-10" />
@@ -196,6 +196,23 @@ function HomePage() {
             </div>
             <span className="journey-photo-corner absolute right-4 top-4 size-8 border-r border-t border-brass/70 opacity-70 transition-all duration-500 group-hover:right-6 group-hover:top-6 group-hover:size-12" />
           </article>)}
+        </div>
+      </div>
+    </section>
+
+
+    <section id="affiliate-program" className="affiliate-section relative isolate overflow-hidden py-16 sm:py-20">
+      <div className="container-site">
+        <div className="affiliate-panel grid items-center gap-8 border border-brass/25 bg-card/70 px-7 py-9 sm:px-10 lg:grid-cols-[1fr_auto] lg:gap-12">
+          <div className="relative">
+            <p className="eyebrow mb-3">برنامج الشراكة</p>
+            <h2 className="text-2xl font-semibold leading-tight text-ivory sm:text-3xl">حوّل توصياتك إلى أرباح مع AutoSouq</h2>
+            <p className="mt-4 max-w-2xl text-base leading-8 text-ivory/80">شارك خدمات AutoSouq مع جمهورك واحصل على عمولة مقابل كل طلب تسجيل مكتمل من خلال رابط الإحالة الخاص بك.</p>
+          </div>
+          <div className="flex flex-col items-start gap-4 lg:items-end">
+            <div className="flex items-baseline gap-2"><span className="font-display-latin text-5xl text-brass">€15</span><span className="text-sm text-ivory/70">عن كل طلب إحالة مكتمل</span></div>
+            <Button asChild size="lg" variant="outline" className="min-h-12 rounded-sm border-brass/60 px-6 text-ivory hover:bg-brass hover:text-onyx"><a href="/contact">استفسر عن البرنامج <ArrowLeft className="ms-2 size-4" /></a></Button>
+          </div>
         </div>
       </div>
     </section>
