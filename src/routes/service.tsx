@@ -88,30 +88,45 @@ function ServicesPage() {
 
 
     <section id="request" className="service-contact-section relative isolate overflow-hidden">
-      <div className="grid lg:min-h-[620px] lg:grid-cols-2">
-        <div className="service-contact-visual relative flex min-h-[390px] flex-col justify-between p-8 sm:p-12 lg:min-h-full lg:p-16">
+      <div className="grid lg:min-h-[680px] lg:grid-cols-2 lg:[direction:ltr]">
+        <div className="service-contact-visual relative flex min-h-[430px] flex-col justify-between overflow-hidden p-8 text-right sm:p-12 lg:min-h-full lg:p-16 lg:[direction:rtl]">
           <div className="absolute inset-0 -z-20 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85')" }} />
           <div className="absolute inset-0 -z-10 bg-onyx/75" />
           <div>
-            <p className="eyebrow mb-5 text-brass">ابدأ مع AutoSouq</p>
-            <h2 className="max-w-lg text-3xl font-semibold leading-tight text-ivory sm:text-4xl lg:text-5xl">خطوتك الأولى نحو تسجيل أسهل</h2>
-            <p className="mt-6 max-w-lg text-base leading-8 text-ivory/80">هل لديك استفسار حول تسجيل سيارتك الجديدة في ألمانيا؟ أرسل لنا تفاصيلك وسنساعدك على معرفة الخطوة المناسبة.</p>
+            <p className="eyebrow mb-5 text-brass">تواصل مع AutoSouq</p>
+            <h2 className="max-w-lg text-3xl font-semibold leading-tight text-ivory sm:text-4xl lg:text-5xl">خطوتك الأولى نحو تسجيل سيارتك</h2>
+            <p className="mt-6 max-w-xl text-base leading-8 text-ivory/85">سواء كنت صاحب سيارة أو تاجر سيارات أو تمثل شركة، يسعدنا مساعدتك في معرفة خدمات التسجيل المناسبة لك في ألمانيا.</p>
           </div>
           <div className="mt-12 border-t border-ivory/25 pt-6">
-            <p className="text-sm leading-7 text-ivory/75">نموذج تواصل تجريبي ضمن النموذج الأولي. لن يتم إرسال البيانات إلى خادم أو حفظها خارج هذه الصفحة.</p>
+            <p className="mb-4 text-sm font-semibold text-ivory">كيف يمكننا مساعدتك؟</p>
+            <div className="grid gap-3 sm:grid-cols-3">
+              <div className="border border-ivory/20 bg-onyx/35 px-4 py-3">
+                <p className="text-sm font-semibold text-brass">الأفراد</p>
+                <p className="mt-1 text-xs leading-6 text-ivory/75">تسجيل سيارتك الجديدة</p>
+              </div>
+              <div className="border border-ivory/20 bg-onyx/35 px-4 py-3">
+                <p className="text-sm font-semibold text-brass">تجار السيارات</p>
+                <p className="mt-1 text-xs leading-6 text-ivory/75">تنظيم ومتابعة الطلبات</p>
+              </div>
+              <div className="border border-ivory/20 bg-onyx/35 px-4 py-3">
+                <p className="text-sm font-semibold text-brass">الشركات</p>
+                <p className="mt-1 text-xs leading-6 text-ivory/75">حلول تسجيل مناسبة لاحتياجك</p>
+              </div>
+            </div>
+            <p className="mt-5 text-xs leading-6 text-ivory/60">نموذج تواصل تجريبي ضمن النموذج الأولي؛ لن يتم إرسال البيانات إلى خادم أو حفظها خارج هذه الصفحة.</p>
           </div>
         </div>
-        <div className="surface-light flex items-center px-6 py-12 sm:px-12 lg:px-16">
+        <div className="surface-light flex items-center bg-white px-6 py-12 sm:px-12 lg:px-14 lg:py-16 lg:[direction:rtl]">
           <div className="mx-auto w-full max-w-xl">
-            <p className="eyebrow mb-3">تواصل معنا</p>
-            <h3 className="text-2xl font-semibold text-onyx sm:text-3xl">كيف يمكننا مساعدتك؟</h3>
-            <p className="mt-3 text-sm leading-7 text-onyx/65">اترك بياناتك ورسالتك، وسنكون سعداء بالتعرّف على احتياجك.</p>
+            <p className="eyebrow mb-3">ابدأ من هنا</p>
+            <h3 className="text-2xl font-semibold text-onyx sm:text-3xl">أرسل لنا استفسارك</h3>
+            <p className="mt-3 text-sm leading-7 text-onyx/65">املأ النموذج وسنتعرّف على احتياجك لنرشدك إلى الخدمة المناسبة.</p>
             {submitted ? <div role="status" className="mt-8 border border-onyx/15 bg-white p-6 text-onyx">
               <CheckCircle2 className="mb-3 size-8 text-tobacco" />
               <p className="font-semibold">تم إرسال النموذج التجريبي بنجاح.</p>
               <p className="mt-2 text-sm leading-7 text-onyx/65">هذه محاكاة للعرض فقط؛ لم يتم إرسال بياناتك فعلياً.</p>
               <Button type="button" variant="outline" className="mt-5 border-onyx/20 text-onyx" onClick={() => setSubmitted(false)}>إرسال استفسار آخر</Button>
-            </div> : <form className="mt-8 space-y-4" onSubmit={(event) => { event.preventDefault(); setSubmitted(true); }}>
+            </div> : <form className="mt-8 space-y-5" onSubmit={(event) => { event.preventDefault(); setSubmitted(true); }}>
               <div>
                 <label htmlFor="service-name" className="mb-2 block text-sm font-medium text-onyx">الاسم الكامل</label>
                 <Input id="service-name" name="name" required placeholder="أدخل اسمك" className="h-12 rounded-none border-onyx/15 bg-white text-onyx placeholder:text-onyx/40" />
@@ -137,7 +152,7 @@ function ServicesPage() {
               </div>
               <div>
                 <label htmlFor="service-message" className="mb-2 block text-sm font-medium text-onyx">رسالتك</label>
-                <Textarea id="service-message" name="message" required placeholder="اكتب استفسارك هنا..." className="min-h-28 rounded-none border-onyx/15 bg-white text-onyx placeholder:text-onyx/40" />
+                <Textarea id="service-message" name="message" required placeholder="اكتب استفسارك أو تفاصيل احتياجك هنا..." className="min-h-32 rounded-none border-onyx/15 bg-white text-onyx placeholder:text-onyx/40" />
               </div>
               <Button type="submit" size="lg" className="mt-2 min-h-12 w-full rounded-none sm:w-auto">إرسال الاستفسار <ArrowLeft className="size-4" /></Button>
             </form>}
