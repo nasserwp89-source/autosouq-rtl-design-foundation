@@ -55,7 +55,7 @@ export function SiteHeader() {
                 {mainNav.map((item) => (
                   <a
                     key={item.to}
-                    href={item.to === "/" ? "/" : `/#${item.to.slice(1)}`}
+                    href={item.to === "/" ? "/" : item.to === "/service" ? "/service" : `/#${item.to.slice(1)}`}
                     onClick={() => setOpen(false)}
                     className="border-b border-border/60 py-3.5 text-lg text-foreground/80 transition-colors hover:text-brass"
                   >
