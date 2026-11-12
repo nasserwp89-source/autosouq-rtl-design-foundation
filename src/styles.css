@@ -1543,3 +1543,10 @@ bdi.font-display-latin {
   opacity: 0 !important;
   transition: none !important;
 }
+
+
+/* Keep the subtitle readable in white when a standard audience card is hovered. */
+.service-audience-section .audience-service-card.is-standard:hover .audience-card-description,
+.service-audience-section .audience-service-card.is-standard:focus-within .audience-card-description {
+  color: var(--white, #ffffff) !important;
+}
