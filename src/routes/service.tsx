@@ -67,7 +67,7 @@ function ServicesPage() {
         <h2 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">خدمات تناسب احتياجك</h2>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">حلول تسجيل واضحة ومناسبة للأفراد وتجار السيارات والشركات، ضمن تجربة رقمية منظمة.</p>
       </div>
-      <div className="audience-grid grid gap-7 md:grid-cols-3">
+      <div className="audience-grid container-site mx-auto grid gap-7 md:grid-cols-3">
         {audiences.map((item) => {
           const Icon = item.icon;
           const featured = item.id === "dealers";
