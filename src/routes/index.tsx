@@ -119,7 +119,7 @@ function HomePage() {
             </div>
             <h3 className="audience-card-title text-2xl font-semibold">{item.title}</h3>
             <p className="audience-card-description mt-4 max-w-xs text-sm leading-7">{item.desc}</p>
-            <a href={item.active ? "/service" : "#audiences"} className="audience-card-action mt-auto inline-flex items-center gap-2 pt-7 text-sm font-semibold">
+            <a href={item.active ? "/register" : item.number === "02" ? "/service#dealers" : "/service#companies"} className="audience-card-action mt-auto inline-flex items-center gap-2 pt-7 text-sm font-semibold">
               {item.action}<ArrowLeft className="size-4" />
             </a>
           </article>;
