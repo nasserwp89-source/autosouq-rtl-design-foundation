@@ -1212,7 +1212,7 @@ bdi.font-display-latin {
 .service-hero {
   min-height: 470px;
   border-bottom: 0;
-  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 83%, 0 100%);
 }
 .service-hero::before {
   content: "";
@@ -1230,10 +1230,10 @@ bdi.font-display-latin {
 .service-audience-section {
   position: relative;
   /* Overlap the hero's clipped lower edge so the cream section meets it directly. */
-  margin-top: -56px;
-  padding-top: 7rem;
+  margin-top: -80px;
+  padding-top: 8.5rem;
   padding-bottom: 5.5rem;
-  clip-path: polygon(0 56px, 100% 0, 100% 97%, 0 100%);
+  clip-path: polygon(0 80px, 100% 0, 100% 97%, 0 100%);
 }
 .service-contact-section {
   min-height: 660px;
