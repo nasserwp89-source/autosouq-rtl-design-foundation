@@ -33,14 +33,11 @@ export function SiteFooter() {
           <h2 className={heading}>لمن نقدم خدماتنا</h2>
           <ul className="space-y-1 text-sm">
             {audiences.map((a) => (
-              <li key={a.label} className="flex min-h-11 items-center gap-2">
+              <li key={a.label} className="min-h-11">
                 {a.active ? (
                   <a href="/service" className={link}>{a.label}</a>
                 ) : (
-                  <>
-                    <span className="text-foreground/50">{a.label}</span>
-                    <span className="shrink-0 rounded border border-border px-2 py-0.5 text-sm text-muted-foreground">لاحقاً</span>
-                  </>
+                  <span className="inline-flex min-h-11 items-center text-foreground/70">{a.label}</span>
                 )}
               </li>
             ))}
@@ -58,7 +55,7 @@ export function SiteFooter() {
 
       <div className="border-t">
         <div className="container-site flex flex-col gap-3 py-5 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© <Ltr>2026 AutoSouq</Ltr> — نموذج أولي تجريبي، جميع البيانات للعرض فقط.</p>
+          <p>© <Ltr>2026 AutoSouq</Ltr> — جميع الحقوق محفوظة.</p>
           <ul className="flex gap-5">
             {legalNav.map((i) => (
               <li key={i.to}><a href={`/#${i.to.slice(1)}`} className={link}>{i.label}</a></li>
