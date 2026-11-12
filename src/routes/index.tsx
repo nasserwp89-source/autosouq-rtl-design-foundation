@@ -7,7 +7,7 @@ import { Ltr } from "@/components/site/Ltr";
 const heroSlides = [
   { eyebrow: "تسجيل السيارات الجديدة في ألمانيا", title: <>سجّل سيارتك الجديدة <span>بثقة</span></>, description: "تجربة رقمية واضحة ومنظمة تساعدك على إنجاز إجراءات تسجيل سيارتك الجديدة، مع متابعة طلبك خطوة بخطوة.", image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90", alt: "سيارة رياضية فاخرة على طريق مفتوح", index: "01" },
   { eyebrow: "تجربة رقمية أكثر سهولة", title: <>إجراءات أوضح، <span>وراحة أكبر</span></>, description: "قدّم بياناتك ومستنداتك ضمن خطوات مرتبة، واعرف ما يحدث لطلبك في كل مرحلة.", image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2400&q=90", alt: "سيارة حديثة بتصميم أنيق", index: "02" },
-  { eyebrow: "من البداية حتى اكتمال الطلب", title: <>سيارتك الجديدة، <span>خطوتك القادمة</span></>, description: "ابدأ طلب التسجيل بثقة، وتعرّف على الرسوم والخطوات المطلوبة قبل البدء.", image: "https://images.unsplash.com/photo-1504216149814-6b6f3b5b8f7f?auto=format&fit=crop&w=2400&q=90", alt: "سيارة فاخرة في مشهد سينمائي", index: "03" },
+  { eyebrow: "من البداية حتى اكتمال الطلب", title: <>سيارتك الجديدة، <span>خطوتك القادمة</span></>, description: "ابدأ طلب التسجيل بثقة، وتعرّف على الرسوم والخطوات المطلوبة قبل البدء.", image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2400&q=90", alt: "سيارة حديثة بتصميم أنيق", index: "03" },
 ];
 
 const faqs = [
