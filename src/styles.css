@@ -1776,3 +1776,17 @@ bdi.font-display-latin {
 .service-contact-copy h2 {
   font-weight: 500 !important;
 }
+
+
+/* Corrected contact-copy emphasis: increase weight to match the reference. */
+.service-contact-copy .eyebrow {
+  font-weight: 600 !important;
+}
+.service-contact-copy h2 {
+  font-weight: 700 !important;
+}
+.service-contact-copy > p:not(.eyebrow),
+.service-contact-copy ul,
+.service-contact-copy ul li {
+  font-weight: 600 !important;
+}
