@@ -44,7 +44,7 @@ const serviceFaqs = [
 function ServicesPage() {
   const [submitted, setSubmitted] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  return <main className="overflow-hidden">
+  return <main className="service-page overflow-hidden">
     <section className="service-hero relative isolate overflow-hidden border-b border-border">
       <img
         className="absolute inset-0 -z-20 h-full w-full object-cover object-[left_center]"
