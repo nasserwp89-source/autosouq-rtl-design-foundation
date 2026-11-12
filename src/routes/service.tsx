@@ -89,7 +89,7 @@ function ServicesPage() {
 
     <section id="request" className="service-contact-section relative isolate overflow-hidden">
       <div className="grid lg:min-h-[680px] lg:grid-cols-2 lg:items-start lg:pt-16 lg:[direction:ltr]">
-        <div className="service-contact-visual relative flex min-h-[430px] flex-col justify-between overflow-hidden p-8 text-right sm:p-12 lg:min-h-full lg:p-16 lg:[direction:rtl]">
+        <div className="service-contact-visual relative flex min-h-[430px] flex-col justify-center gap-10 overflow-hidden p-8 text-right sm:p-12 lg:min-h-full lg:p-16 lg:[direction:rtl]">
           <div className="absolute inset-0 -z-20 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85')" }} />
           <div className="absolute inset-0 -z-10 bg-onyx/75" />
           <div>
@@ -97,7 +97,7 @@ function ServicesPage() {
             <h2 className="max-w-lg text-3xl font-semibold leading-tight text-ivory sm:text-4xl lg:text-5xl">خطوتك الأولى نحو تسجيل سيارتك</h2>
             <p className="mt-6 max-w-xl text-base leading-8 text-ivory/85">سواء كنت صاحب سيارة أو تاجر سيارات أو تمثل شركة، يسعدنا مساعدتك في معرفة خدمات التسجيل المناسبة لك في ألمانيا.</p>
           </div>
-          <div className="mt-12 border-t border-ivory/25 pt-6">
+          <div className="mt-0 border-t border-ivory/25 pt-6">
             <p className="mb-4 text-sm font-semibold text-ivory">كيف يمكننا مساعدتك؟</p>
             <div className="grid gap-3 sm:grid-cols-3">
               <div className="border border-ivory/20 bg-onyx/35 px-4 py-3">
