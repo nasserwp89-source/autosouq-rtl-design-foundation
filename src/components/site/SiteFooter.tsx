@@ -21,7 +21,7 @@ export function SiteFooter() {
           <h2 className={heading}>الصفحات</h2>
           <ul className="space-y-1 text-sm">
             {mainNav.slice(1).map((i) => (
-              <li key={i.to}><a href={i.to === "/" ? "/" : `/#${i.to.slice(1)}`} className={link}>{i.label}</a></li>
+              <li key={i.to}><a href={`/#${i.to.slice(1)}`} className={link}>{i.label}</a></li>
             ))}
           </ul>
         </div>
@@ -61,7 +61,7 @@ export function SiteFooter() {
           <p>© <Ltr>2026 AutoSouq</Ltr> — نموذج أولي تجريبي، جميع البيانات للعرض فقط.</p>
           <ul className="flex gap-5">
             {legalNav.map((i) => (
-              <li key={i.to}><a href={i.to === "/" ? "/" : `/#${i.to.slice(1)}`} className={link}>{i.label}</a></li>
+              <li key={i.to}><a href={`/#${i.to.slice(1)}`} className={link}>{i.label}</a></li>
             ))}
           </ul>
         </div>

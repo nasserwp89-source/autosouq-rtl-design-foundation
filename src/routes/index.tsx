@@ -92,7 +92,7 @@ function HomePage() {
         </div>)}
       </div>
       <div className="container-site absolute inset-x-0 bottom-8 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-3 text-xs tracking-[0.18em] text-ivory/65"><span className="font-display-latin text-sm text-brass">{heroSlides[activeSlide].index}</span><span className="h-px w-10 bg-ivory/30"><span className="hero-progress block h-px bg-brass" key={activeSlide} /></span><span className="font-display-latin">03</span></div>
+        <div className="flex items-center gap-3 text-xs tracking-[0.18em] text-ivory/65"><span className="font-display-latin text-sm text-brass">{heroSlides[activeSlide]?.index}</span><span className="h-px w-10 bg-ivory/30"><span className="hero-progress block h-px bg-brass" key={activeSlide} /></span><span className="font-display-latin">03</span></div>
         <div className="flex items-center gap-2">
           <button type="button" onClick={() => setActiveSlide((activeSlide + heroSlides.length - 1) % heroSlides.length)} aria-label="الشريحة السابقة" className="hero-control"><ArrowLeft className="size-4" /></button>
           <button type="button" onClick={() => setActiveSlide((activeSlide + 1) % heroSlides.length)} aria-label="الشريحة التالية" className="hero-control"><ArrowLeft className="size-4 rotate-180" /></button>

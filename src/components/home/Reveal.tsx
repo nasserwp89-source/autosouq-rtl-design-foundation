@@ -7,10 +7,10 @@ export function Reveal({ children, className }: { children: ReactNode; className
     const element = ref.current;
     if (!element || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (element.getBoundingClientRect().top < window.innerHeight) return;
-    element.dataset.pending = "true";
+    element.dataset["pending"] = "true";
     const observer = new IntersectionObserver(([entry]) => {
       if (entry?.isIntersecting) {
-        delete element.dataset.pending;
+        delete element.dataset["pending"];
         observer.disconnect();
       }
     }, { threshold: 0.08 });
