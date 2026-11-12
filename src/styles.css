@@ -1212,7 +1212,7 @@ bdi.font-display-latin {
 .service-hero {
   min-height: 470px;
   border-bottom: 0;
-  clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 68%, 0 100%);
 }
 .service-hero-shade {
   background:
