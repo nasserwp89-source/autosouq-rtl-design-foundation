@@ -460,6 +460,8 @@ bdi.font-display-latin {
   transition: transform 7s linear;
 }
 .hero-slide.is-active img { transform: scale(1); }
+/* The second source image is naturally darker; lift its exposure without changing the shared overlay. */
+.hero-slide img.hero-slide-image-bright { filter: brightness(1.24) saturate(.82) contrast(1.06); }
 .hero-shade {
   /* Preserve legibility behind Arabic copy while revealing more of the vehicle and scene. */
   background:
