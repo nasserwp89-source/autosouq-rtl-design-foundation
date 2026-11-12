@@ -24,7 +24,7 @@ export function SiteFooter() {
           <h2 className={heading}>الصفحات</h2>
           <ul className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
             {mainNav.slice(1).map((i) => (
-              <li key={i.to}><a href={`/#${i.to.slice(1)}`} className={link}>{i.label}</a></li>
+              <li key={i.to}><a href={i.to === "/service" ? "/service" : `/#${i.to.slice(1)}`} className={link}>{i.label}</a></li>
             ))}
           </ul>
         </div>
@@ -34,11 +34,7 @@ export function SiteFooter() {
           <ul className="space-y-1 text-sm">
             {audiences.map((a) => (
               <li key={a.label} className="min-h-11">
-                {a.active ? (
-                  <a href="/service" className={link}>{a.label}</a>
-                ) : (
-                  <span className="inline-flex min-h-11 items-center text-foreground/70">{a.label}</span>
-                )}
+                <a href={a.label === "الأفراد" ? "/service#individuals" : a.label === "تجار السيارات" ? "/service#dealers" : a.label === "الشركات" ? "/service#companies" : "#"} className={link}>{a.label}</a>
               </li>
             ))}
           </ul>
