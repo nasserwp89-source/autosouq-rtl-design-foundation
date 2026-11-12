@@ -1180,3 +1180,29 @@ bdi.font-display-latin {
   .service-audience-section .audience-service-card,
   .service-process-section .service-process-step > div:first-child { transition: none !important; }
 }
+
+
+/* Explicitly restore the ivory process panel; the previous dark section background
+   and decorative radial overlay were overpowering the light theme. */
+#service-process.service-process-section.surface-light {
+  background-color: var(--ivory) !important;
+  background-image: none !important;
+  color: var(--onyx) !important;
+}
+#service-process.service-process-section.surface-light h2,
+#service-process.service-process-section.surface-light h3 {
+  color: var(--onyx) !important;
+}
+#service-process.service-process-section.surface-light p {
+  color: oklch(0.36 0.018 78) !important;
+}
+#service-process.service-process-section.surface-light .eyebrow {
+  color: var(--tobacco) !important;
+}
+#service-process .service-process-step > div:first-child {
+  background: oklch(0.713 0.111 79.4 / 12%) !important;
+  border-color: oklch(0.713 0.111 79.4 / 62%) !important;
+}
+#service-process .service-process-step > div:first-child svg {
+  color: var(--tobacco) !important;
+}
