@@ -1235,11 +1235,11 @@ bdi.font-display-latin {
 .service-audience-section {
   position: relative;
   /* Overlap the hero's clipped lower edge so the cream section meets it directly. */
-  z-index: 20;
-  margin-top: -3rem;
+  position: relative;
+  margin-top: -80px;
   padding-top: 8.5rem;
   padding-bottom: 5.5rem;
-  clip-path: none;
+  clip-path: polygon(0 80px, 100% 0, 100% 97%, 0 100%);
 }
 .service-contact-section {
   min-height: 660px;
