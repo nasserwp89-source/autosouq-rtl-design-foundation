@@ -1388,3 +1388,29 @@ bdi.font-display-latin {
       linear-gradient(0deg, oklch(0.10 0.008 84 / 72%), transparent 55%);
   }
 }
+
+
+/* Final services hero alignment: supplied Porsche image and a stronger diagonal transition. */
+.service-hero {
+  min-height: 470px;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+.service-hero > img {
+  object-position: left center;
+}
+.service-audience-section {
+  margin-top: -94px;
+  padding-top: 8.5rem;
+  clip-path: polygon(0 94px, 100% 0, 100% 97%, 0 100%);
+}
+@media (max-width: 767px) {
+  .service-hero {
+    min-height: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+  }
+  .service-audience-section {
+    margin-top: -16px;
+    padding-top: 4.5rem;
+    clip-path: polygon(0 16px, 100% 0, 100% 99%, 0 100%);
+  }
+}
