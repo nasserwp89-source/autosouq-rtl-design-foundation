@@ -170,33 +170,33 @@ function ServicesPage() {
       </div>
     </section>
 
-    <section id="service-faq" className="surface-light py-20 sm:py-24">
+    <section id="service-faq" className="service-faq-section relative isolate overflow-hidden py-20 sm:py-24">
       <div className="container-site">
         <div className="mx-auto mb-14 max-w-3xl text-center">
           <p className="eyebrow mb-4">الأسئلة الشائعة</p>
-          <h2 className="text-3xl font-semibold leading-tight text-onyx sm:text-4xl lg:text-5xl">إجابات تساعدك قبل البدء</h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-onyx/65 sm:text-lg">جمعنا لك أهم الإجابات حول خدمة تسجيل السيارات الجديدة وإجراءاتها.</p>
+          <h2 className="text-3xl font-semibold leading-tight text-ivory sm:text-4xl lg:text-5xl">إجابات تساعدك قبل البدء</h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">جمعنا لك أهم الإجابات حول خدمة تسجيل السيارات الجديدة وإجراءاتها.</p>
         </div>
         <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div className="space-y-3">
             {serviceFaqs.map((faq, index) => {
               const isOpen = openFaq === index;
               const panelId = `service-faq-answer-${index}`;
-              return <article key={faq.question} className={`service-faq-item border transition-colors duration-300 ${isOpen ? "is-open border-brass/50 bg-white shadow-[0_12px_35px_-28px_#100F0D]" : "border-onyx/10 bg-white/70"}`}>
+              return <article key={faq.question} className={`service-faq-item border transition-colors duration-300 ${isOpen ? "is-open border-brass/60 bg-card shadow-[0_14px_38px_-28px_#000]" : "border-border bg-card/55 hover:border-brass/35"}`}>
                 <h3>
-                  <button type="button" aria-expanded={isOpen} aria-controls={panelId} onClick={() => setOpenFaq(isOpen ? null : index)} className="flex min-h-[76px] w-full items-center justify-between gap-5 px-5 py-4 text-right text-base font-semibold text-onyx sm:px-7">
+                  <button type="button" aria-expanded={isOpen} aria-controls={panelId} onClick={() => setOpenFaq(isOpen ? null : index)} className="flex min-h-[76px] w-full items-center justify-between gap-5 px-5 py-4 text-right text-base font-semibold text-ivory sm:px-7">
                     <span className="leading-7">{faq.question}</span>
                     <ChevronDown className={`size-5 shrink-0 text-tobacco transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
                   </button>
                 </h3>
-                <div id={panelId} hidden={!isOpen} className="px-5 pb-6 text-sm leading-8 text-onyx/70 sm:px-7">{faq.answer}</div>
+                <div id={panelId} hidden={!isOpen} className="px-5 pb-6 text-sm leading-8 text-muted-foreground sm:px-7">{faq.answer}</div>
               </article>;
             })}
           </div>
           <div className="service-faq-visual relative mx-auto w-full max-w-xl">
-            <div className="absolute -inset-4 border border-onyx/10" />
+            <div className="absolute -inset-4 border border-brass/25" />
             <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85" alt="سيارة حديثة تعكس تجربة AutoSouq" loading="lazy" className="relative aspect-[5/4] w-full object-cover" />
-            <div className="absolute -bottom-5 right-5 max-w-[250px] bg-onyx px-6 py-5 text-ivory shadow-xl sm:right-8">
+            <div className="absolute -bottom-5 right-5 max-w-[250px] border border-brass/35 bg-card px-6 py-5 text-ivory shadow-xl sm:right-8">
               <p className="text-xs text-brass">AutoSouq</p>
               <p className="mt-1 text-lg font-semibold">وضوح في كل خطوة</p>
             </div>
@@ -208,7 +208,7 @@ function ServicesPage() {
     <section className="surface-light">
       <div className="container-site py-14 sm:py-16">
         <div className="flex flex-col items-start justify-between gap-6 border border-onyx/10 bg-white p-7 sm:flex-row sm:items-center sm:p-10">
-          <div><p className="eyebrow mb-2">هل أنت مستعد؟</p><h2 className="text-2xl font-semibold text-onyx sm:text-3xl">ابدأ رحلتك مع AutoSouq</h2><p className="mt-2 text-sm leading-7 text-onyx/65">إذا كنت تسجل سيارة جديدة، يمكنك البدء من مسار الأفراد.</p></div>
+          <div><p className="eyebrow mb-2">هل أنت مستعد؟</p><h2 className="text-2xl font-semibold text-ivory sm:text-3xl">ابدأ رحلتك مع AutoSouq</h2><p className="mt-2 text-sm leading-7 text-muted-foreground">إذا كنت تسجل سيارة جديدة، يمكنك البدء من مسار الأفراد.</p></div>
           <Button asChild size="lg" className="min-h-12 rounded-sm"><a href="/register">ابدأ تسجيل سيارتك <ArrowLeft className="size-4" /></a></Button>
         </div>
       </div>
