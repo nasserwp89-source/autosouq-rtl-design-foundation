@@ -154,7 +154,7 @@ function HomePage() {
         <div className="grid grid-cols-1 gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-14 lg:gap-y-14">
           {benefits.map((b, i) => {
             const Icon = b.icon;
-            return <article key={b.title} dir="ltr" className="group flex min-h-32 items-center gap-5 transition-transform duration-700 ease-out hover:-translate-y-1">
+            return <article key={b.title} dir="ltr" className="group flex min-h-32 flex-row-reverse items-center gap-5 transition-transform duration-700 ease-out hover:-translate-y-1">
               <span className="grid size-20 shrink-0 place-items-center rounded-full bg-brass text-onyx shadow-lg shadow-black/20 transition-transform duration-700 ease-out group-hover:scale-105">
                 <Icon className="size-9" strokeWidth={1.6} />
               </span>
