@@ -1212,7 +1212,7 @@ bdi.font-display-latin {
 .service-hero {
   min-height: 470px;
   border-bottom: 0;
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
 }
 .service-hero-shade {
   background:
@@ -1235,10 +1235,11 @@ bdi.font-display-latin {
 .service-audience-section {
   position: relative;
   /* Overlap the hero's clipped lower edge so the cream section meets it directly. */
-  margin-top: -80px;
+  z-index: 20;
+  margin-top: -3rem;
   padding-top: 8.5rem;
   padding-bottom: 5.5rem;
-  clip-path: polygon(0 80px, 100% 0, 100% 97%, 0 100%);
+  clip-path: none;
 }
 .service-contact-section {
   min-height: 660px;
