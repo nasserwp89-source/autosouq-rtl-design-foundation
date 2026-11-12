@@ -1958,3 +1958,68 @@ bdi.font-display-latin {
   #service-process .service-process-track::before,
   #service-process .service-process-step::after { display: none !important; }
 }
+
+/* How it works — align closely with the original AutoSouq reference. */
+#service-process.service-process-section {
+  position: relative;
+  isolation: isolate;
+  background: #EFECE6 !important;
+  background-image: none !important;
+  clip-path: polygon(0 46px, 100% 0, 100% calc(100% - 46px), 0 100%) !important;
+  padding-block: clamp(4.1rem, 5.5vw, 5rem) !important;
+}
+#service-process.service-process-section::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 20px;
+  left: -24px;
+  width: 150px;
+  height: 2px;
+  background: var(--brass);
+  transform: rotate(-2.3deg);
+  transform-origin: left center;
+  pointer-events: none;
+}
+#service-process .service-process-heading { margin-bottom: 2.25rem !important; }
+#service-process .service-process-icon {
+  background: rgba(228, 189, 90, 0.35) !important;
+  box-shadow: none !important;
+}
+#service-process .service-process-number {
+  background: rgba(228, 189, 90, 0.72) !important;
+}
+#service-process .service-process-track::before { display: none !important; }
+#service-process .service-process-step:not(:last-child)::after {
+  content: "«";
+  position: absolute;
+  top: 22px !important;
+  left: -2.5rem !important;
+  width: 2rem;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tobacco);
+  font-family: var(--font-latin);
+  font-size: 15px !important;
+  line-height: 1;
+  border-top: 1px dashed oklch(0.65 0.09 78 / 72%);
+  background: transparent;
+  z-index: 1;
+}
+#service-process .service-process-step p {
+  max-width: 235px !important;
+}
+@media (max-width: 767px) {
+  #service-process.service-process-section {
+    clip-path: polygon(0 22px, 100% 0, 100% calc(100% - 22px), 0 100%) !important;
+  }
+  #service-process.service-process-section::before {
+    top: 10px;
+    width: 105px;
+  }
+  #service-process .service-process-step:not(:last-child)::after {
+    display: none !important;
+  }
+}
