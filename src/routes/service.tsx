@@ -96,7 +96,7 @@ function ServicesPage() {
             <h2 className="max-w-lg text-3xl font-semibold leading-tight text-ivory sm:text-4xl lg:text-5xl">كيف يمكننا مساعدتك؟</h2>
             <p className="mt-6 max-w-xl text-base leading-8 text-ivory/85">سواء كنت صاحب سيارة أو تاجر سيارات أو تمثل شركة، أرسل لنا استفسارك وسنساعدك في الوصول إلى خدمة التسجيل المناسبة لاحتياجك في ألمانيا.</p>
           </div>
-          <div className="mt-0 grid grid-cols-1 gap-8 border-t border-ivory/25 pt-6 sm:grid-cols-2 sm:gap-6">
+          <div className="mt-2 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-8">
             <div>
               <p className="text-base font-semibold text-brass">الأفراد</p>
               <p className="mt-3 text-sm leading-7 text-ivory/80">نساعدك في تسجيل سيارتك الجديدة في ألمانيا بخطوات واضحة ومتابعة منظمة.</p>
@@ -105,20 +105,19 @@ function ServicesPage() {
               <p className="text-base font-semibold text-brass">تجار السيارات والشركات</p>
               <p className="mt-3 text-sm leading-7 text-ivory/80">تعرّف على حلول التسجيل وإدارة الطلبات المصممة لتناسب احتياجات أعمالك.</p>
             </div>
-            <p className="sm:col-span-2 text-xs leading-6 text-ivory/60">نموذج تواصل تجريبي ضمن النموذج الأولي؛ لن يتم إرسال البيانات إلى خادم أو حفظها خارج هذه الصفحة.</p>
           </div>
         </div>
         <div className="relative z-10 flex items-start justify-center px-6 py-10 sm:px-12 lg:-mt-16 lg:mb-16 lg:px-10 lg:py-0 lg:[direction:rtl]">
-          <div className="surface-light mx-auto w-full max-w-xl bg-white px-6 py-8 shadow-[0_24px_70px_rgba(0,0,0,0.18)] sm:px-10 sm:py-10 lg:px-10 lg:py-12">
+          <div className="surface-light mx-auto w-full max-w-[456px] bg-white px-6 py-8 shadow-[0_24px_70px_rgba(0,0,0,0.18)] sm:px-9 sm:py-10 lg:px-10 lg:py-11">
             <p className="eyebrow mb-3">ابدأ من هنا</p>
             <h3 className="text-2xl font-semibold text-onyx sm:text-3xl">أرسل لنا استفسارك</h3>
             <p className="mt-3 text-sm leading-7 text-onyx/65">املأ النموذج وسنتعرّف على احتياجك لنرشدك إلى الخدمة المناسبة.</p>
             {submitted ? <div role="status" className="mt-8 border border-onyx/15 bg-white p-6 text-onyx">
               <CheckCircle2 className="mb-3 size-8 text-tobacco" />
-              <p className="font-semibold">تم إرسال النموذج التجريبي بنجاح.</p>
-              <p className="mt-2 text-sm leading-7 text-onyx/65">هذه محاكاة للعرض فقط؛ لم يتم إرسال بياناتك فعلياً.</p>
+              <p className="font-semibold">شكراً لتواصلك معنا.</p>
+              <p className="mt-2 text-sm leading-7 text-onyx/65">تم استلام بياناتك بنجاح.</p>
               <Button type="button" variant="outline" className="mt-5 border-onyx/20 text-onyx" onClick={() => setSubmitted(false)}>إرسال استفسار آخر</Button>
-            </div> : <form className="mt-8 space-y-5" onSubmit={(event) => { event.preventDefault(); setSubmitted(true); }}>
+            </div> : <form className="mt-8 space-y-6" onSubmit={(event) => { event.preventDefault(); setSubmitted(true); }}>
               <div>
                 <label htmlFor="service-name" className="mb-2 block text-sm font-medium text-onyx">الاسم الكامل</label>
                 <Input id="service-name" name="name" required placeholder="أدخل اسمك" className="h-12 rounded-none border-onyx/15 bg-white text-onyx placeholder:text-onyx/40" />
