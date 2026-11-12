@@ -1,6 +1,6 @@
 export const mainNav = [
   { to: "/", label: "الرئيسية" },
-  { to: "/service", label: "الخدمة" },
+  { to: "/service", label: "الخدمات" },
   { to: "/how-it-works", label: "طريقة العمل" },
   { to: "/pricing", label: "الأسعار" },
   { to: "/about", label: "من نحن" },
