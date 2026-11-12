@@ -1764,3 +1764,15 @@ bdi.font-display-latin {
 .service-contact-copy ul,
 .service-contact-copy ul li { color: oklch(0.75 0.012 82) !important; }
 .service-contact-copy ul li svg { color: oklch(0.69 0.105 78) !important; }
+
+
+/* Contact copy typography: use lighter weights to match the supplied reference. */
+.service-contact-copy .eyebrow,
+.service-contact-copy > p:not(.eyebrow),
+.service-contact-copy ul,
+.service-contact-copy ul li {
+  font-weight: 400 !important;
+}
+.service-contact-copy h2 {
+  font-weight: 500 !important;
+}
