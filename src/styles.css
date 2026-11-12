@@ -1532,3 +1532,14 @@ bdi.font-display-latin {
 .service-audience-section .audience-service-card.is-standard:focus-within .audience-card-number {
   color: var(--muted-foreground) !important;
 }
+
+
+/* Disable the legacy brass wipe pseudo-element on standard cards.
+   It was covering the dark card even when the card background itself was overridden. */
+.service-audience-section .audience-service-card.is-standard::before {
+  content: none !important;
+  display: none !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  transition: none !important;
+}
