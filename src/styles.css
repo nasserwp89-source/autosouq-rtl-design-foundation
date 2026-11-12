@@ -1109,3 +1109,74 @@ bdi.font-display-latin {
 @media (max-width: 639px) {
   .service-final-cta { padding: 1.5rem; }
 }
+
+
+/* Services page follows the homepage's deliberate dark / ivory / dark / ivory / dark / brass rhythm. */
+.service-audience-section {
+  background: var(--ivory);
+  color: var(--onyx);
+}
+.service-audience-section .eyebrow { color: var(--tobacco); }
+.service-audience-section h2 { color: var(--onyx); }
+.service-audience-section > .container-site > div > p:last-child { color: oklch(0.36 0.018 78); }
+.service-audience-section .audience-service-card.is-standard {
+  background: var(--onyx);
+  border-color: oklch(0.20 0.012 82);
+  color: var(--ivory);
+  box-shadow: 0 14px 34px -28px oklch(0 0 0 / 55%);
+}
+.service-audience-section .audience-service-card.is-featured {
+  background: var(--brass);
+  border-color: var(--brass);
+}
+.service-audience-section .audience-service-card.is-standard .audience-card-title { color: var(--ivory); }
+.service-audience-section .audience-service-card.is-standard .audience-card-description { color: oklch(0.86 0.012 84); }
+.service-audience-section .audience-service-card.is-standard .audience-card-number { color: var(--brass); }
+.service-audience-section .audience-service-card.is-standard:hover,
+.service-audience-section .audience-service-card.is-standard:focus-within {
+  background: var(--brass);
+}
+.service-process-section {
+  background: var(--ivory);
+  color: var(--onyx);
+}
+.service-process-section .eyebrow { color: var(--tobacco); }
+.service-process-section .service-process-step > div:first-child {
+  background: oklch(0.713 0.111 79.4 / 12%);
+  border-color: oklch(0.713 0.111 79.4 / 62%);
+}
+.service-process-section .service-process-step > div:first-child svg { color: var(--tobacco); }
+.service-process-section .service-process-step > div:first-child span {
+  color: var(--onyx);
+  background: var(--brass);
+}
+.service-process-section .service-process-connector {
+  border-color: oklch(0.713 0.111 79.4 / 55%);
+}
+.service-faq-section {
+  background:
+    radial-gradient(ellipse at 18% 45%, oklch(0.22 0.025 78 / 30%), transparent 48%),
+    linear-gradient(180deg, var(--onyx), oklch(0.105 0.008 84));
+}
+.service-final-cta-section {
+  background: var(--brass);
+  color: var(--onyx);
+}
+.service-final-cta {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  padding-inline: 0;
+}
+.service-final-cta::after { display: none; }
+.service-final-cta .eyebrow { color: oklch(0.28 0.03 78); }
+.service-final-cta .text-muted-foreground { color: oklch(0.25 0.02 78 / 82%); }
+.service-final-cta a,
+.service-final-cta button {
+  background: var(--onyx);
+  color: var(--ivory);
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-audience-section .audience-service-card,
+  .service-process-section .service-process-step > div:first-child { transition: none !important; }
+}
