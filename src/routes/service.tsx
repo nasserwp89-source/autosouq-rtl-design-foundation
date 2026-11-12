@@ -93,27 +93,19 @@ function ServicesPage() {
           <div className="absolute inset-0 -z-20 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85')" }} />
           <div className="absolute inset-0 -z-10 bg-onyx/75" />
           <div>
-            <p className="eyebrow mb-5 text-brass">تواصل مع AutoSouq</p>
-            <h2 className="max-w-lg text-3xl font-semibold leading-tight text-ivory sm:text-4xl lg:text-5xl">خطوتك الأولى نحو تسجيل سيارتك</h2>
-            <p className="mt-6 max-w-xl text-base leading-8 text-ivory/85">سواء كنت صاحب سيارة أو تاجر سيارات أو تمثل شركة، يسعدنا مساعدتك في معرفة خدمات التسجيل المناسبة لك في ألمانيا.</p>
+            <h2 className="max-w-lg text-3xl font-semibold leading-tight text-ivory sm:text-4xl lg:text-5xl">كيف يمكننا مساعدتك؟</h2>
+            <p className="mt-6 max-w-xl text-base leading-8 text-ivory/85">سواء كنت صاحب سيارة أو تاجر سيارات أو تمثل شركة، أرسل لنا استفسارك وسنساعدك في الوصول إلى خدمة التسجيل المناسبة لاحتياجك في ألمانيا.</p>
           </div>
-          <div className="mt-0 border-t border-ivory/25 pt-6">
-            <p className="mb-4 text-sm font-semibold text-ivory">كيف يمكننا مساعدتك؟</p>
-            <div className="grid gap-3 sm:grid-cols-3">
-              <div className="border border-ivory/20 bg-onyx/35 px-4 py-3">
-                <p className="text-sm font-semibold text-brass">الأفراد</p>
-                <p className="mt-1 text-xs leading-6 text-ivory/75">تسجيل سيارتك الجديدة</p>
-              </div>
-              <div className="border border-ivory/20 bg-onyx/35 px-4 py-3">
-                <p className="text-sm font-semibold text-brass">تجار السيارات</p>
-                <p className="mt-1 text-xs leading-6 text-ivory/75">تنظيم ومتابعة الطلبات</p>
-              </div>
-              <div className="border border-ivory/20 bg-onyx/35 px-4 py-3">
-                <p className="text-sm font-semibold text-brass">الشركات</p>
-                <p className="mt-1 text-xs leading-6 text-ivory/75">حلول تسجيل مناسبة لاحتياجك</p>
-              </div>
+          <div className="mt-0 grid grid-cols-1 gap-8 border-t border-ivory/25 pt-6 sm:grid-cols-2 sm:gap-6">
+            <div>
+              <p className="text-base font-semibold text-brass">الأفراد</p>
+              <p className="mt-3 text-sm leading-7 text-ivory/80">نساعدك في تسجيل سيارتك الجديدة في ألمانيا بخطوات واضحة ومتابعة منظمة.</p>
             </div>
-            <p className="mt-5 text-xs leading-6 text-ivory/60">نموذج تواصل تجريبي ضمن النموذج الأولي؛ لن يتم إرسال البيانات إلى خادم أو حفظها خارج هذه الصفحة.</p>
+            <div>
+              <p className="text-base font-semibold text-brass">تجار السيارات والشركات</p>
+              <p className="mt-3 text-sm leading-7 text-ivory/80">تعرّف على حلول التسجيل وإدارة الطلبات المصممة لتناسب احتياجات أعمالك.</p>
+            </div>
+            <p className="sm:col-span-2 text-xs leading-6 text-ivory/60">نموذج تواصل تجريبي ضمن النموذج الأولي؛ لن يتم إرسال البيانات إلى خادم أو حفظها خارج هذه الصفحة.</p>
           </div>
         </div>
         <div className="relative z-10 flex items-start justify-center px-6 py-10 sm:px-12 lg:-mt-16 lg:mb-16 lg:px-10 lg:py-0 lg:[direction:rtl]">
