@@ -48,12 +48,12 @@ function ServicesPage() {
         <p className="max-w-md text-sm leading-7 text-muted-foreground">حلول تسجيل واضحة ومناسبة للأفراد وتجار السيارات والشركات، ضمن تجربة رقمية منظمة.</p>
       </div>
       <div className="grid gap-5 lg:grid-cols-3">
-        {audiences.map((item) => <a key={item.id} href={`#${item.id}`} className="group relative flex min-h-56 flex-col border border-border bg-card/45 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-brass/70 hover:bg-card sm:p-7">
-          <span className="font-display-latin text-sm tracking-[.18em] text-brass">{item.number}</span>
-          <div className="mt-5 flex items-center justify-between gap-3"><h3 className="text-2xl font-semibold">{item.title}</h3><item.icon className="size-8 text-brass transition-transform duration-500 group-hover:scale-110" strokeWidth={1.4} /></div>
-          <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.subtitle}</p>
-          <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-brass">عرض التفاصيل <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-1" /></span>
-          {item.active && <span className="absolute left-5 top-5 rounded-full border border-brass/40 px-3 py-1 text-[11px] text-brass">متاحة الآن في النموذج</span>}
+        {audiences.map((item) => <a key={item.id} href={`#${item.id}`} className="group relative flex min-h-[330px] flex-col items-center justify-center border border-border bg-card/45 px-7 py-12 text-center transition-all duration-500 hover:-translate-y-1 hover:border-brass/70 hover:bg-card sm:min-h-[360px] sm:px-9">
+          <span className="absolute right-7 top-6 font-display-latin text-sm tracking-[.18em] text-brass">{item.number}</span>
+          <item.icon className="mb-7 size-12 text-brass transition-transform duration-500 group-hover:scale-110" strokeWidth={1.35} />
+          <h3 className="text-2xl font-semibold">{item.title}</h3>
+          <p className="mt-4 max-w-xs text-sm leading-7 text-muted-foreground">{item.subtitle}</p>
+          <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-brass">عرض التفاصيل <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-1" /></span>
         </a>)}
       </div>
     </section>
