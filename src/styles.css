@@ -1013,3 +1013,18 @@ bdi.font-display-latin {
 .journey-gallery .journey-photo-card > img {
   filter: saturate(.78) contrast(1.045) brightness(.96);
 }
+
+/* Keep the complete hero composition, including carousel controls, within common desktop viewports. */
+.hero-shell {
+  min-height: min(790px, max(560px, calc(100svh - 80px)));
+}
+@media (max-width: 767px) {
+  .hero-shell,
+  .hero-shell > .container-site {
+    min-height: min(760px, max(620px, calc(100svh - 72px)));
+  }
+  .hero-shell > .container-site {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
