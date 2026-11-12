@@ -88,7 +88,7 @@ function ServicesPage() {
 
 
     <section id="request" className="service-contact-section relative isolate overflow-hidden">
-      <div className="grid lg:min-h-[680px] lg:grid-cols-2 lg:[direction:ltr]">
+      <div className="grid lg:min-h-[680px] lg:grid-cols-2 lg:items-start lg:pt-16 lg:[direction:ltr]">
         <div className="service-contact-visual relative flex min-h-[430px] flex-col justify-between overflow-hidden p-8 text-right sm:p-12 lg:min-h-full lg:p-16 lg:[direction:rtl]">
           <div className="absolute inset-0 -z-20 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85')" }} />
           <div className="absolute inset-0 -z-10 bg-onyx/75" />
@@ -116,8 +116,8 @@ function ServicesPage() {
             <p className="mt-5 text-xs leading-6 text-ivory/60">نموذج تواصل تجريبي ضمن النموذج الأولي؛ لن يتم إرسال البيانات إلى خادم أو حفظها خارج هذه الصفحة.</p>
           </div>
         </div>
-        <div className="surface-light flex items-center bg-white px-6 py-12 sm:px-12 lg:px-14 lg:py-16 lg:[direction:rtl]">
-          <div className="mx-auto w-full max-w-xl">
+        <div className="relative z-10 flex items-start justify-center px-6 py-10 sm:px-12 lg:-mt-16 lg:mb-16 lg:px-10 lg:py-0 lg:[direction:rtl]">
+          <div className="surface-light mx-auto w-full max-w-xl bg-white px-6 py-8 shadow-[0_24px_70px_rgba(0,0,0,0.18)] sm:px-10 sm:py-10 lg:px-10 lg:py-12">
             <p className="eyebrow mb-3">ابدأ من هنا</p>
             <h3 className="text-2xl font-semibold text-onyx sm:text-3xl">أرسل لنا استفسارك</h3>
             <p className="mt-3 text-sm leading-7 text-onyx/65">املأ النموذج وسنتعرّف على احتياجك لنرشدك إلى الخدمة المناسبة.</p>
